@@ -19,7 +19,7 @@
     <title>Announcing Vue.js 2.0</title>
     <link href="http://vuejs.org/2016/04/27/announcing-2.0/"/>
     <id>http://vuejs.org/2016/04/27/announcing-2.0/</id>
-    <published>2016-04-27T11:33:00.000Z</published>
+    <published>2016-04-27T10:33:00.000Z</published>
     <updated>2016-10-21T18:31:46.000Z</updated>
     
     <content type="html"><![CDATA[<p>Today I am thrilled to announce the first public preview of Vue.js 2.0, which brings along many exciting improvements and new features. Let’s take a peek at what’s in store!</p>
@@ -243,7 +243,7 @@
     <title>Vue.js 0.12 released!</title>
     <link href="http://vuejs.org/2015/06/11/012-release/"/>
     <id>http://vuejs.org/2015/06/11/012-release/</id>
-    <published>2015-06-11T15:37:30.000Z</published>
+    <published>2015-06-11T14:37:30.000Z</published>
     <updated>2016-10-21T18:31:46.000Z</updated>
     
     <content type="html"><![CDATA[<p>I’m really excited to announce that <a href="https://github.com/yyx990803/vue/releases/tag/0.12.0" target="_blank" rel="external">Vue.js 0.12: Dragon Ball</a> is finally here! Thanks to everyone who tried out the beta/rc versions and provided feedback / bug reports along the way.</p>
@@ -347,7 +347,7 @@
     <title>Vue.js 0.10.6, and what&#39;s next</title>
     <link href="http://vuejs.org/2014/07/29/vue-next/"/>
     <id>http://vuejs.org/2014/07/29/vue-next/</id>
-    <published>2014-07-28T22:04:55.000Z</published>
+    <published>2014-07-28T21:04:55.000Z</published>
     <updated>2016-10-21T18:31:46.000Z</updated>
     
     <content type="html"><![CDATA[<h2 id="0-10-6"><a href="#0-10-6" class="headerlink" title="0.10.6"></a>0.10.6</h2><p>Vue.js 0.10.6 has been released! This is another small bug-fix release and will be the last maintainance version before the next major release.</p>
