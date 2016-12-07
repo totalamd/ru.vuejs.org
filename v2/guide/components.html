@@ -1,0 +1,1023 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <title>Компоненты - vue.js</title>
+        <meta charset="utf-8">
+        <meta name="description" content="Vue.js - Intuitive, Fast and Composable MVVM for building interactive interfaces.">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+        <meta property="og:type" content="article">
+        <meta property="og:title" content="Компоненты - vue.js">
+        <meta property="og:description" content="Vue.js - Intuitive, Fast and Composable MVVM for building interactive interfaces.">
+        <meta property="og:image" content="https://vuejs.org/images/logo.png">
+
+        <meta name="twitter:card" content="summary">
+        <meta name="twitter:title" content="Компоненты - vue.js">
+        <meta name="twitter:description" content="Vue.js - Intuitive, Fast and Composable MVVM for building interactive interfaces.">
+        <meta name="twitter:image" content="https://vuejs.org/images/logo.png">
+
+        <link rel="icon" href="/images/logo.png" type="image/x-icon">
+
+        <link href='//fonts.googleapis.com/css?family=Roboto Mono' rel='stylesheet' type='text/css'>
+        <link href='//fonts.googleapis.com/css?family=Dosis:500&text=Vue.js' rel='stylesheet' type='text/css'>
+
+        <!-- main page styles -->
+        <link rel="stylesheet" href="/css/page.css">
+
+        <!-- this needs to be loaded before guide's inline scripts -->
+        <script src="/js/vue.js"></script>
+        <script>window.PAGE_TYPE = "guide"</script>
+    </head>
+    <body class="docs">        <div id="mobile-bar" >
+            <a class="menu-button"></a>
+            <a class="logo" href="/"></a>
+        </div>
+        <div id="header">
+  <a id="logo" href="/">
+    <img src="/images/logo.png">
+    <span>Vue.js</span>
+  </a>
+  <ul id="nav">
+    <li>
+  <form id="search-form">
+    <input type="text" id="search-query-nav" class="search-query st-default-search-input">
+  </form>
+</li>
+<li><a href="/v2/guide/" class="nav-link current">Руководство</a></li>
+<li><a href="/v2/api/" class="nav-link">API</a></li>
+<li><a href="/v2/examples/" class="nav-link">Примеры</a></li>
+<li class="nav-dropdown-container ecosystem">
+  <a class="nav-link">Экосистема</a><span class="arrow"></span>
+  <ul class="nav-dropdown">
+    <li><h4>Помощь</h4></li>
+    <li><ul>
+      <li><a href="http://forum.vuejs.org" class="nav-link" target="_blank">Форум</a></li>
+      <li><a href="https://gitter.im/vuejs/vue" class="nav-link" target="_blank">Чат</a></li>
+      <li><a href="https://github.com/vuejs-templates" class="nav-link" target="_blank">Шаблоны</a></li>
+    </ul></li>
+    <li><h4>Новости</h4></li>
+    <li><ul>
+      <li><a href="https://twitter.com/vuejs" class="nav-link" target="_blank">Twitter</a></li>
+      <li><a href="https://medium.com/the-vue-point" class="nav-link" target="_blank">Блог</a></li>
+      <li><a href="https://vuejsjob.com/?ref=vuejs" class="nav-link" target="_blank">Вакансии</a></li>
+    </ul></li>
+    <li><h4>Официальные плагины</h4></li>
+    <li><ul>
+      <li><a href="https://router.vuejs.org/" class="nav-link" target="_blank">Vue Router</a></li>
+      <li><a href="https://vuex.vuejs.org/" class="nav-link" target="_blank">Vuex</a></li>
+    </ul></li>
+    <li><h4>Списки ресурсов</h4></li>
+    <li><ul>
+      <li><a href="https://github.com/vuejs" class="nav-link" target="_blank">Официальные репозитории</a></li>
+      <li><a href="https://github.com/vuejs/awesome-vue" class="nav-link" target="_blank">Awesome Vue</a></li>
+    </ul></li>
+  </ul>
+</li>
+
+
+
+<li class="nav-dropdown-container language">
+  <a class="nav-link">Translations</a><span class="arrow"></span>
+  <ul class="nav-dropdown">
+    <li><a href="https://cn.vuejs.org/" class="nav-link" target="_blank">中文</a></li>
+    <li><a href="https://jp.vuejs.org/" class="nav-link" target="_blank">日本語</a></li>
+  </ul>
+</li>
+
+  </ul>
+</div>
+
+        
+            <div id="main" class="fix-sidebar">
+                
+                    
+    <div class="sidebar">
+    <ul class="main-menu">
+        <li>
+  <form id="search-form">
+    <input type="text" id="search-query-sidebar" class="search-query st-default-search-input">
+  </form>
+</li>
+<li><a href="/v2/guide/" class="nav-link current">Руководство</a></li>
+<li><a href="/v2/api/" class="nav-link">API</a></li>
+<li><a href="/v2/examples/" class="nav-link">Примеры</a></li>
+<li class="nav-dropdown-container ecosystem">
+  <a class="nav-link">Экосистема</a><span class="arrow"></span>
+  <ul class="nav-dropdown">
+    <li><h4>Помощь</h4></li>
+    <li><ul>
+      <li><a href="http://forum.vuejs.org" class="nav-link" target="_blank">Форум</a></li>
+      <li><a href="https://gitter.im/vuejs/vue" class="nav-link" target="_blank">Чат</a></li>
+      <li><a href="https://github.com/vuejs-templates" class="nav-link" target="_blank">Шаблоны</a></li>
+    </ul></li>
+    <li><h4>Новости</h4></li>
+    <li><ul>
+      <li><a href="https://twitter.com/vuejs" class="nav-link" target="_blank">Twitter</a></li>
+      <li><a href="https://medium.com/the-vue-point" class="nav-link" target="_blank">Блог</a></li>
+      <li><a href="https://vuejsjob.com/?ref=vuejs" class="nav-link" target="_blank">Вакансии</a></li>
+    </ul></li>
+    <li><h4>Официальные плагины</h4></li>
+    <li><ul>
+      <li><a href="https://router.vuejs.org/" class="nav-link" target="_blank">Vue Router</a></li>
+      <li><a href="https://vuex.vuejs.org/" class="nav-link" target="_blank">Vuex</a></li>
+    </ul></li>
+    <li><h4>Списки ресурсов</h4></li>
+    <li><ul>
+      <li><a href="https://github.com/vuejs" class="nav-link" target="_blank">Официальные репозитории</a></li>
+      <li><a href="https://github.com/vuejs/awesome-vue" class="nav-link" target="_blank">Awesome Vue</a></li>
+    </ul></li>
+  </ul>
+</li>
+
+
+
+<li class="nav-dropdown-container language">
+  <a class="nav-link">Translations</a><span class="arrow"></span>
+  <ul class="nav-dropdown">
+    <li><a href="https://cn.vuejs.org/" class="nav-link" target="_blank">中文</a></li>
+    <li><a href="https://jp.vuejs.org/" class="nav-link" target="_blank">日本語</a></li>
+  </ul>
+</li>
+
+    </ul>
+    <div class="list">
+        <div class="main-sponsor">
+            <span>Наш спонсор</span><br>
+            <a href="http://www.thedifferenceengine.io/" target="_blank"
+                style="background-color: #f3f3f3; padding: 10px 0">
+                <img src="/images/tde.png">
+            </a>
+        </div>
+        <a class="become-backer" href="/support-vuejs">
+            Поддержите Vue.js
+        </a>
+        <h2>
+            
+                Руководство
+            
+            
+                <select class="version-select">
+                    <option value="SELF" selected>2.0</option>
+                    <option value="v1">1.0</option>
+                    <option value="012">0.12</option>
+                    <option value="011">0.11</option>
+                </select>
+            
+        </h2>
+        <ul class="menu-root">
+            
+                
+                
+                    
+                      <li><h3>Основы</h3></li>
+                    
+                    
+                    
+                    
+                
+                
+                <li>
+                    <a href="/v2/guide/installation.html" class="sidebar-link">Установка</a>
+                </li>
+            
+                
+                
+                    
+                    
+                    
+                    
+                
+                
+                <li>
+                    <a href="/v2/guide/index.html" class="sidebar-link">Введение</a>
+                </li>
+            
+                
+                
+                    
+                    
+                    
+                    
+                
+                
+                <li>
+                    <a href="/v2/guide/instance.html" class="sidebar-link">Инстанс Vue</a>
+                </li>
+            
+                
+                
+                    
+                    
+                    
+                    
+                
+                
+                <li>
+                    <a href="/v2/guide/syntax.html" class="sidebar-link">Синтаксис шаблонов</a>
+                </li>
+            
+                
+                
+                    
+                    
+                    
+                    
+                
+                
+                <li>
+                    <a href="/v2/guide/computed.html" class="sidebar-link">Вычисляемые свойства и слежение</a>
+                </li>
+            
+                
+                
+                    
+                    
+                    
+                    
+                
+                
+                <li>
+                    <a href="/v2/guide/class-and-style.html" class="sidebar-link">Работа с классами и стилями</a>
+                </li>
+            
+                
+                
+                    
+                    
+                    
+                    
+                
+                
+                <li>
+                    <a href="/v2/guide/conditional.html" class="sidebar-link">Условный рендеринг</a>
+                </li>
+            
+                
+                
+                    
+                    
+                    
+                    
+                
+                
+                <li>
+                    <a href="/v2/guide/list.html" class="sidebar-link">Рендеринг списков</a>
+                </li>
+            
+                
+                
+                    
+                    
+                    
+                    
+                
+                
+                <li>
+                    <a href="/v2/guide/events.html" class="sidebar-link">Обработка событий</a>
+                </li>
+            
+                
+                
+                    
+                    
+                    
+                    
+                
+                
+                <li>
+                    <a href="/v2/guide/forms.html" class="sidebar-link">Работа с формами</a>
+                </li>
+            
+                
+                
+                    
+                    
+                    
+                    
+                
+                
+                <li>
+                    <a href="/v2/guide/components.html" class="sidebar-link current">Компоненты</a>
+                </li>
+            
+                
+                
+                    
+                    
+                      <li><h3>Продвинутые темы</h3></li>
+                    
+                    
+                    
+                
+                
+                <li>
+                    <a href="/v2/guide/reactivity.html" class="sidebar-link">Подробно о реактивности</a>
+                </li>
+            
+                
+                
+                    
+                    
+                    
+                    
+                
+                
+                <li>
+                    <a href="/v2/guide/transitions.html" class="sidebar-link">Анимационные эффекты переходов</a>
+                </li>
+            
+                
+                
+                    
+                    
+                    
+                    
+                
+                
+                <li>
+                    <a href="/v2/guide/transitioning-state.html" class="sidebar-link">Анимирование переходов между состояниями</a>
+                </li>
+            
+                
+                
+                    
+                    
+                    
+                    
+                
+                
+                <li>
+                    <a href="/v2/guide/render-function.html" class="sidebar-link">Render-функции</a>
+                </li>
+            
+                
+                
+                    
+                    
+                    
+                    
+                
+                
+                <li>
+                    <a href="/v2/guide/custom-directive.html" class="sidebar-link">Пользовательские директивы</a>
+                </li>
+            
+                
+                
+                    
+                    
+                    
+                    
+                
+                
+                <li>
+                    <a href="/v2/guide/mixins.html" class="sidebar-link">Миксины</a>
+                </li>
+            
+                
+                
+                    
+                    
+                    
+                    
+                
+                
+                <li>
+                    <a href="/v2/guide/plugins.html" class="sidebar-link">Плагины</a>
+                </li>
+            
+                
+                
+                    
+                    
+                    
+                    
+                
+                
+                <li>
+                    <a href="/v2/guide/single-file-components.html" class="sidebar-link">Однофайловые компоненты</a>
+                </li>
+            
+                
+                
+                    
+                    
+                    
+                    
+                
+                
+                <li>
+                    <a href="/v2/guide/deployment.html" class="sidebar-link">Развёртывание для production</a>
+                </li>
+            
+                
+                
+                    
+                    
+                    
+                    
+                
+                
+                <li>
+                    <a href="/v2/guide/routing.html" class="sidebar-link">Роутинг</a>
+                </li>
+            
+                
+                
+                    
+                    
+                    
+                    
+                
+                
+                <li>
+                    <a href="/v2/guide/state-management.html" class="sidebar-link">Управление состоянием приложения</a>
+                </li>
+            
+                
+                
+                    
+                    
+                    
+                    
+                
+                
+                <li>
+                    <a href="/v2/guide/unit-testing.html" class="sidebar-link">Модульное Тестирование</a>
+                </li>
+            
+                
+                
+                    
+                    
+                    
+                    
+                
+                
+                <li>
+                    <a href="/v2/guide/ssr.html" class="sidebar-link">SSR. Рендеринг на стороне сервера</a>
+                </li>
+            
+                
+                
+                    
+                    
+                    
+                      <li><h3>Вопросы миграции</h3></li>
+                    
+                    
+                
+                
+                <li>
+                    <a href="/v2/guide/migration.html" class="sidebar-link">Миграция с Vue 1.x</a>
+                </li>
+            
+                
+                
+                    
+                    
+                    
+                    
+                
+                
+                <li>
+                    <a href="/v2/guide/migration-vue-router.html" class="sidebar-link">Миграция с Vue Router 0.7.x</a>
+                </li>
+            
+                
+                
+                    
+                    
+                    
+                    
+                
+                
+                <li>
+                    <a href="/v2/guide/migration-vuex.html" class="sidebar-link">Миграция с Vuex 0.6.x на 1.0</a>
+                </li>
+            
+                
+                
+                    
+                    
+                    
+                    
+                      <li><h3>Мета</h3></li>
+                    
+                
+                
+                <li>
+                    <a href="/v2/guide/comparison.html" class="sidebar-link">Сравнение с другими фреймворками</a>
+                </li>
+            
+                
+                
+                    
+                    
+                    
+                    
+                
+                
+                <li>
+                    <a href="/v2/guide/join.html" class="sidebar-link">Присоединяйтесь к сообществу Vue.js!</a>
+                </li>
+            
+            
+        </ul>
+    </div>
+</div>
+
+
+<div class="content guide with-sidebar components-guide">
+    
+      <div id="ad">
+  <!-- <span>Наш спонсор:</span><br>
+  <a href="http://www.thedifferenceengine.io/" target="_blank"
+    style="background-color: rgba(0,0,0,.85); padding: 10px 0">
+    <img src="/images/tde.png">
+  </a> -->
+  <script async type="text/javascript" src="//cdn.carbonads.com/carbon.js?zoneid=1673&serve=C6AILKT&placement=vuejs" id="_carbonads_js"></script>
+</div>
+
+    
+    
+      <h1>Компоненты</h1>
+    
+    <h2 id="Что-такое-компонент"><a href="#Что-такое-компонент" class="headerlink" title="Что такое компонент?"></a>Что такое компонент?</h2><p>Компоненты представляют собой одну из самых мощных возможностей Vue. Они могут помочь вам расширить возможности базовых элементов HTML и инкапсулировать повторно используемый код. При поверхностном рассмотрении, компоненты можно считать пользовательскими “тегами”, к которым компилятор Vue привязывает некоторое поведение. В некоторых случаях они также могут проявляться как нативные HTML-элементы, расширенные при помощи специального атрибута <code>is</code>.</p>
+<h2 id="Использование-компонентов"><a href="#Использование-компонентов" class="headerlink" title="Использование компонентов"></a>Использование компонентов</h2><h3 id="Регистрация"><a href="#Регистрация" class="headerlink" title="Регистрация"></a>Регистрация</h3><p>В предыдущих секциях мы научились создавать инстансы Vue:</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="keyword">new</span> Vue(&#123;</div><div class="line">  <span class="attr">el</span>: <span class="string">'#some-element'</span>,</div><div class="line">  <span class="comment">// опции</span></div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<p>Для создания глобального компонента, можно использовать <code>Vue.component(tagName, options)</code>:</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><div class="line">Vue.component(<span class="string">'my-component'</span>, &#123;</div><div class="line">  <span class="comment">// опции</span></div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<p class="tip">Обратите внимание, что Vue не требует соблюдения <a href="http://www.w3.org/TR/custom-elements/#concepts" target="_blank" rel="external">правил W3C</a> для пользовательских имён тегов (таких как требования использования только нижнего регистра и применения дефисов), хотя следование этим соглашениям считается хорошей практикой.</p>
+
+<p>После регистрации, компонент может быть использован в шаблоне в качестве пользовательского тега <code>&lt;my-component&gt;&lt;/my-component&gt;</code>. Удостоверьтесь, что регистрация компонента происходит <strong>до</strong> создания корневого инстанса Vue. Вот полный пример:</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"example"</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">my-component</span>&gt;</span><span class="tag">&lt;/<span class="name">my-component</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="comment">// регистрация</span></div><div class="line">Vue.component(<span class="string">'my-component'</span>, &#123;</div><div class="line">  <span class="attr">template</span>: <span class="string">'&lt;div&gt;Пользовательский компонент!&lt;/div&gt;'</span></div><div class="line">&#125;)</div><div class="line"></div><div class="line"><span class="comment">// создание корневого инстанса</span></div><div class="line"><span class="keyword">new</span> Vue(&#123;</div><div class="line">  <span class="attr">el</span>: <span class="string">'#example'</span></div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<p>Результатом рендеринга будет:</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"example"</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">div</span>&gt;</span>Пользовательский компонент!<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
+
+<div id="example" class="demo">
+  <my-component></my-component>
+</div>
+<script>
+Vue.component('my-component', {
+  template: '<div>Пользовательский компонент!</div>'
+})
+new Vue({ el: '#example' })
+</script>
+
+<h3 id="Локальные-компоненты"><a href="#Локальные-компоненты" class="headerlink" title="Локальные компоненты"></a>Локальные компоненты</h3><p>Необязательно регистрировать компоненты глобально. Можно сделать компонент доступным только в области видимости другого инстанса/компонента, зарегистрировав его через локальную опцию <code>components</code>:</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="keyword">var</span> Child = &#123;</div><div class="line">  <span class="attr">template</span>: <span class="string">'&lt;div&gt;Пользовательский компонент!&lt;/div&gt;'</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">new</span> Vue(&#123;</div><div class="line">  <span class="comment">// ...</span></div><div class="line">  components: &#123;</div><div class="line">    <span class="comment">// &lt;my-component&gt; будет доступен только в шаблоне родителя</span></div><div class="line">    <span class="string">'my-component'</span>: Child</div><div class="line">  &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<p>Аналогичные правила инкапсуляции применимы и для всех остальных доступных для регистрации пользовательских расширений Vue, например для директив.</p>
+<h3 id="Возможные-неприятности-при-парсинге-DOM"><a href="#Возможные-неприятности-при-парсинге-DOM" class="headerlink" title="Возможные неприятности при парсинге DOM"></a>Возможные неприятности при парсинге DOM</h3><p>При использовании DOM в качестве шаблона (то есть при указании через опцию <code>el</code> точки монтирования, уже содержащей контент), приходится сталкиваться с рядом ограничений, унаследованных от самого механизма работы HTML. Vue в этом случае может получить содержимое шаблона только <strong>после</strong> того, как браузер уже распарсил и нормализовал его. Более всего заметны ограничения использования таких элементов как <code>&lt;ul&gt;</code>, <code>&lt;ol&gt;</code>, <code>&lt;table&gt;</code> и <code>&lt;select&gt;</code> в части того, какие элементы могут находиться внутри них. Для некоторых других элементов, например для <code>&lt;option&gt;</code>, подобным же образом ограничен список возможных родительских элементов.</p>
+<p>Это приводит к неудобствам при использовании пользовательских компонентов вместе с такими элементами. Рассмотрим пример:</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">table</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">my-row</span>&gt;</span>...<span class="tag">&lt;/<span class="name">my-row</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">table</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>Пользовательский компонент <code>&lt;my-row&gt;</code> будет выкинут браузером как некорректный, провоцируя таким образом ошибки при дальнейшем рендеринге. Обойти эту проблему можно используя специальный атрибут <code>is</code>:</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">table</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">tr</span> <span class="attr">is</span>=<span class="string">"my-row"</span>&gt;</span><span class="tag">&lt;/<span class="name">tr</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">table</span>&gt;</span></div></pre></td></tr></table></figure>
+<p><strong>Стоит заметить, что эти ограничения неприменимы при использовании шаблонов из перечисленных ниже источников</strong>:</p>
+<ul>
+<li><code>&lt;script type=&quot;text/x-template&quot;&gt;</code></li>
+<li>inline-строки JavaScript</li>
+<li><code>.vue</code>-компоненты</li>
+</ul>
+<p>Поэтому мы советуем, по возможности, всегда использовать строковые шаблоны.</p>
+<h3 id="data-должна-быть-функцией"><a href="#data-должна-быть-функцией" class="headerlink" title="data должна быть функцией"></a><code>data</code> должна быть функцией</h3><p>Большая часть опций, которые можно передать в конструктор Vue, могут быть использованы и в компоненте, с одним важным замечанием: <code>data</code> должна быть функцией. В действительности, если вы попробуете запустить такой код:</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><div class="line">Vue.component(<span class="string">'my-component'</span>, &#123;</div><div class="line">  <span class="attr">template</span>: <span class="string">'&lt;span&gt;&#123;&#123; message &#125;&#125;&lt;/span&gt;'</span>,</div><div class="line">  <span class="attr">data</span>: &#123;</div><div class="line">    <span class="attr">message</span>: <span class="string">'привет!'</span></div><div class="line">  &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<p>Vue остановится и выведет в консоль предупреждение, говорящее о том что <code>data</code> в компонентах должна быть функцией. Тем не менее, неплохо бы понимать, почему существуют такие правила — так что давайте немного схитрим:</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"example-2"</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">simple-counter</span>&gt;</span><span class="tag">&lt;/<span class="name">simple-counter</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">simple-counter</span>&gt;</span><span class="tag">&lt;/<span class="name">simple-counter</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">simple-counter</span>&gt;</span><span class="tag">&lt;/<span class="name">simple-counter</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="keyword">var</span> data = &#123; <span class="attr">counter</span>: <span class="number">0</span> &#125;</div><div class="line"></div><div class="line">Vue.component(<span class="string">'simple-counter'</span>, &#123;</div><div class="line">  <span class="attr">template</span>: <span class="string">'&lt;button v-on:click="counter += 1"&gt;&#123;&#123; counter &#125;&#125;&lt;/button&gt;'</span>,</div><div class="line">  <span class="comment">// технически data является функцией, так что Vue</span></div><div class="line">  <span class="comment">// не будет жаловаться, но эта функция неизменно</span></div><div class="line">  <span class="comment">// возвращает ссылку на один и тот же внешний объект</span></div><div class="line">  data: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> data</div><div class="line">  &#125;</div><div class="line">&#125;)</div><div class="line"></div><div class="line"><span class="keyword">new</span> Vue(&#123;</div><div class="line">  <span class="attr">el</span>: <span class="string">'#example-2'</span></div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+
+<div id="example-2" class="demo">
+  <simple-counter></simple-counter>
+  <simple-counter></simple-counter>
+  <simple-counter></simple-counter>
+</div>
+<script>
+var data = { counter: 0 }
+Vue.component('simple-counter', {
+  template: '<button v-on:click="counter += 1">{{ counter }}</button>',
+  data: function () {
+    return data
+  }
+})
+new Vue({
+  el: '#example-2'
+})
+</script>
+
+<p>Поскольку все три инстанса компонента основываются на одном и том же объекте <code>data</code>, инкремент одного из счётчиков инкрементирует их все — упс! Давайте исправим это, возвращая каждый раз новосозданный объект:</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><div class="line">data: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="keyword">return</span> &#123;</div><div class="line">    <span class="attr">counter</span>: <span class="number">0</span></div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>Теперь у всех наших счётчиков есть их собственное внутреннее состояние:</p>
+
+<div id="example-2-5" class="demo">
+  <my-component></my-component>
+  <my-component></my-component>
+  <my-component></my-component>
+</div>
+<script>
+Vue.component('my-component', {
+  template: '<button v-on:click="counter += 1">{{ counter }}</button>',
+  data: function () {
+    return {
+      counter: 0
+    }
+  }
+})
+new Vue({
+  el: '#example-2-5'
+})
+</script>
+
+<h3 id="Композиция-компонентов"><a href="#Композиция-компонентов" class="headerlink" title="Композиция компонентов"></a>Композиция компонентов</h3><p>Компоненты созданы для совместного использования, в основном в рамках отношений родитель-потомок: компонент А может использовать компонент Б в своём собственном шаблоне. В таком раскладе неизбежно появляется необходимость в коммуникации компонентов друг с другом: родителю может понадобиться передать данные в дочерний компонент, а потомку, в свою очередь, может понадобиться проинформировать родителя о том, что что-то произошло. Вместе с тем, очень важно минимизировать взаимное влияние компонентов друг на друга. Для этого требуется иметь ясно определённый интерфейс взаимодействия, позволяющий удостовериться, что код каждого компонента может быть написан и проанализирован в условиях относительной изоляции. Это упрощает поддержку и потенциально облегчает повторное использование компонентов.</p>
+<p>Во Vue.js, отношения родитель-ребёнок могут быть кратко просуммированы формулой <strong>входные параметры — вниз, события — вверх (“props down, events up”)</strong>. Родитель передаёт данные потомку через <strong>входные параметры (props)</strong>, а потомок посылает сообщения родителю посредством <strong>событий (events)</strong>. Давайте посмотрим, как это работает.</p>
+<p style="text-align: center"><br>  <img style="width:300px" src="/images/props-events.png" alt="props down, events up"><br></p>
+
+<h2 id="Входные-параметры"><a href="#Входные-параметры" class="headerlink" title="Входные параметры"></a>Входные параметры</h2><h3 id="Передача-данных-через-входные-параметры"><a href="#Передача-данных-через-входные-параметры" class="headerlink" title="Передача данных через входные параметры"></a>Передача данных через входные параметры</h3><p>Каждый инстанс компонента имеет свою собственную <strong>изолированную область видимости</strong>. Это значит, что вы не можете (и не должны) напрямую обращаться к данным родительского компонента из шаблона компонента-потомка. Данные можно передавать вниз по цепочке <strong>входных параметров</strong>.</p>
+<p>Входной параметр — это пользовательский атрибут для передачи информации из родительского компонента. Компонент-потомок должен явно определить ожидаемые входные параметры, используя <a href="../api/#props">опцию <code>props</code></a></p>
+<figure class="highlight js"><table><tr><td class="code"><pre><div class="line">Vue.component(<span class="string">'child'</span>, &#123;</div><div class="line">  <span class="comment">// определяем входной параметр</span></div><div class="line">  props: [<span class="string">'message'</span>],</div><div class="line">  <span class="comment">// как и другие данные, входной параметр можно использовать</span></div><div class="line">  <span class="comment">// внутри шаблонов (а также и в методах, обращаясь через this.message)</span></div><div class="line">  template: <span class="string">'&lt;span&gt;&#123;&#123; message &#125;&#125;&lt;/span&gt;'</span></div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<p>Мы можем передать в компонент строку, например так:</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">child</span> <span class="attr">message</span>=<span class="string">"привет!"</span>&gt;</span><span class="tag">&lt;/<span class="name">child</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>Результатом будет:</p>
+
+<div id="prop-example-1" class="demo">
+  <child message="привет!"></child>
+</div>
+<script>
+new Vue({
+  el: '#prop-example-1',
+  components: {
+    child: {
+      props: ['message'],
+      template: '<span>{{ message }}</span>'
+    }
+  }
+})
+</script>
+
+<h3 id="camelCase-против-kebab-case"><a href="#camelCase-против-kebab-case" class="headerlink" title="camelCase против kebab-case"></a>camelCase против kebab-case</h3><p>Аттрибуты HTML являются регистронезависимыми, так что <strong>при использовании в DOM в качестве шаблона</strong> вместо camelCase-версий имён входных параметров приходится применять их kebab-case эквиваленты (разделять слова дефисом):</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><div class="line">Vue.component(<span class="string">'child'</span>, &#123;</div><div class="line">  <span class="comment">// camelCase в JavaScript</span></div><div class="line">  props: [<span class="string">'myMessage'</span>],</div><div class="line">  <span class="attr">template</span>: <span class="string">'&lt;span&gt;&#123;&#123; myMessage &#125;&#125;&lt;/span&gt;'</span></div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="comment">&lt;!-- kebab-case в HTML --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">child</span> <span class="attr">my-message</span>=<span class="string">"привет!"</span>&gt;</span><span class="tag">&lt;/<span class="name">child</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>Впрочем, строковые шаблоны не накладывают и этого ограничения.</p>
+<h3 id="Динамические-входные-параметры"><a href="#Динамические-входные-параметры" class="headerlink" title="Динамические входные параметры"></a>Динамические входные параметры</h3><p>Подобно связыванию обычных атрибутов, допустимо и динамическое связывание входных параметров с данными родительского компонента. Любое обновление данных в родителе в этом случае будет передано и в потомка:</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">input</span> <span class="attr">v-model</span>=<span class="string">"parentMsg"</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">br</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">child</span> <span class="attr">v-bind:my-message</span>=<span class="string">"parentMsg"</span>&gt;</span><span class="tag">&lt;/<span class="name">child</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>Зачастую проще использовать для <code>v-bind</code> сокращённую запись:</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">child</span> <span class="attr">:my-message</span>=<span class="string">"parentMsg"</span>&gt;</span><span class="tag">&lt;/<span class="name">child</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>Результат:</p>
+
+<div id="demo-2" class="demo">
+  <input v-model="parentMsg">
+  <br>
+  <child v-bind:my-message="parentMsg"></child>
+</div>
+<script>
+new Vue({
+  el: '#demo-2',
+  data: {
+    parentMsg: 'Сообщение из родителя'
+  },
+  components: {
+    child: {
+      props: ['myMessage'],
+      template: '<span>{{myMessage}}</span>'
+    }
+  }
+})
+</script>
+
+<h3 id="Строковые-и-динамические-параметры"><a href="#Строковые-и-динамические-параметры" class="headerlink" title="Строковые и динамические параметры"></a>Строковые и динамические параметры</h3><p>Частой ошибкой новичков является попытка передать в качестве параметра компонента число, используя строковой синтаксис:</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="comment">&lt;!-- при такой записи в компонент будет передана строка "1" --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">comp</span> <span class="attr">some-prop</span>=<span class="string">"1"</span>&gt;</span><span class="tag">&lt;/<span class="name">comp</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>Однако, поскольку используется строковой параметр, в компонент вместо числа будет передано значение строки <code>&quot;1&quot;</code>. Для передачи числа нужно использовать директиву <code>v-bind</code>, так как её значение вычисляется как выражение JavaScript:</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="comment">&lt;!-- этот синтаксис позволит передать в компонент число --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">comp</span> <span class="attr">v-bind:some-prop</span>=<span class="string">"1"</span>&gt;</span><span class="tag">&lt;/<span class="name">comp</span>&gt;</span></div></pre></td></tr></table></figure>
+<h3 id="Однонаправленный-поток-данных"><a href="#Однонаправленный-поток-данных" class="headerlink" title="Однонаправленный поток данных"></a>Однонаправленный поток данных</h3><p>Входные параметры создают <strong>однонаправленный</strong> поток данных между родительскими и дочерними компонентами: обновление свойств родителя будет передано в дочерний компонент, но обратное — не случится. Это предотвращает случайное изменение родительских данных дочерними компонентами, которое затруднило бы понимание потока данных приложения.</p>
+<p>Кроме того, при любом обновлении родительского компонента все входные параметры дочерних компонентов также обновляются до нового значения. Поэтому <strong>не стоит</strong> изменять значения входных параметров внутри компонента и расчитывать на их сохранность. Если вы всё же захотите это сделать, Vue отреагирует предупреждением в консоли.</p>
+<p>Желание изменить значение входного параметра обычно возникает в двух случаях:</p>
+<ol>
+<li><p>Если он используется лишь для передачи изначального значения, после чего дочерний компонент хотел бы использовать эту переменную как локальную.</p>
+</li>
+<li><p>Если он передаётся как значение, требующее обработки.</p>
+</li>
+</ol>
+<p>Более правильным подходом в этих случаях будет:</p>
+<ol>
+<li><p>Определение локальной переменной, использующей значение входного параметра для инициализации:</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><div class="line">props: [<span class="string">'initialCounter'</span>],</div><div class="line"><span class="attr">data</span>: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="keyword">return</span> &#123; <span class="attr">counter</span>: <span class="keyword">this</span>.initialCounter &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>Определение вычисляемого свойства, основывающегося на значении входного параметра:</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><div class="line">props: [<span class="string">'size'</span>],</div><div class="line"><span class="attr">computed</span>: &#123;</div><div class="line">  <span class="attr">normalizedSize</span>: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.size.trim().toLowerCase()</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p class="tip">Обратите внимание, что объекты и массивы в JavaScript передаются по ссылке, так что если входным параметром является объект или массив, его изменение внутри дочернего компонента <strong>повлияет</strong> на состояние родительского компонента.</p>
+
+<h3 id="Валидация-входных-параметров"><a href="#Валидация-входных-параметров" class="headerlink" title="Валидация входных параметров"></a>Валидация входных параметров</h3><p>Компонент может не только указать список ожидаемых параметров, но и предъявить к ним определённые требования. В случае, если переданные параметры не будут им удовлетворять, Vue отреагирует предупреждениями. Эта возможность особенно полезна при создании компонентов, для внешнего использования.</p>
+<p>Вместо определения списка параметров как массива строк, можно использовать объект с правилами валидации:</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><div class="line">Vue.component(<span class="string">'example'</span>, &#123;</div><div class="line">  <span class="attr">props</span>: &#123;</div><div class="line">    <span class="comment">// простая проверка типа (`null` означает допустимость любого типа)</span></div><div class="line">    propA: <span class="built_in">Number</span>,</div><div class="line">    <span class="comment">// несколько допустимых типов</span></div><div class="line">    propB: [<span class="built_in">String</span>, <span class="built_in">Number</span>],</div><div class="line">    <span class="comment">// обязательное значение строкового типа</span></div><div class="line">    propC: &#123;</div><div class="line">      <span class="attr">type</span>: <span class="built_in">String</span>,</div><div class="line">      <span class="attr">required</span>: <span class="literal">true</span></div><div class="line">    &#125;,</div><div class="line">    <span class="comment">// число со значением по умолчанию</span></div><div class="line">    propD: &#123;</div><div class="line">      <span class="attr">type</span>: <span class="built_in">Number</span>,</div><div class="line">      <span class="attr">default</span>: <span class="number">100</span></div><div class="line">    &#125;,</div><div class="line">    <span class="comment">// значения по умолчанию для объектов/массивов должны</span></div><div class="line">    <span class="comment">// быть возвращаемыми значениями функций</span></div><div class="line">    propE: &#123;</div><div class="line">      <span class="attr">type</span>: <span class="built_in">Object</span>,</div><div class="line">      <span class="attr">default</span>: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">        <span class="keyword">return</span> &#123; <span class="attr">message</span>: <span class="string">'привет!'</span> &#125;</div><div class="line">      &#125;</div><div class="line">    &#125;,</div><div class="line">    <span class="comment">// пользовательская функция для валидации</span></div><div class="line">    propF: &#123;</div><div class="line">      <span class="attr">validator</span>: <span class="function"><span class="keyword">function</span> (<span class="params">value</span>) </span>&#123;</div><div class="line">        <span class="keyword">return</span> value &gt; <span class="number">10</span></div><div class="line">      &#125;</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<p>Параметр типа <code>type</code> должен принимать одно из нижеперечисленных нативных значений:</p>
+<ul>
+<li>String</li>
+<li>Number</li>
+<li>Boolean</li>
+<li>Function</li>
+<li>Object</li>
+<li>Array</li>
+</ul>
+<p>Кроме того, <code>type</code> может быть и пользовательской функцией — проверка будет выполняться вызовом <code>instanceof</code>.</p>
+<p>В случае ошибки валидации, Vue выбросит предупреждение в консоль (при использовании development-сборки).</p>
+<h2 id="Пользовательские-события"><a href="#Пользовательские-события" class="headerlink" title="Пользовательские события"></a>Пользовательские события</h2><p>Мы узнали, что родитель может передавать данные в дочерние компоненты через входные параметры. Но как организовать связь в обратном направлении? Самое время поговорить о системе пользовательских событий Vue.</p>
+<h3 id="Использование-v-on-с-пользовательскими-событиями"><a href="#Использование-v-on-с-пользовательскими-событиями" class="headerlink" title="Использование v-on с пользовательскими событиями"></a>Использование <code>v-on</code> с пользовательскими событиями</h3><p>Каждый инстанс Vue поддерживает <a href="../api/#Instance-Methods-Events">интерфейс событий</a>, позволяющий:</p>
+<ul>
+<li>Отслеживать события, используя <code>$on(eventName)</code></li>
+<li>Порождать события, используя <code>$emit(eventName)</code></li>
+</ul>
+<p class="tip">Обратите внимание, что система событий Vue отделена от <a href="https://developer.mozilla.org/en-US/docs/Web/API/EventTarget" target="_blank" rel="external">EventTarget API</a>. Хотя они и похожи, <code>$on</code> и <code>$emit</code> <strong>не являются</strong> псевдонимами для <code>addEventListener</code> и <code>dispatchEvent</code>.</p>
+
+<p>Кроме того, родительский компонент может зарегистрировать слушателя событий, используя директиву <code>v-on</code> непосредственно в шаблоне при создании дочернего компонента.</p>
+<p>Вот пример:</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"counter-event-example"</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">p</span>&gt;</span>&#123;&#123; total &#125;&#125;<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">button-counter</span> <span class="attr">v-on:increment</span>=<span class="string">"incrementTotal"</span>&gt;</span><span class="tag">&lt;/<span class="name">button-counter</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">button-counter</span> <span class="attr">v-on:increment</span>=<span class="string">"incrementTotal"</span>&gt;</span><span class="tag">&lt;/<span class="name">button-counter</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><div class="line">Vue.component(<span class="string">'button-counter'</span>, &#123;</div><div class="line">  <span class="attr">template</span>: <span class="string">'&lt;button v-on:click="increment"&gt;&#123;&#123; counter &#125;&#125;&lt;/button&gt;'</span>,</div><div class="line">  <span class="attr">data</span>: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> &#123;</div><div class="line">      <span class="attr">counter</span>: <span class="number">0</span></div><div class="line">    &#125;</div><div class="line">  &#125;,</div><div class="line">  <span class="attr">methods</span>: &#123;</div><div class="line">    <span class="attr">increment</span>: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">      <span class="keyword">this</span>.counter += <span class="number">1</span></div><div class="line">      <span class="keyword">this</span>.$emit(<span class="string">'increment'</span>)</div><div class="line">    &#125;</div><div class="line">  &#125;,</div><div class="line">&#125;)</div><div class="line"></div><div class="line"><span class="keyword">new</span> Vue(&#123;</div><div class="line">  <span class="attr">el</span>: <span class="string">'#counter-event-example'</span>,</div><div class="line">  <span class="attr">data</span>: &#123;</div><div class="line">    <span class="attr">total</span>: <span class="number">0</span></div><div class="line">  &#125;,</div><div class="line">  <span class="attr">methods</span>: &#123;</div><div class="line">    <span class="attr">incrementTotal</span>: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">      <span class="keyword">this</span>.total += <span class="number">1</span></div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+
+<div id="counter-event-example" class="demo">
+  <p>{{ total }}</p>
+  <button-counter v-on:increment="incrementTotal"></button-counter>
+  <button-counter v-on:increment="incrementTotal"></button-counter>
+</div>
+<script>
+Vue.component('button-counter', {
+  template: '<button v-on:click="increment">{{ counter }}</button>',
+  data: function () {
+    return {
+      counter: 0
+    }
+  },
+  methods: {
+    increment: function () {
+      this.counter += 1
+      this.$emit('increment')
+    }
+  },
+})
+new Vue({
+  el: '#counter-event-example',
+  data: {
+    total: 0
+  },
+  methods: {
+    incrementTotal: function () {
+      this.total += 1
+    }
+  }
+})
+</script>
+
+<p>Важно отметить, что дочерний компонент остаётся полностью независимым от всего происходящего снаружи. Он всего лишь уведомляет внешний мир о происходящем с ним, на случай если родительскому компоненту это может быть интересно.</p>
+<h4 id="Слушание-нативных-событий-в-компонентах"><a href="#Слушание-нативных-событий-в-компонентах" class="headerlink" title="Слушание нативных событий в компонентах"></a>Слушание нативных событий в компонентах</h4><p>Иногда может понадобиться слушать нативные браузерные события на корневом элементе компонента. В таких случаях можно применить <code>v-on</code> с модификатором <code>.native</code>, например так:</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">my-component</span> <span class="attr">v-on:click.native</span>=<span class="string">"doTheThing"</span>&gt;</span><span class="tag">&lt;/<span class="name">my-component</span>&gt;</span></div></pre></td></tr></table></figure>
+<h3 id="Элементы-ввода-форм-и-пользовательские-события"><a href="#Элементы-ввода-форм-и-пользовательские-события" class="headerlink" title="Элементы ввода форм и пользовательские события"></a>Элементы ввода форм и пользовательские события</h3><p>Пользуясь этой стратегией можно также создавать пользовательские элементы ввода форм, работающие с <code>v-model</code>. Вспомните, что</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">v-model</span>=<span class="string">"something"</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>это всего лишь синтаксический сахар для:</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">v-bind:value</span>=<span class="string">"something"</span> <span class="attr">v-on:input</span>=<span class="string">"something = $event.target.value"</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>При использовании с компонентом, запись упрощается до:</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">custom-input</span> <span class="attr">v-bind:value</span>=<span class="string">"something"</span> <span class="attr">v-on:input</span>=<span class="string">"something = arguments[0]"</span>&gt;</span><span class="tag">&lt;/<span class="name">custom-input</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>Таким образом, чтобы иметь возможность работать с <code>v-model</code>, компонент должен:</p>
+<ul>
+<li>принимать входной параметр <code>value</code></li>
+<li>эмитировать событие <code>input</code> с новым значением</li>
+</ul>
+<p>Давайте разберём в качестве примера простой элемент ввода цены в валюте:</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">currency-input</span> <span class="attr">v-model</span>=<span class="string">"price"</span>&gt;</span><span class="tag">&lt;/<span class="name">currency-input</span>&gt;</span></div></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><div class="line">Vue.component(<span class="string">'currency-input'</span>, &#123;</div><div class="line">  <span class="attr">template</span>: <span class="string">'\</span></div><div class="line">    &lt;span&gt;\</div><div class="line">      $\</div><div class="line">      &lt;input\</div><div class="line">        ref="input"\</div><div class="line">        v-bind:value="value"\</div><div class="line">        v-on:input="updateValue($event.target.value)"\</div><div class="line">      &gt;\</div><div class="line">    &lt;/span&gt;\</div><div class="line">  ',</div><div class="line">  <span class="attr">props</span>: [<span class="string">'value'</span>],</div><div class="line">  <span class="attr">methods</span>: &#123;</div><div class="line">    <span class="comment">// Этот метод используется для форматирования и</span></div><div class="line">    <span class="comment">// нормализации введённого значения, а также порождает</span></div><div class="line">    <span class="comment">// событие, уведомляющее родительский компонент об изменениях</span></div><div class="line">    updateValue: <span class="function"><span class="keyword">function</span> (<span class="params">value</span>) </span>&#123;</div><div class="line">      <span class="keyword">var</span> formattedValue = value</div><div class="line">        <span class="comment">// Удалить пробелы с обеих сторон</span></div><div class="line">        .trim()</div><div class="line">        <span class="comment">// Укоротить до 2 десятичных знаков</span></div><div class="line">        .slice(<span class="number">0</span>, value.indexOf(<span class="string">'.'</span>) + <span class="number">3</span>)</div><div class="line">      <span class="comment">// Если значение не нормализовано — нормализуем вручную</span></div><div class="line">      <span class="keyword">if</span> (formattedValue !== value) &#123;</div><div class="line">        <span class="keyword">this</span>.$refs.input.value = formattedValue</div><div class="line">      &#125;</div><div class="line">      <span class="comment">// Порождаем событие с обновлённым значением элемента ввода</span></div><div class="line">      <span class="keyword">this</span>.$emit(<span class="string">'input'</span>, <span class="built_in">Number</span>(formattedValue))</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+
+<div id="currency-input-example" class="demo">
+  <currency-input v-model="price"></currency-input>
+</div>
+<script>
+Vue.component('currency-input', {
+  template: '\
+    <span>\
+      $\
+      <input\
+        ref="input"\
+        v-bind:value="value"\
+        v-on:input="updateValue($event.target.value)"\
+      >\
+    </span>\
+  ',
+  props: ['value'],
+  methods: {
+    updateValue: function (value) {
+      var formattedValue = value
+        .trim()
+        .slice(0, value.indexOf('.') + 3)
+      if (formattedValue !== value) {
+        this.$refs.input.value = formattedValue
+      }
+      this.$emit('input', Number(formattedValue))
+    }
+  }
+})
+new Vue({ el: '#currency-input-example' })
+</script>
+
+<p>Реализация выше, конечно, остаётся довольно наивной. Например, она позволяет пользователям вводить несколько десятичных точек, и даже иногда буквы - упс! Если вы хотите более сложный и надёжный пример, то вот он:</p>
+<iframe width="100%" height="300" src="https://jsfiddle.net/chrisvfritz/1oqjojjx/embedded/result,html,js" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+
+<p>Кроме того, этот интерфейс может быть использован не только для связи с элементами ввода форм внутри компонентов, но и для интеграции новоизобретённых типов. Представьте только такие возможности:</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">voice-recognizer</span> <span class="attr">v-model</span>=<span class="string">"question"</span>&gt;</span><span class="tag">&lt;/<span class="name">voice-recognizer</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">webcam-gesture-reader</span> <span class="attr">v-model</span>=<span class="string">"gesture"</span>&gt;</span><span class="tag">&lt;/<span class="name">webcam-gesture-reader</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">webcam-retinal-scanner</span> <span class="attr">v-model</span>=<span class="string">"retinalImage"</span>&gt;</span><span class="tag">&lt;/<span class="name">webcam-retinal-scanner</span>&gt;</span></div></pre></td></tr></table></figure>
+<h3 id="Коммуникация-вне-случаев-родитель-ребёнок"><a href="#Коммуникация-вне-случаев-родитель-ребёнок" class="headerlink" title="Коммуникация вне случаев родитель-ребёнок"></a>Коммуникация вне случаев родитель-ребёнок</h3><p>Иногда компонентам необходимо обмениваться информацией, хотя они и не являются родителями/детьми друг для друга. В простых случаях может хватить использования пустого инстанса Vue в качестве централизованной шины данных:</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="keyword">var</span> bus = <span class="keyword">new</span> Vue()</div></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="comment">// в методе компонента A</span></div><div class="line">bus.$emit(<span class="string">'id-selected'</span>, <span class="number">1</span>)</div></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="comment">// в хуке created компонента B</span></div><div class="line">bus.$on(<span class="string">'id-selected'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">id</span>) </span>&#123;</div><div class="line">  <span class="comment">// ...</span></div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<p>Для более сложных случаев стоит рассмотреть использование специального <a href="state-management.html">паттерна управления состоянием</a>.</p>
+<h2 id="Дистрибьюция-контента-через-слоты"><a href="#Дистрибьюция-контента-через-слоты" class="headerlink" title="Дистрибьюция контента через слоты"></a>Дистрибьюция контента через слоты</h2><p>Нередко хочется вкладывать компоненты друг в друга подобным образом:</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">app</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">app-header</span>&gt;</span><span class="tag">&lt;/<span class="name">app-header</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">app-footer</span>&gt;</span><span class="tag">&lt;/<span class="name">app-footer</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">app</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>Здесь стоит обратить внимание на две вещи:</p>
+<ol>
+<li><p>Компонент <code>&lt;app&gt;</code> не знает, какой контент будет содержать после монтирования. Решение принимается родителем, использующим <code>&lt;app&gt;</code>.</p>
+</li>
+<li><p>Скорее всего у компонента <code>&lt;app&gt;</code> есть собственный шаблон.</p>
+</li>
+</ol>
+<p>Чтобы такая композиция работала, необходим метод “переплетения” шаблона компонента и внутреннего содержимого, указанного при его использовании в родительском контексте. Этот процесс называется <strong>дистрибьюцией контента</strong> (или, в терминах Angular — “включением”(“transclusion”)). Vue.js содержит API дистрибьюции контента, смоделированное в соответствии с текущим <a href="https://github.com/w3c/webcomponents/blob/gh-pages/proposals/Slots-Proposal.md" target="_blank" rel="external">черновиком спецификации Web Components</a> и использующее специальные элементы <code>&lt;slot&gt;</code>, служащие “точками выхода” для оригинального контента.</p>
+<h3 id="Область-видимости-при-компиляции"><a href="#Область-видимости-при-компиляции" class="headerlink" title="Область видимости при компиляции"></a>Область видимости при компиляции</h3><p>Перед тем как углубиться в рассмотрение API слотов, давайте разберёмся, в какой области видимости компилируется содержимое шаблонов. Представим такой шаблон:</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">child-component</span>&gt;</span></div><div class="line">  &#123;&#123; message &#125;&#125;</div><div class="line"><span class="tag">&lt;/<span class="name">child-component</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>Из родительского, или из дочернего контекста должна быть взята переменная <code>message</code>? Правильный ответ — из родительского. Действует простое правило:</p>
+<blockquote>
+<p>Всё в шаблоне родителя компилируется в области видимости родителя; всё в шаблоне дочернего компонента — в его области видимости.</p>
+</blockquote>
+<p>Распространённой ошибкой является попытка связывания со свойством дочернего компонента в родительском шаблоне:</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="comment">&lt;!-- НЕ сработает --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">child-component</span> <span class="attr">v-show</span>=<span class="string">"someChildProperty"</span>&gt;</span><span class="tag">&lt;/<span class="name">child-component</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>Если <code>someChildProperty</code> является свойством дочернего компонента, вышеприведённый пример работать не будет. Шаблон родительского компонента не имеет никакого представления о состоянии дочернего компонента.</p>
+<p>При необходимости привязать директивы из области видимости дочернего компонента к корневому элементу, это необходимо сделать в его же шаблоне:</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><div class="line">Vue.component(<span class="string">'child-component'</span>, &#123;</div><div class="line">  <span class="comment">// а так — уже сработает, так как мы находимся в правильной области видимости</span></div><div class="line">  template: <span class="string">'&lt;div v-show="someChildProperty"&gt;Child&lt;/div&gt;'</span>,</div><div class="line">  <span class="attr">data</span>: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> &#123;</div><div class="line">      <span class="attr">someChildProperty</span>: <span class="literal">true</span></div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<p>Аналогично, дистрибутируемый контент будет также компилироваться в родительской области видимости.</p>
+<h3 id="Вариант-с-единственным-слотом"><a href="#Вариант-с-единственным-слотом" class="headerlink" title="Вариант с единственным слотом"></a>Вариант с единственным слотом</h3><p>Родительский контент будет <strong>отброшен</strong>, если в шаблоне дочернего компонента не будет содержаться хотя бы один элемент <code>&lt;slot&gt;</code>. В случае, если слот всего один, и не содержит атрибутов, всё содержимое родительского элемента будет помещено в DOM на этой позиции, замещая собой сам слот.</p>
+<p>Изначальное содержимое тега <code>&lt;slot&gt;</code> считается <strong>резервным контентом</strong>. Оно компилируется в области видимости дочернего элемента и отображается только в том случае, когда родительский элемент пуст.</p>
+<p>Предположим, у нас есть компонент <code>my-component</code>, с таким шаблоном:</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">h2</span>&gt;</span>Я — заголовок дочернего компонента<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">slot</span>&gt;</span></div><div class="line">    Этот текст будет отображён только если</div><div class="line">    не будет передано контента для дистрибьюции.</div><div class="line">  <span class="tag">&lt;/<span class="name">slot</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>И родитель, использующий этот компонент:</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">h1</span>&gt;</span>Я — заголовок родителя<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">my-component</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">p</span>&gt;</span>Немного оригинального контента<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">p</span>&gt;</span>И ещё немного<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">my-component</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>Результатом рендеринга будет:</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">h1</span>&gt;</span>Я — заголовок родителя<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">div</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">h2</span>&gt;</span>Я — заголовок дочернего компонента<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">p</span>&gt;</span>Немного оригинального контента<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">p</span>&gt;</span>И ещё немного<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
+<h3 id="Именованные-слоты"><a href="#Именованные-слоты" class="headerlink" title="Именованные слоты"></a>Именованные слоты</h3><p>Для элементов <code>&lt;slot&gt;</code> можно указать специальный атрибут, <code>name</code>, который используется для ещё более гибкой дистрибьюции контента. Можно создать несколько слотов с разничными именами. Именованный слот получит весь контент, помеченный соответствующим значением атрибута <code>slot</code>.</p>
+<p>Один из слотов можно оставить безымянным, что сделает его <strong>слотом по умолчанию</strong>, в который попадёт весь контент, для которого имя слота не указано. В случае отсутствия безымянного слота, такой контент будет попросту отброшен.</p>
+<p>Например, предположим что у нас есть компонент <code>app-layout</code> с таким шаблоном:</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"container"</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">header</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">slot</span> <span class="attr">name</span>=<span class="string">"header"</span>&gt;</span><span class="tag">&lt;/<span class="name">slot</span>&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">header</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">main</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">slot</span>&gt;</span><span class="tag">&lt;/<span class="name">slot</span>&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">main</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">footer</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">slot</span> <span class="attr">name</span>=<span class="string">"footer"</span>&gt;</span><span class="tag">&lt;/<span class="name">slot</span>&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">footer</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>Шаблон родителя:</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">app-layout</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">h1</span> <span class="attr">slot</span>=<span class="string">"header"</span>&gt;</span>Здесь мог бы быть заголовок страницы<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></div><div class="line"></div><div class="line">  <span class="tag">&lt;<span class="name">p</span>&gt;</span>Абзац основного контента.<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">p</span>&gt;</span>И ещё один.<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line"></div><div class="line">  <span class="tag">&lt;<span class="name">p</span> <span class="attr">slot</span>=<span class="string">"footer"</span>&gt;</span>Здесь — контактная информация<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">app-layout</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>Результатом рендеринга будет:</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"container"</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">header</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">h1</span>&gt;</span>Здесь мог бы быть заголовок страницы<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">header</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">main</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">p</span>&gt;</span>Абзац основного контента.<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">p</span>&gt;</span>И ещё один.<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">main</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">footer</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">p</span>&gt;</span>Здесь — контактная информация<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">footer</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>API дистрибьюции контента оказывается очень полезным механизмом для создания компонентов, задуманных для совместного использования.</p>
+<h3 id="Слоты-с-ограниченной-областью-видимости"><a href="#Слоты-с-ограниченной-областью-видимости" class="headerlink" title="Слоты с ограниченной областью видимости"></a>Слоты с ограниченной областью видимости</h3><blockquote>
+<p>Добавлены в 2.1.0</p>
+</blockquote>
+<p>Слот с ограниченной областью видимости — это особый тип слота, который можно использовать в качестве повторно используемого шаблона (в который можно передать данные) вместо уже отрендеренных элементов.</p>
+<p>В дочернем компоненте, просто передайте данные в слот, как если бы вы передавали входные параметры в компонент:</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"child"</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">slot</span> <span class="attr">text</span>=<span class="string">"hello from child"</span>&gt;</span><span class="tag">&lt;/<span class="name">slot</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>В родителе, элемент <code>&lt;template&gt;</code> с особым атрибутом <code>scope</code> указывает, что это шаблон для именованного слота. Значение <code>scope</code> — это имя временной переменной, содержащей массив входных параметров, переданных от потомка:</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"parent"</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">child</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">template</span> <span class="attr">scope</span>=<span class="string">"props"</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">span</span>&gt;</span>hello from parent<span class="tag">&lt;/<span class="name">span</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">span</span>&gt;</span>&#123;&#123; props.text &#125;&#125;<span class="tag">&lt;/<span class="name">span</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">template</span>&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">child</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>Результатом рендеринга кода выше будет:</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"parent"</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"child"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">span</span>&gt;</span>hello from parent<span class="tag">&lt;/<span class="name">span</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">span</span>&gt;</span>hello from child<span class="tag">&lt;/<span class="name">span</span>&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>Более типичным случаем для использования слотов с ограниченной областью видимости является компонент списка, позволяющий кастомизировать отображение своих элементов:</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">my-awesome-list</span> <span class="attr">:items</span>=<span class="string">"items"</span>&gt;</span></div><div class="line">  <span class="comment">&lt;!-- слот с ограниченной областью видимости может быть и именованным --&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">template</span> <span class="attr">slot</span>=<span class="string">"item"</span> <span class="attr">scope</span>=<span class="string">"props"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">li</span> <span class="attr">class</span>=<span class="string">"my-fancy-item"</span>&gt;</span>&#123;&#123; props.text &#125;&#125;<span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">template</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">my-awesome-list</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>И шаблон для компонента списка:</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">ul</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">slot</span> <span class="attr">name</span>=<span class="string">"item"</span></span></div><div class="line">    <span class="attr">v-for</span>=<span class="string">"item in items"</span></div><div class="line">    <span class="attr">:text</span>=<span class="string">"item.text"</span>&gt;</div><div class="line">    <span class="comment">&lt;!-- здесь — контент для резервного отображения --&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">slot</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></div></pre></td></tr></table></figure>
+<h2 id="Динамическое-переключение-компонентов"><a href="#Динамическое-переключение-компонентов" class="headerlink" title="Динамическое переключение компонентов"></a>Динамическое переключение компонентов</h2><p>Существует возможность динамического переключения между различными компонентами, в единой точке монтирования. Для этого используется псевдоэлемент <code>&lt;component&gt;</code> и динамическое связывание его атрибута <code>is</code>:</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="keyword">var</span> vm = <span class="keyword">new</span> Vue(&#123;</div><div class="line">  <span class="attr">el</span>: <span class="string">'#example'</span>,</div><div class="line">  <span class="attr">data</span>: &#123;</div><div class="line">    <span class="attr">currentView</span>: <span class="string">'home'</span></div><div class="line">  &#125;,</div><div class="line">  <span class="attr">components</span>: &#123;</div><div class="line">    <span class="attr">home</span>: &#123; <span class="comment">/* ... */</span> &#125;,</div><div class="line">    <span class="attr">posts</span>: &#123; <span class="comment">/* ... */</span> &#125;,</div><div class="line">    <span class="attr">archive</span>: &#123; <span class="comment">/* ... */</span> &#125;</div><div class="line">  &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">component</span> <span class="attr">v-bind:is</span>=<span class="string">"currentView"</span>&gt;</span></div><div class="line">  <span class="comment">&lt;!-- изменения vm.currentView поменяют отображаемый компонент! --&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">component</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>При желании можно связываться с объектами компонентов и напрямую:</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="keyword">var</span> Home = &#123;</div><div class="line">  <span class="attr">template</span>: <span class="string">'&lt;p&gt;Добро пожаловать домой!&lt;/p&gt;'</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">var</span> vm = <span class="keyword">new</span> Vue(&#123;</div><div class="line">  <span class="attr">el</span>: <span class="string">'#example'</span>,</div><div class="line">  <span class="attr">data</span>: &#123;</div><div class="line">    <span class="attr">currentView</span>: Home</div><div class="line">  &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<h3 id="keep-alive"><a href="#keep-alive" class="headerlink" title="keep-alive"></a><code>keep-alive</code></h3><p>Если вы хотите сохранять временно выключенные компоненты в памяти, чтобы не терять их состояния и избежать повторного рендеринга, можно завернуть динамический компонент в псевдоэлемент <code>&lt;keep-alive&gt;</code>:</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">keep-alive</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">component</span> <span class="attr">:is</span>=<span class="string">"currentView"</span>&gt;</span></div><div class="line">    <span class="comment">&lt;!-- неактивные компоненты будут закешированы! --&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">component</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">keep-alive</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>Более детально <code>&lt;keep-alive&gt;</code> рассмотрен в <a href="../api/#keep-alive">справочнике по API</a>.</p>
+<h2 id="Разное"><a href="#Разное" class="headerlink" title="Разное"></a>Разное</h2><h3 id="Создание-компонентов-для-повторного-использования"><a href="#Создание-компонентов-для-повторного-использования" class="headerlink" title="Создание компонентов для повторного использования"></a>Создание компонентов для повторного использования</h3><p>Создавая компоненты, неплохо понимать, собираетесь ли вы использовать их где-то ещё в будущем. Для одноразовых компонентов нормально быть и сильно связанными. Но вот компонентам, предназначенным для повторного использования обязательно необходим ясный публичный интерфейс, не делающий излишних предположений о контексте использования компонента.</p>
+<p>API компонентов Vue состоит из трёх частей: входных параметров, событий и слотов:</p>
+<ul>
+<li><p><strong>Входные параметры</strong> позволяют передавать в компонент данные извне.</p>
+</li>
+<li><p><strong>События</strong> позволяют компонентам инициировать побочные эффекты во внешнем окружении.</p>
+</li>
+<li><p><strong>Слоты</strong> позволяют создавать композицию компонентов и дополнительного контента.</p>
+</li>
+</ul>
+<p>С использованием специального сокращённого синтаксиса <code>v-bind</code> и <code>v-on</code>, намерения можно явно выразить в шаблоне:</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">my-component</span></span></div><div class="line">  <span class="attr">:foo</span>=<span class="string">"baz"</span></div><div class="line">  <span class="attr">:bar</span>=<span class="string">"qux"</span></div><div class="line">  @<span class="attr">event-a</span>=<span class="string">"doThis"</span></div><div class="line">  @<span class="attr">event-b</span>=<span class="string">"doThat"</span></div><div class="line">&gt;</div><div class="line">  <span class="tag">&lt;<span class="name">img</span> <span class="attr">slot</span>=<span class="string">"icon"</span> <span class="attr">src</span>=<span class="string">"..."</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">p</span> <span class="attr">slot</span>=<span class="string">"main-text"</span>&gt;</span>Привет!<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">my-component</span>&gt;</span></div></pre></td></tr></table></figure>
+<h3 id="Ссылки-на-дочерние-компоненты"><a href="#Ссылки-на-дочерние-компоненты" class="headerlink" title="Ссылки на дочерние компоненты"></a>Ссылки на дочерние компоненты</h3><p>Несмотря на наличие входных параметров и событий, иногда всё же возникает необходимость обратиться к дочерним компонентам в JavaScript напрямую. Для этих целей можно сохранить ссылку на дочерний компонент при помощи атрибута <code>ref</code>. Например:</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"parent"</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">user-profile</span> <span class="attr">ref</span>=<span class="string">"profile"</span>&gt;</span><span class="tag">&lt;/<span class="name">user-profile</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="keyword">var</span> parent = <span class="keyword">new</span> Vue(&#123; <span class="attr">el</span>: <span class="string">'#parent'</span> &#125;)</div><div class="line"><span class="comment">// получаем инстанс дочернего компонента</span></div><div class="line"><span class="keyword">var</span> child = parent.$refs.profile</div></pre></td></tr></table></figure>
+<p>Если <code>ref</code> используется вместе с директивой <code>v-for</code>, будет создан массив или объект со ссылками на инстансы, структурно повторяющий исходные данные.</p>
+<p class="tip">Объект <code>$refs</code> заполняется уже после рендеринга компонента и не является реактивным. Использования <code>$refs</code> в шаблонах и вычисляемых свойствах следует избегать, рассматривая его только как крайнее средство.</p>
+
+<h3 id="Асинхронные-компоненты"><a href="#Асинхронные-компоненты" class="headerlink" title="Асинхронные компоненты"></a>Асинхронные компоненты</h3><p>В крупных приложениях может возникнуть необходимость в разделении приложения на модули для загрузки по частям. Для облегчения таких сценариев, Vue позволяет определить компонент как функцию-фабрику, асинхронно возвращающую определение компонента. Vue вызовет фабричную функцию только тогда, когда компонент действительно понадобится, и закэширует результат для дальнейшего использования. Например:</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><div class="line">Vue.component(<span class="string">'async-example'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">resolve, reject</span>) </span>&#123;</div><div class="line">  setTimeout(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="comment">// Pass the component definition to the resolve callback</span></div><div class="line">    resolve(&#123;</div><div class="line">      <span class="attr">template</span>: <span class="string">'&lt;div&gt;Я — асинхронный!&lt;/div&gt;'</span></div><div class="line">    &#125;)</div><div class="line">  &#125;, <span class="number">1000</span>)</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<p>Функция-фабрика получает параметр <code>resolve</code> — функцию обратного вызова, которую следует вызывать после получения компонента от сервера. Кроме того, можно вызвать <code>reject(reason)</code>, если загрузка по какой-либо причине не удалась. Мы используем <code>setTimeout</code> исключительно в демонстрационных целях; как именно получать компонент в реальной ситуации — решать только вам самим. Одним из рекомендованных подходов будет использование асинхронных компонентов в связке с <a href="http://webpack.github.io/docs/code-splitting.html" target="_blank" rel="external">возможностями Webpack’а по разделению кода</a>:</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><div class="line">Vue.component(<span class="string">'async-webpack-example'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">resolve</span>) </span>&#123;  </div><div class="line">  <span class="comment">// специальный синтаксис require укажет Webpack</span></div><div class="line">  <span class="comment">// автоматически разделить сборку на части</span></div><div class="line">  <span class="comment">// для последующей асинхронной загрузки</span></div><div class="line">  <span class="built_in">require</span>([<span class="string">'./my-async-component'</span>], resolve)</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<p>В функции resolve можно также вернуть промис, так что используя Webpack 2 и синтаксис ES2015 можно сделать так:</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><div class="line">Vue.component(</div><div class="line">  <span class="string">'async-webpack-example'</span>,</div><div class="line">  () =&gt; System.import(<span class="string">'./my-async-component'</span>)</div><div class="line">)</div></pre></td></tr></table></figure>
+<p class="tip">Если вы используете <strong>Browserify</strong> и тоже хотите использовать асинхронные компоненты, нам, к сожалению, придётся вас огорчить: это невозможно, и вряд ли будет возможно когда-либо, так как сам создатель Browserify <a href="https://github.com/substack/node-browserify/issues/58#issuecomment-21978224" target="_blank" rel="external">прояснил</a>, что асинхронная загрузка “не является чем-то, что Browserify когда-либо будет поддерживать.” По крайней мере, такова официальная позиция. Сообщество Browserify обнаружило возможные <a href="https://github.com/vuejs/vuejs.org/issues/620" target="_blank" rel="external">обходные пути</a>, что может помочь уже существующим сложным приложениям. Но в целом мы советуем использовать Webpack, обладающий полноценной встроенной поддержкой асинхронной загрузки частей сборки.</p>
+
+<h3 id="Соглашения-по-именованию-компонентов"><a href="#Соглашения-по-именованию-компонентов" class="headerlink" title="Соглашения по именованию компонентов"></a>Соглашения по именованию компонентов</h3><p>При регистрации компонентов (или входных параметров), вы можете использовать kebab-case, camelCase или TitleCase. Vue — без разницы.</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="comment">// при определении компонента</span></div><div class="line">components: &#123;</div><div class="line">  <span class="comment">// регистрация с использованием kebab-case</span></div><div class="line">  <span class="string">'kebab-cased-component'</span>: &#123; <span class="comment">/* ... */</span> &#125;,</div><div class="line">  <span class="comment">// регистрация с использованием camelCase</span></div><div class="line">  <span class="string">'camelCasedComponent'</span>: &#123; <span class="comment">/* ... */</span> &#125;,</div><div class="line">  <span class="comment">// регистрация с использованием TitleCase</span></div><div class="line">  <span class="string">'TitleCasedComponent'</span>: &#123; <span class="comment">/* ... */</span> &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>В HTML-шаблонах, однако, придётся использовать эквивалентный kebab-case:</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="comment">&lt;!-- всегда используйте kebab-case в HTML-шаблонах --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">kebab-cased-component</span>&gt;</span><span class="tag">&lt;/<span class="name">kebab-cased-component</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">camel-cased-component</span>&gt;</span><span class="tag">&lt;/<span class="name">camel-cased-component</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">title-cased-component</span>&gt;</span><span class="tag">&lt;/<span class="name">title-cased-component</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>Однако, при использовании <em>строковых</em> шаблонов, мы уже не связаны ограничениями регистронезависимости HTML. Это значит, что даже в шаблоне вы можете указывать компоненты и входные параметры как в camelCase, так и в TitleCase или kebab-case:</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="comment">&lt;!-- в строковых шаблонах вы вольны использовать любой подход! --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">my-component</span>&gt;</span><span class="tag">&lt;/<span class="name">my-component</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">myComponent</span>&gt;</span><span class="tag">&lt;/<span class="name">myComponent</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">MyComponent</span>&gt;</span><span class="tag">&lt;/<span class="name">MyComponent</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>Если компонент не содержит слотов, его можно даже сделать самозакрывающимся, указав <code>/</code> после имени:</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">my-component</span>/&gt;</span></div></pre></td></tr></table></figure>
+<p>Ещё раз заметим, что это возможно <em>только</em> при использовании строковых шаблонов, поскольку самозакрывающие пользовательские элементы не являются валидными в HTML, и нативные парсеры браузеров такую запись не поймут.</p>
+<h3 id="Рекурсивные-компоненты"><a href="#Рекурсивные-компоненты" class="headerlink" title="Рекурсивные компоненты"></a>Рекурсивные компоненты</h3><p>Компоненты могут рекурсивно вызывать самих себя в своих шаблонах. Однако, эта возможность доступна только при указании опции <code>name</code>:</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><div class="line">name: <span class="string">'unique-name-of-my-component'</span></div></pre></td></tr></table></figure>
+<p>При глобальной регистрации, глобальный ID автоматически устанавливается равным опции <code>name</code> компонента:</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><div class="line">Vue.component(<span class="string">'unique-name-of-my-component'</span>, &#123;</div><div class="line">  <span class="comment">// ...</span></div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<p>Если не соблюдать осторожность, рекурсивное использование компонентов может привести к появлению бесконечных циклов:</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><div class="line">name: <span class="string">'stack-overflow'</span>,</div><div class="line"><span class="attr">template</span>: <span class="string">'&lt;div&gt;&lt;stack-overflow&gt;&lt;/stack-overflow&gt;&lt;/div&gt;'</span></div></pre></td></tr></table></figure>
+<p>Компонент, подобный вышеописанному, породит ошибку переполнения стека, поэтому обязательно удостоверьтесь, что рекурсивный вызов является условным (т.е. использует директиву <code>v-if</code>, которая рано или поздно станет ложной).</p>
+<h3 id="Circular-References-Between-Components"><a href="#Circular-References-Between-Components" class="headerlink" title="Circular References Between Components"></a>Circular References Between Components</h3><p>Let’s say you’re building a file directory tree, like in Finder or File Explorer. You might have a <code>tree-folder</code> component with this template:</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">span</span>&gt;</span>&#123;&#123; folder.name &#125;&#125;<span class="tag">&lt;/<span class="name">span</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">tree-folder-contents</span> <span class="attr">:children</span>=<span class="string">"folder.children"</span>/&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">p</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>Then a <code>tree-folder-contents</code> component with this template:</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">ul</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">li</span> <span class="attr">v-for</span>=<span class="string">"child in children"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">tree-folder</span> <span class="attr">v-if</span>=<span class="string">"child.children"</span> <span class="attr">:folder</span>=<span class="string">"child"</span>/&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">span</span> <span class="attr">v-else</span>&gt;</span>&#123;&#123; child.name &#125;&#125;<span class="tag">&lt;/<span class="name">span</span>&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>When you look closely, you’ll see that these components will actually be each other’s descendent <em>and</em> ancestor in the render tree - a paradox! When registering components globally with <code>Vue.component</code>, this paradox is resolved for you automatically. If that’s you, you can stop reading here.</p>
+<p>However, if you’re requiring/importing components using a <strong>module system</strong>, e.g. via Webpack or Browserify, you’ll get an error:</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">Failed to mount component: template or render function not defined.</div></pre></td></tr></table></figure>
+<p>To explain what’s happening, I’ll call our components A and B. The module system sees that it needs A, but first A needs B, but B needs A, but A needs B, etc, etc. It’s stuck in a loop, not knowing how to fully resolve either component without first resolving the other. To fix this, we need to give the module system a point at which it can say, “A needs B <em>eventually</em>, but there’s no need to resolve B first.”</p>
+<p>In our case, I’ll make that point the <code>tree-folder</code> component. We know the child that creates the paradox is the <code>tree-folder-contents</code> component, so we’ll wait until the <code>beforeCreate</code> lifecycle hook to register it:</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><div class="line">beforeCreate: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="keyword">this</span>.$options.components.TreeFolderContents = <span class="built_in">require</span>(<span class="string">'./tree-folder-contents.vue'</span>)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>Problem solved!</p>
+<h3 id="Inline-шаблоны"><a href="#Inline-шаблоны" class="headerlink" title="Inline-шаблоны"></a>Inline-шаблоны</h3><p>При указании специального атрибута <code>inline-template</code> для дочернего компонента, внутренности элемента будут использованы не для дистрибьюции контента, а в качестве шаблона этого компонента. Это делает использование компонентов более гибким.</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">my-component</span> <span class="attr">inline-template</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">div</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">p</span>&gt;</span>Этот шаблон будет скомпилирован в области видимости дочернего компонента.<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">p</span>&gt;</span>Доступа к данным родителя — нет.<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span>  </div><div class="line"><span class="tag">&lt;/<span class="name">my-component</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>Однако, использование <code>inline-template</code> затрудняет понимание происходящего в шаблонах. На правах правила хорошего тона, определение шаблонов внутри компонента с использованием опции <code>template</code> или в элементе <code>template</code> <code>.vue</code>-файла считается более предпочтительным.</p>
+<h3 id="Определение-шаблонов-через-X-Template"><a href="#Определение-шаблонов-через-X-Template" class="headerlink" title="Определение шаблонов через X-Template"></a>Определение шаблонов через X-Template</h3><p>Другой возможностью определения шаблонов является использование специальных элементов <code>script</code> с указанием типа <code>text/x-template</code> и id, на который можно сослаться при регистрации шаблона. Например:</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/x-template"</span> <span class="attr">id</span>=<span class="string">"hello-world-template"</span>&gt;</span><span class="xml"></span></div><div class="line">  <span class="tag">&lt;<span class="name">p</span>&gt;</span>Привет привет привет<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><div class="line">Vue.component(<span class="string">'hello-world'</span>, &#123;</div><div class="line">  <span class="attr">template</span>: <span class="string">'#hello-world-template'</span></div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<p>Эта возможность может оказаться полезной для демо с большими шаблонами, или в очень маленьких приложениях, но в целом из-за разделения шаблонов с остальными частями определения компонентов, этого подхода следует избегать.</p>
+<h3 id="Дешёвые-статические-компоненты-с-использованием-v-once"><a href="#Дешёвые-статические-компоненты-с-использованием-v-once" class="headerlink" title="Дешёвые статические компоненты с использованием v-once"></a>Дешёвые статические компоненты с использованием <code>v-once</code></h3><p>Рендеринг простых элементов HTML во Vue происходит очень быстро, но иногда возникают компоненты с <strong>большим</strong> количеством статических данных. В таких случаях добавление директивы <code>v-once</code> в корневом элементе позволяет удостовериться, что все вычисления будут произведены лишь однажды, а дальше работа будет происходить с кэшем, например таким образом:</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><div class="line">Vue.component(<span class="string">'terms-of-service'</span>, &#123;</div><div class="line">  <span class="attr">template</span>: <span class="string">'\</span></div><div class="line">    &lt;div v-once&gt;\</div><div class="line">      &lt;h1&gt;Условия Использования&lt;/h1&gt;\</div><div class="line">      ... много-много статического контента ...\</div><div class="line">    &lt;/div&gt;\</div><div class="line">  '</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+
+    
+      <div class="guide-links">
+        
+          <span>← <a href="/v2/guide/forms.html">Работа с формами</a></span>
+        
+        
+          <span style="float:right"><a href="/v2/guide/reactivity.html">Подробно о реактивности</a> →</span>
+        
+      </div>
+    
+    <div class="footer">
+      Обнаружили ошибку или хотите добавить что-то своё в документацию?
+      <a href="https://github.com/vuejs/vuejs.org/blob/master/src/v2/guide/components.md" target="_blank">
+        Отредактируйте эту страницу на Github!
+      </a>
+    </div>
+</div>
+
+                
+            </div>
+            <script src="/js/smooth-scroll.min.js"></script>
+        
+
+        <!-- main custom script for sidebars, version selects etc. -->
+        <script src="/js/common.js"></script>
+
+        <!-- ga -->
+        <script>
+          (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+          (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+          })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+          ga('create', 'UA-46852172-1', 'vuejs.org');
+          ga('send', 'pageview');
+        </script>
+
+        <!-- search -->
+        <link href="//cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css" rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="/css/search.css">
+        <script src="//cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script>
+        <script>
+        [
+          '#search-query-nav',
+          '#search-query-sidebar'
+        ].forEach(function (selector) {
+          if (!document.querySelector(selector)) return
+          // search index defaults to v2
+          var match = window.location.pathname.match(/^\/(v\d+)/)
+          var version = match ? match[1] : 'v2'
+          docsearch({
+            appId: 'BH4D9OD16A',
+            apiKey: '85cc3221c9f23bfbaa4e3913dd7625ea',
+            indexName: 'vuejs',
+            inputSelector: selector,
+            algoliaOptions: { facetFilters: ["version:" + version] }
+          })
+        })
+        </script>
+
+        <!-- fastclick -->
+        <script src="//cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.min.js"></script>
+        <script>
+        document.addEventListener('DOMContentLoaded', function() {
+          FastClick.attach(document.body)
+        }, false)
+        </script>
+    </body>
+</html>
