@@ -559,7 +559,7 @@
 </ul>
 <figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">NODE_ENV=production browserify -g envify <span class="_">-e</span> main.js | uglifyjs -c -m &gt; build.js</div></pre></td></tr></table></figure>
 <ul>
-<li>Для выноса стилей в отдельный css-файл, используйте плагин extract-css, включённый во vueify.</li>
+<li>Для выноса стилей в отдельный CSS-файл, используйте плагин extract-css, включённый во vueify.</li>
 </ul>
 <figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">NODE_ENV=production browserify -g envify -p [ vueify/plugins/extract-css -o build.css ] <span class="_">-e</span> main.js | uglifyjs -c -m &gt; build.js</div></pre></td></tr></table></figure>
 <h2 id="Отслеживание-ошибок-времени-выполнения"><a href="#Отслеживание-ошибок-времени-выполнения" class="headerlink" title="Отслеживание ошибок времени выполнения"></a>Отслеживание ошибок времени выполнения</h2><p>Если при рендеринге компонента произойдёт ошибка, она будет передана в глобальную функцию <code>Vue.config.errorHandler</code>, если таковая была указана. Использование этого хука в связке с сервисом отслеживания ошибок, например с <a href="https://sentry.io" target="_blank" rel="external">Sentry</a>, может быть неплохой идеей — тем более, что <a href="https://sentry.io/for/vue/" target="_blank" rel="external">интеграция с Vue официально поддерживается</a>.</p>
