@@ -376,7 +376,7 @@
                 
                 
                 <li>
-                    <a href="/v2/guide/mixins.html" class="sidebar-link">Миксины</a>
+                    <a href="/v2/guide/mixins.html" class="sidebar-link">Примеси</a>
                 </li>
             
                 
@@ -549,7 +549,7 @@
       <h1>Работа с классами и стилями</h1>
     
     <p>Зачастую возникает необходимость динамически изменять CSS-классы и inline-стили элементов в зависимости от состояния приложения. Поскольку и то и другое — атрибуты, мы можем использовать <code>v-bind</code>: необходимо лишь вычислить результирующую строку при помощи выражения. Впрочем, каждый раз возиться с конкатенацией строк неудобно, к тому же это может привести к ошибкам. К счастью, у Vue есть дополнительные возможности директивы <code>v-bind</code> для работы с <code>class</code> и <code>style</code>. Эти атрибуты при динамическом связывании могут принимать не только строковые значения, но и массивы или объекты.</p>
-<h2 id="Связывание-CSS-классов"><a href="#Связывание-CSS-классов" class="headerlink" title="Связывание CSS-классов"></a>Связывание CSS-классов</h2><h3 id="Использование-объектов"><a href="#Использование-объектов" class="headerlink" title="Использование объектов"></a>Использование объектов</h3><p>Для динамического включения или выключения классов мы можем передать в директиву <code>v-bind:class</code> объект:</p>
+<h2 id="Связывание-CSS-классов"><a href="#Связывание-CSS-классов" class="headerlink" title="Связывание CSS-классов"></a>Связывание CSS-классов</h2><h3 id="Использование-объектов"><a href="#Использование-объектов" class="headerlink" title="Использование объектов"></a>Использование объектов</h3><p>Для динамического задания или удаления CSS классов мы можем передать в директиву <code>v-bind:class</code> объект:</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">v-bind:class</span>=<span class="string">"&#123; active: isActive &#125;"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
 <p>Запись выше обозначает, что наличие класса <code>active</code> будет определяться <a href="https://developer.mozilla.org/en-US/docs/Glossary/Truthy" target="_blank" rel="external">истинностью</a> параметра <code>isActive</code>.</p>
 <p>Таким образом можно управлять несколькими классами, добавляя в объект дополнительные поля. Кроме того, <code>v-bind:class</code> можно использовать и совместно с обычным атрибутом <code>class</code>:</p>
@@ -573,12 +573,12 @@
 <p>Для переключения классов, переданных в массиве, в зависимости от некоторого условия, можно применить условный оператор <code>?</code>:</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">v-bind:class</span>=<span class="string">"[isActive ? activeClass : '', errorClass]"</span>&gt;</span></div></pre></td></tr></table></figure>
 <p>В этом случае ‘errorClass’ будет применён к элементу всегда, а <code>activeClass</code> — только в случае истинности <code>isActive</code>.</p>
-<p>Однако, такая запись быстро становится громоздкой. Поэтому можно использовать и смешанный синтаксис:</p>
+<p>Однако, такая запись становится слегка громоздкой, если у вас есть несколько классов, задаваемых по условию. Поэтому можно использовать и смешанный синтаксис:</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">v-bind:class</span>=<span class="string">"[&#123; active: isActive &#125;, errorClass]"</span>&gt;</span></div></pre></td></tr></table></figure>
 <h3 id="Использование-с-компонентами"><a href="#Использование-с-компонентами" class="headerlink" title="Использование с компонентами"></a>Использование с компонентами</h3><blockquote>
 <p>Эта секция предполагает знакомство с <a href="components.html">компонентами Vue</a>. Вы можете спокойно пропустить её сейчас и вернуться позднее.</p>
 </blockquote>
-<p>При применении атрибута <code>class</code> к пользовательскому компоненту, классы будут добавлены к его корневому элементу. Собственные классы компонента при этом потеряны не будут.</p>
+<p>При применении атрибута <code>class</code> к пользовательскому компоненту, классы будут добавлены к его корневому элементу. Собственные классы элемента при этом потеряны не будут.</p>
 <p>Возьмём, к примеру, такой компонент:</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><div class="line">Vue.component(<span class="string">'my-component'</span>, &#123;</div><div class="line">  <span class="attr">template</span>: <span class="string">'&lt;p class="foo bar"&gt;Hi&lt;/p&gt;'</span></div><div class="line">&#125;)</div></pre></td></tr></table></figure>
 <p>Если при использовании указать дополнительные классы:</p>
@@ -592,13 +592,13 @@
 <h2 id="Связывание-inline-стилей"><a href="#Связывание-inline-стилей" class="headerlink" title="Связывание inline-стилей"></a>Связывание inline-стилей</h2><h3 id="Использование-объектов-1"><a href="#Использование-объектов-1" class="headerlink" title="Использование объектов"></a>Использование объектов</h3><p>Объектная запись для <code>v-bind:style</code> довольно прямолинейна и выглядит почти как обыкновенный CSS, хотя в действительности и используется JavaScript. Для указания свойств CSS можно применять как camelCase, так и kebab-case:</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">v-bind:style</span>=<span class="string">"&#123; color: activeColor, fontSize: fontSize + 'px' &#125;"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
 <figure class="highlight js"><table><tr><td class="code"><pre><div class="line">data: &#123;</div><div class="line">  <span class="attr">activeColor</span>: <span class="string">'red'</span>,</div><div class="line">  <span class="attr">fontSize</span>: <span class="number">30</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>Передача объекта стилей по имени нередко может сделать код проще для понимания:</p>
+<p>Передача объекта стилей по имени нередко может сделать код чище:</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">v-bind:style</span>=<span class="string">"styleObject"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
 <figure class="highlight js"><table><tr><td class="code"><pre><div class="line">data: &#123;</div><div class="line">  <span class="attr">styleObject</span>: &#123;</div><div class="line">    <span class="attr">color</span>: <span class="string">'red'</span>,</div><div class="line">    <span class="attr">fontSize</span>: <span class="string">'13px'</span></div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>Разумеется, можно использовать и вычисляемые свойства, возвращающие объекты стилей.</p>
 <h3 id="Использование-массивов-1"><a href="#Использование-массивов-1" class="headerlink" title="Использование массивов"></a>Использование массивов</h3><p>Запись <code>v-bind:style</code> с массивом позволяет применить несколько объектов стилей к одному и тому же элементу:</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">v-bind:style</span>=<span class="string">"[baseStyles, overridingStyles]"</span>&gt;</span></div></pre></td></tr></table></figure>
-<h3 id="Автоматические-префиксы"><a href="#Автоматические-префиксы" class="headerlink" title="Автоматические префиксы"></a>Автоматические префиксы</h3><p>При использовании в <code>v-bind:style</code> свойств CSS, требующих указания вендорных префиксов, Vue автоматически определит это и добавит необходимые префиксы к применяемым стилям.</p>
+<h3 id="Автоматические-префиксы"><a href="#Автоматические-префиксы" class="headerlink" title="Автоматические префиксы"></a>Автоматические префиксы</h3><p>При использовании в <code>v-bind:style</code> свойств CSS, требующих указания вендорных префиксов, Vue автоматически определит это и добавит подходящие префиксы к применяемым стилям.</p>
 
     
       <div class="guide-links">

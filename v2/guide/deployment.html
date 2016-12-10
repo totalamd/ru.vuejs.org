@@ -376,7 +376,7 @@
                 
                 
                 <li>
-                    <a href="/v2/guide/mixins.html" class="sidebar-link">Миксины</a>
+                    <a href="/v2/guide/mixins.html" class="sidebar-link">Примеси</a>
                 </li>
             
                 
@@ -563,8 +563,8 @@
 </ul>
 <figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">NODE_ENV=production browserify -g envify -p [ vueify/plugins/extract-css -o build.css ] <span class="_">-e</span> main.js | uglifyjs -c -m &gt; build.js</div></pre></td></tr></table></figure>
 <h2 id="Отслеживание-ошибок-времени-выполнения"><a href="#Отслеживание-ошибок-времени-выполнения" class="headerlink" title="Отслеживание ошибок времени выполнения"></a>Отслеживание ошибок времени выполнения</h2><p>Если при рендеринге компонента произойдёт ошибка, она будет передана в глобальную функцию <code>Vue.config.errorHandler</code>, если таковая была указана. Использование этого хука в связке с сервисом отслеживания ошибок, например с <a href="https://sentry.io" target="_blank" rel="external">Sentry</a>, может быть неплохой идеей — тем более, что <a href="https://sentry.io/for/vue/" target="_blank" rel="external">интеграция с Vue официально поддерживается</a>.</p>
-<h2 id="Экстракция-CSS"><a href="#Экстракция-CSS" class="headerlink" title="Экстракция CSS"></a>Экстракция CSS</h2><p>При использовании в разработке <a href="./single-file-components.html">однофайловых компонентов</a>, теги <code>&lt;style&gt;</code> обновляются автоматически. Для “боевого” окружения вы можете захотеть поместить все стили в единый CSS-файл. Детальную информацию о том как это сделать можно получить в документации <a href="http://vue-loader.vuejs.org/en/configurations/extract-css.html" target="_blank" rel="external">vue-loader</a> и <a href="https://github.com/vuejs/vueify#css-extraction" target="_blank" rel="external">vueify</a>.</p>
-<p>Официальный шаблон <code>webpack</code> для <code>vue-cli</code> уже содержит готовую конфигурацию для экстрации стилей.</p>
+<h2 id="Извлечение-CSS"><a href="#Извлечение-CSS" class="headerlink" title="Извлечение CSS"></a>Извлечение CSS</h2><p>При использовании в разработке <a href="./single-file-components.html">однофайловых компонентов</a>, теги <code>&lt;style&gt;</code> обновляются автоматически. Для “боевого” окружения вам может понадобиться поместить все стили в единый CSS-файл. Детальную информацию о том как это сделать можно прочесть в документации <a href="http://vue-loader.vuejs.org/en/configurations/extract-css.html" target="_blank" rel="external">vue-loader</a> и <a href="https://github.com/vuejs/vueify#css-extraction" target="_blank" rel="external">vueify</a>.</p>
+<p>Официальный шаблон <code>webpack</code> для <code>vue-cli</code> уже содержит готовую конфигурацию для извлечения стилей.</p>
 
     
       <div class="guide-links">
