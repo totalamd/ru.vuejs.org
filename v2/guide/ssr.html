@@ -468,6 +468,18 @@
                     
                     
                     
+                    
+                
+                
+                <li>
+                    <a href="/v2/guide/typescript.html" class="sidebar-link">Поддержка TypeScript</a>
+                </li>
+            
+                
+                
+                    
+                    
+                    
                       <li><h3>Вопросы миграции</h3></li>
                     
                     
@@ -549,13 +561,13 @@
       <h1>SSR. Рендеринг на стороне сервера</h1>
     
     <h2 id="Нужен-ли-вам-SSR"><a href="#Нужен-ли-вам-SSR" class="headerlink" title="Нужен ли вам SSR?"></a>Нужен ли вам SSR?</h2><p>Перед тем как углубляться в SSR, давайте разберёмся, что это за технология, и когда она может вам понадобиться.</p>
-<h3 id="SEO"><a href="#SEO" class="headerlink" title="SEO"></a>SEO</h3><p>Google и Bing прекрасно индексируют синхронные JavaScript-приложения. <em>Синхронные</em> здесь — ключевое слово. Если ваше приложение начинается с индикатора загрузки, подтягивая данные Ajax-запросом, поисковый робот ждать окончания загрузки не станет.</p>
-<p>Это означает, что если данные загружаются асинхронно на страницах, для которых SEO важно, SSR может стать необходимостью.</p>
-<h3 id="Клиенты-с-медленным-соединением"><a href="#Клиенты-с-медленным-соединением" class="headerlink" title="Клиенты с медленным соединением"></a>Клиенты с медленным соединением</h3><p>Пользователи могут приходить на ваш сайт из отдалённых районов с медленным соединением — или просто с медленного мобильного интернета. В таких случаях, будет лучше минимизировать количество и размер запросов, требующихся для отображения основного контента.</p>
-<p>Во избежания загрузки целого приложения можно использовать <a href="https://webpack.github.io/docs/code-splitting.html" target="_blank" rel="external">инструменты Webpack для разделения кода</a>, но даже этот подход не будет столь же эффективен, как скачивание уже готового срендеренного на сервере файла.</p>
-<h3 id="Клиенты-с-устаревшим-JavaScript-или-вовсе-без-такового"><a href="#Клиенты-с-устаревшим-JavaScript-или-вовсе-без-такового" class="headerlink" title="Клиенты с устаревшим JavaScript (или вовсе без такового)"></a>Клиенты с устаревшим JavaScript (или вовсе без такового)</h3><p>В некоторых сообществах и регионах единственной опцией для доступа в интернет может оказаться компьютер из 1998 года. Несмотря на то, что Vue работает только с IE9+, возможно вы всё же захотите иметь возможность доставить основной контент в устаревшие браузеры — или хакерам-хипстерам, использующим <a href="http://lynx.browser.org/" target="_blank" rel="external">Lynx</a> в терминале.</p>
-<h3 id="Пререндеринг"><a href="#Пререндеринг" class="headerlink" title="Пререндеринг"></a>Пререндеринг</h3><p>Если вы интересуетесь SSR только для того, чтобы улучшить SEO на нескольких маркетинговых страницах (напр. <code>/</code>, <code>/about</code>, <code>/contact</code> и т.д.), вам скорее всего будет достаточно <strong>пререндеринга</strong>. Вместо того чтобы заставлять web-сервер компилировать HTML на лету, пререндеринг просто однократно строит статические HTML-файлы для указанных путей, на этапе сборки. Преимущество пререндеринга – в значительно большей простоте, кроме того этот подход позволяет вам оставить фронтенд полностью статичным.</p>
-<p>Если вы используете Webpack, пререндеринг нетрудно добавить при помощи плагина <a href="https://github.com/chrisvfritz/prerender-spa-plugin" target="_blank" rel="external">prerender-spa-plugin</a>. Плагин был серьёзнейшим образом протестирован с Vue (вообще-то, его создатель - член основной команды разработки Vue).</p>
+<h3 id="SEO"><a href="#SEO" class="headerlink" title="SEO"></a>SEO</h3><p>Google и Bing прекрасно индексируют синхронные JavaScript-приложения. <em>Синхронные</em> здесь — ключевое слово. Если ваше приложение начинается с индикатора загрузки, подгружая данные с помощью ajax-запросов, поисковый робот ждать окончания загрузки не станет.</p>
+<p>Это означает, что если данные загружаются асинхронно на страницах, для которых важна оптимальная индексация поисковиками, SSR может стать необходимостью.</p>
+<h3 id="Клиенты-с-медленным-соединением"><a href="#Клиенты-с-медленным-соединением" class="headerlink" title="Клиенты с медленным соединением"></a>Клиенты с медленным соединением</h3><p>Пользователи могут приходить на ваш сайт из отдалённых районов с медленным соединением — или же просто через медленный мобильный интернет. В таких случаях лучше минимизировать количество и объем запросов, требующихся для отображения основного контента.</p>
+<p>Во избежания загрузки целого приложения можно использовать <a href="https://webpack.github.io/docs/code-splitting.html" target="_blank" rel="external">инструменты Webpack для разделения кода</a>, но даже этот подход не будет столь же эффективен, как скачивание уже готового отрендеренного на сервере файла.</p>
+<h3 id="Клиенты-с-устаревшим-JavaScript-или-вовсе-без-такового"><a href="#Клиенты-с-устаревшим-JavaScript-или-вовсе-без-такового" class="headerlink" title="Клиенты с устаревшим JavaScript (или вовсе без такового)"></a>Клиенты с устаревшим JavaScript (или вовсе без такового)</h3><p>В некоторых демографических группах и отдельных регионах единственной опцией для доступа в интернет может оказаться компьютер 1998 года. Несмотря на то, что Vue работает только с IE9+, возможно вам всё же понадобится возможность доставить содержимое страниц в устаревшие браузеры — или хакерам-хипстерам, использующим <a href="http://lynx.browser.org/" target="_blank" rel="external">Lynx</a> в терминале.</p>
+<h3 id="Пререндеринг"><a href="#Пререндеринг" class="headerlink" title="Пререндеринг"></a>Пререндеринг</h3><p>Если вы интересуетесь SSR только для того, чтобы улучшить SEO на нескольких маркетинговых страницах (напр. <code>/</code>, <code>/about</code>, <code>/contact</code> и т.д.), вам скорее всего будет достаточно <strong>пререндеринга</strong>. Вместо того чтобы заставлять web-сервер компилировать HTML на лету, пререндеринг просто однократно строит статические HTML-файлы для указанных путей на этапе сборки. Преимущество пререндеринга – простота, кроме того этот подход позволяет вам оставить фронтенд полностью статичным.</p>
+<p>Если вы используете Webpack, пререндеринг несложно добавить при помощи плагина <a href="https://github.com/chrisvfritz/prerender-spa-plugin" target="_blank" rel="external">prerender-spa-plugin</a>. Плагин был серьёзнейшим образом протестирован с Vue (вообще-то, его создатель - член основной команды разработки Vue).</p>
 <h2 id="Hello-World"><a href="#Hello-World" class="headerlink" title="Hello World"></a>Hello World</h2><p>Если вы дочитали до этого места, пора посмотреть на SSR в действии. Звучит, конечно, сложновато, но для простой демонстрации нужно всего 3 шага:</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="comment">// Шаг 1: Создадим инстанс Vue</span></div><div class="line"><span class="keyword">var</span> Vue = <span class="built_in">require</span>(<span class="string">'vue'</span>)</div><div class="line"><span class="keyword">var</span> app = <span class="keyword">new</span> Vue(&#123;</div><div class="line">  <span class="attr">render</span>: <span class="function"><span class="keyword">function</span> (<span class="params">h</span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> h(<span class="string">'p'</span>, <span class="string">'hello world'</span>)</div><div class="line">  &#125;</div><div class="line">&#125;)</div><div class="line"></div><div class="line"><span class="comment">// Шаг 2: Создадим рендерер</span></div><div class="line"><span class="keyword">var</span> renderer = <span class="built_in">require</span>(<span class="string">'vue-server-renderer'</span>).createRenderer()</div><div class="line"></div><div class="line"><span class="comment">// Шаг 3: Рендеринг инстанса в HTML</span></div><div class="line">renderer.renderToString(app, <span class="function"><span class="keyword">function</span> (<span class="params">error, html</span>) </span>&#123;</div><div class="line">  <span class="keyword">if</span> (error) <span class="keyword">throw</span> error</div><div class="line">  <span class="built_in">console</span>.log(html)</div><div class="line">  <span class="comment">// =&gt; &lt;p server-rendered="true"&gt;hello world&lt;/p&gt;</span></div><div class="line">&#125;)</div></pre></td></tr></table></figure>
 <p>Не так уж страшно, правда? Конечно, этот пример намного проще чем большинство приложений. Нам не пришлось волноваться о:</p>
@@ -569,7 +581,7 @@
 </ul>
 <p>В оставшейся части данного руководства мы пробежимся по некоторым из этих вещей. А когда вы поймёте основы, мы сможем направить вас к более детальной документации и более продвинутым примерам, включая рассмотрение краевых случаев.</p>
 <h2 id="Простая-реализация-SSR-на-базе-web-сервера-Express"><a href="#Простая-реализация-SSR-на-базе-web-сервера-Express" class="headerlink" title="Простая реализация SSR на базе web-сервера Express"></a>Простая реализация SSR на базе web-сервера Express</h2><p>Использование термина “рендеринг на сервере”, в отсутствии самого web-сервера звучит натянуто — давайте это исправим. Мы создадим простейшее SSR-приложение, применяя только ES5 и не используя ни сборщиков, ни плагинов.</p>
-<p>Начнём с приложения, которое просто говорит пользователю, сколько секунд он провёл на странице:</p>
+<p>Начнём с приложения, которое просто сообщает пользователю сколько секунд он провёл на странице:</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="keyword">new</span> Vue(&#123;</div><div class="line">  <span class="attr">template</span>: <span class="string">'&lt;div&gt;Вы были здесь &#123;&#123; counter &#125;&#125; секунд.&lt;/div&gt;'</span>,</div><div class="line">  <span class="attr">data</span>: &#123;</div><div class="line">    <span class="attr">counter</span>: <span class="number">0</span></div><div class="line">  &#125;,</div><div class="line">  <span class="attr">created</span>: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> vm = <span class="keyword">this</span></div><div class="line">    setInterval(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">      vm.counter += <span class="number">1</span></div><div class="line">    &#125;, <span class="number">1000</span>)</div><div class="line">  &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
 <p>Чтобы приложение работало и на клиенте и на сервере, придётся внести несколько модификаций:</p>
 <ul>
@@ -631,7 +643,7 @@
           <span>← <a href="/v2/guide/unit-testing.html">Модульное Тестирование</a></span>
         
         
-          <span style="float:right"><a href="/v2/guide/migration.html">Миграция с Vue 1.x</a> →</span>
+          <span style="float:right"><a href="/v2/guide/typescript.html">Поддержка TypeScript</a> →</span>
         
       </div>
     

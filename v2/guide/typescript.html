@@ -2,18 +2,18 @@
 <!DOCTYPE html>
 <html lang="ru">
     <head>
-        <title>Установка - vue.js</title>
+        <title>Поддержка TypeScript - vue.js</title>
         <meta charset="utf-8">
         <meta name="description" content="Vue.js - Intuitive, Fast and Composable MVVM for building interactive interfaces.">
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
         <meta property="og:type" content="article">
-        <meta property="og:title" content="Установка - vue.js">
+        <meta property="og:title" content="Поддержка TypeScript - vue.js">
         <meta property="og:description" content="Vue.js - Intuitive, Fast and Composable MVVM for building interactive interfaces.">
         <meta property="og:image" content="https://ru.vuejs.org/images/logo.png">
 
         <meta name="twitter:card" content="summary">
-        <meta name="twitter:title" content="Установка - vue.js">
+        <meta name="twitter:title" content="Поддержка TypeScript - vue.js">
         <meta name="twitter:description" content="Vue.js - Intuitive, Fast and Composable MVVM for building interactive interfaces.">
         <meta name="twitter:image" content="https://ru.vuejs.org/images/logo.png">
 
@@ -182,7 +182,7 @@
                 
                 
                 <li>
-                    <a href="/v2/guide/installation.html" class="sidebar-link current">Установка</a>
+                    <a href="/v2/guide/installation.html" class="sidebar-link">Установка</a>
                 </li>
             
                 
@@ -472,7 +472,7 @@
                 
                 
                 <li>
-                    <a href="/v2/guide/typescript.html" class="sidebar-link">Поддержка TypeScript</a>
+                    <a href="/v2/guide/typescript.html" class="sidebar-link current">Поддержка TypeScript</a>
                 </li>
             
                 
@@ -545,7 +545,7 @@
 </div>
 
 
-<div class="content guide with-sidebar installation-guide">
+<div class="content guide with-sidebar typescript-guide">
     
       <div id="ad">
   <!-- <span>Наш спонсор:</span><br>
@@ -558,52 +558,42 @@
 
     
     
-      <h1>Установка</h1>
+      <h1>Поддержка TypeScript</h1>
     
-    <h3 id="Предупреждение-о-cовместимости"><a href="#Предупреждение-о-cовместимости" class="headerlink" title="Предупреждение о cовместимости"></a>Предупреждение о cовместимости</h3><p>Vue <strong>не поддерживает</strong> IE8 и ниже, потому что использует возможности ECMAScript 5, которые невозможно сэмулировать в IE8. Тем не менее, поддерживаются все <a href="http://caniuse.com/#feat=es5" target="_blank" rel="external">браузеры, совместимые с ECMAScript 5</a>.</p>
-<h3 id="Замечания-о-релизах"><a href="#Замечания-о-релизах" class="headerlink" title="Замечания о релизах"></a>Замечания о релизах</h3><p>Детальная информация об изменениях в каждой версии доступна на <a href="https://github.com/vuejs/vue/releases" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Автономная-установка"><a href="#Автономная-установка" class="headerlink" title="Автономная установка"></a>Автономная установка</h2><p>Просто скачайте js-файл и подключите его тегом <code>&lt;script&gt;</code>. Будет зарегистрирована глобальная переменная <code>Vue</code>.</p>
-<p class="tip">Не используйте минифицированную версию во время разработки, иначе вы не будете получать предупреждения о типичных ошибках!</p>
-
-<div id="downloads"><br><a class="button" href="/js/vue.js" download="">Версия для разработки</a><span class="light info">Со всеми  предупреждениями и возможностью отладки</span><br><br><a class="button" href="/js/vue.min.js" download="">Версия для production</a><span class="light info">Без предупреждений, 24.72 Кб min+gzip</span><br></div>
-
-<h3 id="CDN"><a href="#CDN" class="headerlink" title="CDN"></a>CDN</h3><p>Рекомендуем этот вариант: на <a href="https://unpkg.com/vue/dist/vue.js" target="_blank" rel="external">unpkg</a> всегда доступна самая свежая версию Vue, загруженная в npm. Исходный код самого npm-пакета также доступен по ссылке <a href="https://unpkg.com/vue/" target="_blank" rel="external">unpkg.com/vue/</a>.</p>
-<p>Vue также доступен на <a href="//cdn.jsdelivr.net/vue/2.1.3/vue.js">jsdelivr</a> и <a href="//cdnjs.cloudflare.com/ajax/libs/vue/2.1.3/vue.js">cdnjs</a>, но эти сервисы синхронизируются с npm с некоторой задержкой, из-за чего новейшая версия может быть не всегда доступна.</p>
-<h2 id="NPM"><a href="#NPM" class="headerlink" title="NPM"></a>NPM</h2><p>Рекомендуем использовать NPM при создании крупных приложений на Vue. Этот вариант прекрасно работает в паре с инструментами сборки, такими как <a href="http://webpack.github.io/" target="_blank" rel="external">Webpack</a> и <a href="http://browserify.org/" target="_blank" rel="external">Browserify</a>. Во Vue также есть совместимые с ними инструменты для использования <a href="single-file-components.html">однофайловых компонентов</a>.</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><div class="line"><span class="comment"># последняя стабильная версия</span></div><div class="line">$ npm install vue</div></pre></td></tr></table></figure>
-<h3 id="Виды-сборки-standalone-и-runtime"><a href="#Виды-сборки-standalone-и-runtime" class="headerlink" title="Виды сборки: standalone и runtime"></a>Виды сборки: standalone и runtime</h3><p>Доступны два вида сборки: standalone и runtime-only.</p>
+    <h2 id="Официальные-файлы-деклараций"><a href="#Официальные-файлы-деклараций" class="headerlink" title="Официальные файлы деклараций"></a>Официальные файлы деклараций</h2><p>Статическая типизация может предотвратить много потенциальных ошибок времени выполнения, особенно при разрастании приложений. По этой причине Vue поставляется с <a href="https://github.com/vuejs/vue/tree/dev/types" target="_blank" rel="external">официальными файлами деклараций</a> <a href="https://www.typescriptlang.org/" target="_blank" rel="external">TypeScript</a> причем не только для ядра Vue, но также <a href="https://github.com/vuejs/vue-router/tree/dev/types" target="_blank" rel="external">для Vue Router</a> и <a href="https://github.com/vuejs/vuex/tree/dev/types" target="_blank" rel="external">Vuex</a>.</p>
+<p>Так как все это уже <a href="https://unpkg.com/vue/types/" target="_blank" rel="external">опубликовано на NPM</a>, то вам даже не понадобится использовать внешние инструменты, такие как <code>Typings</code>, потому что декларации типов автоматически импортируются вместе с Vue. Это значит, что все, что вам нужно - это просто:</p>
+<figure class="highlight ts"><table><tr><td class="code"><pre><div class="line"><span class="keyword">import</span> Vue = <span class="built_in">require</span>(<span class="string">'vue'</span>)</div></pre></td></tr></table></figure>
+<p>После этого все методы, свойства и параметры будут автоматически проверяться на типы. К примеру, если вы напечатали в опции компонента <code>tempate</code> вместо <code>template</code> (пропустив <code>l</code>), то компилятор TypeScript выведет ошибку во время компиляции. Если же вы используете редактор с поддержкой проверки синтаксиса TypeScript, такой как <a href="https://code.visualstudio.com/" target="_blank" rel="external">Visual Studio Code</a>, то вы сможете увидеть все эти ошибки даже до компиляции:</p>
+<p><img src="/images/typescript-type-error.png" alt="Ошибка типизации TypeScript в Visual Studio Code"></p>
+<h3 id="Опции-компиляции"><a href="#Опции-компиляции" class="headerlink" title="Опции компиляции"></a>Опции компиляции</h3><p>Файлы деклараций Vue требуют <a href="https://www.typescriptlang.org/docs/handbook/compiler-options.html" target="_blank" rel="external">опцию компиляции</a> <code>--lib DOM,ES2015.Promise</code>. Опцию можно передать в команду <code>tsc</code>, либо добавить ее эквивалент в файл <code>tsconfig.json</code>.</p>
+<h3 id="Получение-доступа-к-типам-Vue"><a href="#Получение-доступа-к-типам-Vue" class="headerlink" title="Получение доступа к типам Vue"></a>Получение доступа к типам Vue</h3><p>Если вы хотите использовать типы Vue для аннотации собственного кода, то вы можете получить доступ к ним на экспортируемом объекте Vue. К примеру, для аннотации экспортируемого объекта опций компонента (как в файлах <code>.vue</code>) вы можете написать:</p>
+<figure class="highlight ts"><table><tr><td class="code"><pre><div class="line"><span class="keyword">import</span> Vue = <span class="built_in">require</span>(<span class="string">'vue'</span>)</div><div class="line"></div><div class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</div><div class="line">  props: [<span class="string">'message'</span>],</div><div class="line">  template: <span class="string">'&lt;span&gt;&#123;&#123; message &#125;&#125;&lt;/span&gt;'</span></div><div class="line">&#125; as Vue.ComponentOptions&lt;Vue&gt;</div></pre></td></tr></table></figure>
+<h2 id="Компоненты-Vue-в-виде-классов"><a href="#Компоненты-Vue-в-виде-классов" class="headerlink" title="Компоненты Vue в виде классов"></a>Компоненты Vue в виде классов</h2><p>К опциям компонента Vue легко могут быть добавлены аннотации типов:</p>
+<figure class="highlight ts"><table><tr><td class="code"><pre><div class="line"><span class="keyword">import</span> Vue = <span class="built_in">require</span>(<span class="string">'vue'</span>)</div><div class="line"></div><div class="line"><span class="comment">// Объявляем тип компонента</span></div><div class="line"><span class="keyword">interface</span> MyComponent <span class="keyword">extends</span> Vue &#123;</div><div class="line">  message: <span class="built_in">string</span></div><div class="line">  onClick (): <span class="built_in">void</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</div><div class="line">  template: <span class="string">'&lt;button @click="onClick"&gt;Click!&lt;/button&gt;'</span>,</div><div class="line">  data: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> &#123;</div><div class="line">      message: <span class="string">'Hello!'</span></div><div class="line">    &#125;</div><div class="line">  &#125;,</div><div class="line">  methods: &#123;</div><div class="line">    onClick: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">      <span class="comment">// TypeScript знает, что `this` является типом MyComponent</span></div><div class="line">      <span class="comment">// и что `this.message` будет строкой</span></div><div class="line">      <span class="built_in">window</span>.alert(<span class="keyword">this</span>.message)</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line"><span class="comment">// Необходимо явно добавить аннотацию типа MyComponent</span></div><div class="line"><span class="comment">// к экспортируемому объекту опций</span></div><div class="line">&#125; as Vue.ComponentOptions&lt;MyComponent&gt;</div></pre></td></tr></table></figure>
+<p>К сожалению, есть несколько ограничений:</p>
 <ul>
-<li><p>Standalone-сборка включает компилятор и поддерживает опцию <code>template</code>. <strong>Она опирается на API браузера, и не может быть использована для серверного рендера.</strong></p>
+<li><p><strong>TypeScript не может вывести все типы из API Vue.</strong> К примеру, он не знает, что свойство <code>message</code>, возвращаемое в нашей функции <code>data</code> будет добавлено к инстансу <code>MyComponent</code>. Это означает, что если мы присвоим число или булево значение переменной <code>message</code>, проверка синтаксиса и компиляторы не выбросят ошибку о том, что это должна была быть строка.</p>
 </li>
-<li><p>Runtime-сборка не содержит компилятора шаблонов и не поддерживает опцию <code>template</code>. При её использовании можно использовать только <code>render</code>-функции, но её достаточно для работы с однофайловыми компонентами: в них шаблоны компилируются в <code>render</code>-функции ещё на этапе сборки. Runtime-версия приблизительно на 30% легче, чем standalone, и весит всего 17.14 Кб min+gzip.</p>
+<li><p>По причине этого ограничения <strong>аннотирование типов может быть громоздким</strong>. Единственной причиной, по которой нам необходимо вручную объявлять переменную <code>message</code> строкой, является неспособность TypeScript вывести тип в данном случае.</p>
 </li>
 </ul>
-<p>По умолчанию, NPM-пакет экспортирует <strong>runtime-сборку</strong>. Для использования standalone-сборки, добавьте в свою конфигурацию Webpack следующее:</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><div class="line">resolve: &#123;</div><div class="line">  <span class="attr">alias</span>: &#123;</div><div class="line">    <span class="string">'vue$'</span>: <span class="string">'vue/dist/vue.common.js'</span></div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>При использовании Browserify, можно добавить псевдоним в package.json:</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="string">"browser"</span>: &#123;</div><div class="line">  <span class="string">"vue"</span>: <span class="string">"vue/dist/vue.common"</span></div><div class="line">&#125;,</div></pre></td></tr></table></figure>
-<h3 id="CSP-окружения"><a href="#CSP-окружения" class="headerlink" title="CSP-окружения"></a>CSP-окружения</h3><p>Некоторые окружения, такие как Google Chrome Apps, требуют соблюдения Content Security Policy (CSP), запрещающей использование конструкции <code>new Function()</code> для исполнения выражений. Standalone-сборка использует подобные конструкции для компиляции шаблонов, и потому непригодна к использованию в таких окружениях.</p>
-<p>С другой стороны, версия runtime-only полностью совместима с CSP. Если использовать её с <a href="https://github.com/vuejs-templates/webpack-simple" target="_blank" rel="external">Webpack и vue-loader</a> или <a href="https://github.com/vuejs-templates/browserify-simple" target="_blank" rel="external">Browserify и vueify</a> шаблоны прекомпилируются в <code>render</code>-функции, которые отлично работают в CSP-окружениях.</p>
-<h2 id="Инструменты-командной-строки-CLI"><a href="#Инструменты-командной-строки-CLI" class="headerlink" title="Инструменты командной строки (CLI)"></a>Инструменты командной строки (CLI)</h2><p>Vue.js предоставляет <a href="https://github.com/vuejs/vue-cli" target="_blank" rel="external">официальный интерпретатор командной строки (CLI)</a> для быстрого создания каркаса амбициозных одностраничных приложений. Предлагаемые шаблоны содержат всё необходимое для организации современной frontend-разработки. Всего за несколько минут вы получите работающую конфигурацию с hot-reload, линтингом кода при сохранении и настроенной конфигурацией production-сборки.</p>
-<p class="tip">CLI — это инструмент для тех, кто уже знаком с Node.js и соответствующими инструментами сборки. Если вы новичок во Vue или инструментах сборки фронтенда, рекомендуем сначала прочитать <a href="./">руководство</a>, не требующее использования инструментов сборки, а уже потом разбираться с CLI.</p>
-
-<figure class="highlight bash"><table><tr><td class="code"><pre><div class="line"><span class="comment"># устанавливаем vue-cli</span></div><div class="line">$ npm install --global vue-cli</div><div class="line"><span class="comment"># создаём новый проект из шаблона "webpack"</span></div><div class="line">$ vue init webpack my-project</div><div class="line"><span class="comment"># устанавливаем зависимости</span></div><div class="line">$ <span class="built_in">cd</span> my-project</div><div class="line">$ npm install</div><div class="line"><span class="comment"># и понеслась! ;)</span></div><div class="line">$ npm run dev</div></pre></td></tr></table></figure>
-<h2 id="Сборка-dev-версии"><a href="#Сборка-dev-версии" class="headerlink" title="Сборка dev-версии"></a>Сборка dev-версии</h2><p><strong>Важное замечание</strong>: файлы сборки в папке <code>/dist</code> на GitHub обновляются только при релизах. Чтобы использовать версию из новейшего исходного кода с GitHub, соберите проект самостоятельно:</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">git <span class="built_in">clone</span> https://github.com/vuejs/vue.git node_modules/vue</div><div class="line"><span class="built_in">cd</span> node_modules/vue</div><div class="line">npm install</div><div class="line">npm run build</div></pre></td></tr></table></figure>
-<h2 id="Bower"><a href="#Bower" class="headerlink" title="Bower"></a>Bower</h2><figure class="highlight bash"><table><tr><td class="code"><pre><div class="line"><span class="comment"># последняя стабильная версия</span></div><div class="line">$ bower install vue</div></pre></td></tr></table></figure>
-<h2 id="Загрузчики-AMD-модулей"><a href="#Загрузчики-AMD-модулей" class="headerlink" title="Загрузчики AMD-модулей"></a>Загрузчики AMD-модулей</h2><p>И standalone-версия, и версии, устанавливаемые через Bower, заворачиваются с помощью UMD, поэтому их можно напрямую использовать как AMD-модули.</p>
+<p>К счастью, <a href="https://github.com/vuejs/vue-class-component" target="_blank" rel="external">vue-class-component</a> может решить обе эти проблемы. Это официальная библиотека, которая позволяет объявлять компоненты как нативные классы JavaScript, используя декоратор <code>@Component</code>. В качестве примера давайте перепишем компонент, приведенный выше:</p>
+<figure class="highlight ts"><table><tr><td class="code"><pre><div class="line"><span class="keyword">import</span> Vue = <span class="built_in">require</span>(<span class="string">'vue'</span>)</div><div class="line"><span class="keyword">import</span> Component from <span class="string">'vue-class-component'</span></div><div class="line"></div><div class="line"><span class="comment">// декоратор @Component указывает, что класс - это компонент Vue</span></div><div class="line">@Component(&#123;</div><div class="line">  <span class="comment">// сюда можно помещать все опции компонента</span></div><div class="line">  template: <span class="string">'&lt;button @click="onClick"&gt;Click!&lt;/button&gt;'</span></div><div class="line">&#125;)</div><div class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="keyword">class</span> MyComponent extends Vue &#123;</div><div class="line">  <span class="comment">// Данные инициализации могут быть объявлены как свойства инстанса</span></div><div class="line">  message: <span class="built_in">string</span> = <span class="string">'Hello!'</span></div><div class="line"></div><div class="line">  <span class="comment">// Методы компонента могут быть объявлены как методы инстанса</span></div><div class="line">  onClick (): <span class="built_in">void</span> &#123;</div><div class="line">    <span class="built_in">window</span>.alert(<span class="keyword">this</span>.message)</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>С таким альтернативным синтаксисом наши определения компонентов не только более краткие, но также позволяют TypeScript вывести типы <code>message</code> и <code>onClick</code> без необходимости в явном объявлении интерфейса. Такой подход позволяет управлять типами даже для вычисляемых свойств, хуков жизненного цикла и рендер-функций. Для полной информации об использовании смотрите <a href="https://github.com/vuejs/vue-class-component#vue-class-component" target="_blank" rel="external">документацию vue-class-component</a>.</p>
 
     
       <div class="guide-links">
         
+          <span>← <a href="/v2/guide/ssr.html">SSR. Рендеринг на стороне сервера</a></span>
         
-          <span style="float:right"><a href="/v2/guide/index.html">Введение</a> →</span>
+        
+          <span style="float:right"><a href="/v2/guide/migration.html">Миграция с Vue 1.x</a> →</span>
         
       </div>
     
     <div class="footer">
       Обнаружили ошибку или хотите добавить что-то своё в документацию?
-      <a href="https://github.com/translation-gang/ru.vuejs.org/blob/master/src/v2/guide/installation.md" target="_blank">
+      <a href="https://github.com/translation-gang/ru.vuejs.org/blob/master/src/v2/guide/typescript.md" target="_blank">
         Отредактируйте эту страницу на Github!
       </a>
     </div>
