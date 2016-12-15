@@ -448,7 +448,7 @@
                 
                 
                 <li>
-                    <a href="/v2/guide/unit-testing.html" class="sidebar-link">Модульное Тестирование</a>
+                    <a href="/v2/guide/unit-testing.html" class="sidebar-link">Модульное тестирование</a>
                 </li>
             
                 
@@ -692,7 +692,7 @@ var app6 = new Vue({
 <p>Во Vue, компонент — это, по сути, инстанс Vue с предустановленными опциями. Создать новый компонент во Vue просто:</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="comment">// Определяем новый компонент под названием todo-item</span></div><div class="line">Vue.component(<span class="string">'todo-item'</span>, &#123;</div><div class="line">  <span class="attr">template</span>: <span class="string">'&lt;li&gt;Это todo&lt;/li&gt;'</span></div><div class="line">&#125;)</div></pre></td></tr></table></figure>
 <p>Теперь его можно использовать в шаблоне другого компонента:</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">ul</span>&gt;</span></div><div class="line">  <span class="comment">&lt;!-- Создаём экземпляр компонента todo-item --&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">todo-item</span>&gt;</span><span class="tag">&lt;/<span class="name">todo-item</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">ol</span>&gt;</span></div></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">ul</span>&gt;</span></div><div class="line">  <span class="comment">&lt;!-- Создаём экземпляр компонента todo-item --&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">todo-item</span>&gt;</span><span class="tag">&lt;/<span class="name">todo-item</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></div></pre></td></tr></table></figure>
 <p>Пока что у нас получилось так, что во всех todo будет содержаться один и тот же текст — это не очень-то интересно. Хотелось бы иметь возможность передать данные от родителя в дочерние компоненты. Давайте изменим определение компонента, чтобы он мог принимать <a href="components.html#Props">входной параметр</a>:</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><div class="line">Vue.component(<span class="string">'todo-item'</span>, &#123;</div><div class="line">  <span class="comment">// Компонент todo-item теперь принимает</span></div><div class="line">  <span class="comment">// "prop", то есть пользовательский параметр.</span></div><div class="line">  <span class="comment">// Этот параметр называется todo.</span></div><div class="line">  props: [<span class="string">'todo'</span>],</div><div class="line">  <span class="attr">template</span>: <span class="string">'&lt;li&gt;&#123;&#123; todo.text &#125;&#125;&lt;/li&gt;'</span></div><div class="line">&#125;)</div></pre></td></tr></table></figure>
 <p>Теперь можно передать текст задачи в каждый компонент с помощью <code>v-bind</code>:</p>

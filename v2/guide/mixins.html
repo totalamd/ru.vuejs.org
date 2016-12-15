@@ -448,7 +448,7 @@
                 
                 
                 <li>
-                    <a href="/v2/guide/unit-testing.html" class="sidebar-link">Модульное Тестирование</a>
+                    <a href="/v2/guide/unit-testing.html" class="sidebar-link">Модульное тестирование</a>
                 </li>
             
                 
@@ -560,7 +560,7 @@
     
       <h1>Примеси</h1>
     
-    <h2 id="Основы"><a href="#Основы" class="headerlink" title="Основы"></a>Основы</h2><p>Примеси (mixins) - это гибкий инструмент повторного использования кода в компонентах Vue. Объект примеси может содержать любые опции компонентов. При использовании компонентом примеси, все опции примеси “подмешиваются” к собственным опциям компонента.</p>
+    <h2 id="Основы"><a href="#Основы" class="headerlink" title="Основы"></a>Основы</h2><p>Примеси (mixins) — это гибкий инструмент повторного использования кода в компонентах Vue. Объект примеси может содержать любые опции компонентов. При использовании компонентом примеси, все опции примеси “подмешиваются” к собственным опциям компонента.</p>
 <p>Пример:</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="comment">// определяем объект примеси</span></div><div class="line"><span class="keyword">var</span> myMixin = &#123;</div><div class="line">  <span class="attr">created</span>: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">this</span>.hello()</div><div class="line">  &#125;,</div><div class="line">  <span class="attr">methods</span>: &#123;</div><div class="line">    <span class="attr">hello</span>: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">      <span class="built_in">console</span>.log(<span class="string">'привет из примеси!'</span>)</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// определяем компонент, использующий примесь</span></div><div class="line"><span class="keyword">var</span> Component = Vue.extend(&#123;</div><div class="line">  <span class="attr">mixins</span>: [myMixin]</div><div class="line">&#125;)</div><div class="line"></div><div class="line"><span class="keyword">var</span> component = <span class="keyword">new</span> Component() <span class="comment">// -&gt; "привет из примеси!"</span></div></pre></td></tr></table></figure>
 <h2 id="Слияние-опций"><a href="#Слияние-опций" class="headerlink" title="Слияние опций"></a>Слияние опций</h2><p>Если примесь и компонент содержат пересекающиеся опции, они будут определённым образом объединены. Например, одноимённые хуки будут объединены в массив, что обеспечит вызов их всех. Кроме того, хуки примеси будут вызваны <strong>перед</strong> собственными хуками компонента:</p>

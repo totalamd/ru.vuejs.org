@@ -575,7 +575,7 @@
 </li>
 <li><p><strong>Подробности:</strong></p>
 <p>Вызывается перед началом монтирования, сразу перед первым вызовом функции <code>render</code>.</p>
-<p><strong>При рендере на стороне сервера этот хук не вызывается.</strong></p>
+<p><strong>При рендеринге на стороне сервера этот хук не вызывается.</strong></p>
 </li>
 <li><p><strong>См. также:</strong> <a href="../guide/instance.html#Диаграмма-жизненного-цикла">Диаграмма жизненного цикла</a></p>
 </li>
@@ -585,7 +585,7 @@
 </li>
 <li><p><strong>Подробности:</strong></p>
 <p>Вызывается сразу после того как инстанс был смонтирован, а взамен <code>el</code> создан <code>vm.$el</code>. Если корневой инстанс смонтирован на элемент документа, <code>vm.$el</code> тоже будет элементом документа.</p>
-<p><strong>При рендере на стороне сервера этот хук не вызывается.</strong></p>
+<p><strong>При рендеринге на стороне сервера этот хук не вызывается.</strong></p>
 </li>
 <li><p><strong>См. также:</strong> <a href="../guide/instance.html#Диаграмма-жизненного-цикла">Диаграмма жизненного цикла</a></p>
 </li>
@@ -594,9 +594,9 @@
 <li><p><strong>Тип:</strong> <code>Function</code></p>
 </li>
 <li><p><strong>Подробности:</strong></p>
-<p>Вызывается при изменении данных, до повторного рендера и обновления виртуального DOM-а.</p>
-<p>В этом хуке можно дополнительно изменять состояние, и это не вызовет нового повторного рендера.</p>
-<p><strong>При рендере на стороне сервера этот хук не вызывается.</strong></p>
+<p>Вызывается при изменении данных, до повторного рендеринга и обновления виртуального DOM-а.</p>
+<p>В этом хуке можно дополнительно изменять состояние, и это не вызовет нового повторного рендеринга.</p>
+<p><strong>При рендеринге на стороне сервера этот хук не вызывается.</strong></p>
 </li>
 <li><p><strong>См. также:</strong> <a href="../guide/instance.html#Диаграмма-жизненного-цикла">Диаграмма жизненного цикла</a></p>
 </li>
@@ -607,7 +607,7 @@
 <li><p><strong>Подробности:</strong></p>
 <p>Вызывается после того, как виртуальный DOM был обновлён из-за изменения данных.</p>
 <p>DOM компонента уже будет обновлён к моменту вызова этого хука, поэтому можно выполнять зависящие от DOM операции. Старайтесь избегать изменения состояния в этом хуке, чтобы не попасть в бесконечный цикл обновления.</p>
-<p><strong>При рендере на стороне сервера этот хук не вызывается.</strong></p>
+<p><strong>При рендеринге на стороне сервера этот хук не вызывается.</strong></p>
 </li>
 <li><p><strong>См. также:</strong> <a href="../guide/instance.html#Диаграмма-жизненного-цикла">Диаграмма жизненного цикла</a></p>
 </li>
@@ -617,7 +617,7 @@
 </li>
 <li><p><strong>Подробности:</strong></p>
 <p>Вызывается при активации keep-alive компонента.</p>
-<p><strong>При рендере на стороне сервера этот хук не вызывается.</strong></p>
+<p><strong>При рендеринге на стороне сервера этот хук не вызывается.</strong></p>
 </li>
 <li><p><strong>См. также:</strong></p>
 <ul>
@@ -631,7 +631,7 @@
 </li>
 <li><p><strong>Подробности:</strong></p>
 <p>Вызывается после деактивации keep-alive компонента.</p>
-<p><strong>При рендере на стороне сервера этот хук не вызывается.</strong></p>
+<p><strong>При рендеринге на стороне сервера этот хук не вызывается.</strong></p>
 </li>
 <li><p><strong>См. также:</strong></p>
 <ul>
@@ -645,7 +645,7 @@
 </li>
 <li><p><strong>Подробности:</strong></p>
 <p>Вызывается перед уничтожением инстанса Vue. На этом этапе инстанс всё ещё полностью функционален.</p>
-<p><strong>При рендере на стороне сервера этот хук не вызывается.</strong></p>
+<p><strong>При рендеринге на стороне сервера этот хук не вызывается.</strong></p>
 </li>
 <li><p><strong>См. также:</strong> <a href="../guide/instance.html#Диаграмма-жизненного-цикла">Диаграмма жизненного цикла</a></p>
 </li>
@@ -655,7 +655,7 @@
 </li>
 <li><p><strong>Подробности:</strong></p>
 <p>Вызывается после уничтожения инстанса Vue. К моменту вызова этого хука, все директивы инстанса Vue уже отвязаны, все подписчики событий удалены, а все дочерние инстансы Vue уничтожены.</p>
-<p><strong>При рендере на стороне сервера этот хук не вызывается.</strong></p>
+<p><strong>При рендеринге на стороне сервера этот хук не вызывается.</strong></p>
 </li>
 <li><p><strong>См. также:</strong> <a href="../guide/instance.html#Диаграмма-жизненного-цикла">Диаграмма жизненного цикла</a></p>
 </li>
@@ -878,7 +878,7 @@
 <li><p><strong>Подробности:</strong></p>
 <p>Запущен ли данный инстанс Vue на сервере.</p>
 </li>
-<li><p><strong>См. также:</strong> <a href="../guide/ssr.html">Рендер на сервере</a></p>
+<li><p><strong>См. также:</strong> <a href="../guide/ssr.html">Рендеринг на сервере</a></p>
 </li>
 </ul>
 <h2 id="Методы-инстанса-—-данные"><a href="#Методы-инстанса-—-данные" class="headerlink" title="Методы инстанса — данные"></a>Методы инстанса — данные</h2><h3 id="vm-watch">vm.$watch( expOrFn, callback, [options] )</h3>
@@ -1034,7 +1034,7 @@
 <li><p><strong>См. также:</strong></p>
 <ul>
 <li><a href="../guide/instance.html#Диаграмма-жизненного-цикла">Диаграмма жизненного цикла</a></li>
-<li><a href="../guide/ssr.html">Рендер на сервере</a></li>
+<li><a href="../guide/ssr.html">Рендеринг на сервере</a></li>
 </ul>
 </li>
 </ul>
@@ -1042,7 +1042,7 @@
 
 <ul>
 <li><p><strong>Использование:</strong></p>
-<p>Заставляет инстанс Vue произвести повторный рендер. Обратите внимание, что этот метод затронет не все дочерние компоненты, а только сам инстанс и дочерние компоненты с контентными слотами.</p>
+<p>Заставляет инстанс Vue произвести перерендеринг. Обратите внимание, что этот метод затронет не все дочерние компоненты, а только сам инстанс и дочерние компоненты с контентными слотами.</p>
 </li>
 </ul>
 <h3 id="vm-nextTick">vm.$nextTick( [callback] )</h3>
@@ -1112,7 +1112,7 @@
 <p>Переключает CSS-свойство <code>display</code> элемента, в зависимости от того, истинно ли указанное выражение.</p>
 <p>При изменении состояния этой директивы вызываются анимации, заданные в transition.</p>
 </li>
-<li><p><strong>См. также:</strong> <a href="../guide/conditional.html#v-show">Условный рендер - v-show</a></p>
+<li><p><strong>См. также:</strong> <a href="../guide/conditional.html#v-show">Условный рендеринг - v-show</a></p>
 </li>
 </ul>
 <h3 id="v-if"><a href="#v-if" class="headerlink" title="v-if"></a>v-if</h3><ul>
@@ -1124,7 +1124,7 @@
 </li>
 </ul>
 <ul>
-<li><strong>См. также:</strong> <a href="../guide/conditional.html">Условный рендер — v-if</a></li>
+<li><strong>См. также:</strong> <a href="../guide/conditional.html">Условный рендеринг — v-if</a></li>
 </ul>
 <h3 id="v-else"><a href="#v-else" class="headerlink" title="v-else"></a>v-else</h3><ul>
 <li><p><strong>Не принимает какое-либо выражение</strong></p>
@@ -1138,7 +1138,7 @@
   <figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">v-if</span>=<span class="string">"Math.random() &gt; 0.5"</span>&gt;</span></div><div class="line">  Сейчас меня видно</div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">v-else</span>&gt;</span></div><div class="line">  А сейчас — нет</div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
 <ul>
 <li><strong>См. также:</strong><ul>
-<li><a href="../guide/conditional.html#v-else">Условный рендер — v-else</a></li>
+<li><a href="../guide/conditional.html#v-else">Условный рендеринг — v-else</a></li>
 </ul>
 </li>
 </ul>
@@ -1171,7 +1171,7 @@
 </li>
 <li><p><strong>См. также:</strong></p>
 <ul>
-<li><a href="../guide/list.html">Рендер списков</a></li>
+<li><a href="../guide/list.html">Рендеринг списков</a></li>
 <li><a href="../guide/list.html#key">key</a></li>
 </ul>
 </li>
@@ -1296,7 +1296,7 @@
 <li><p><strong>Не принимает какое-либо выражение</strong></p>
 </li>
 <li><p><strong>Использование:</strong></p>
-<p><strong>Однократно</strong> рендерит элемент или компонент. При повторном рендере он, а также все его потомки, рассматриваются как статический контент и пропускаются. Это поможет увеличить производительность обновлений.</p>
+<p><strong>Однократно</strong> рендерит элемент или компонент. При повторном рендеринге он, а также все его потомки, рассматриваются как статический контент и пропускаются. Это поможет увеличить производительность обновлений.</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="comment">&lt;!-- одиночный элемент --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">span</span> <span class="attr">v-once</span>&gt;</span>Это никогда не изменится: &#123;&#123;msg&#125;&#125;<span class="tag">&lt;/<span class="name">span</span>&gt;</span></div><div class="line"></div><div class="line"><span class="comment">&lt;!-- элемент с потомком --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">v-once</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">h1</span>&gt;</span>comment<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">p</span>&gt;</span>&#123;&#123;msg&#125;&#125;<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"></div><div class="line"><span class="comment">&lt;!-- компонент --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">my-component</span> <span class="attr">v-once</span> <span class="attr">:comment</span>=<span class="string">"msg"</span>&gt;</span><span class="tag">&lt;/<span class="name">my-component</span>&gt;</span></div><div class="line"></div><div class="line"><span class="comment">&lt;!-- директива v-for --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">ul</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">li</span> <span class="attr">v-for</span>=<span class="string">"i in list"</span> <span class="attr">v-once</span>&gt;</span>&#123;&#123;i&#125;&#125;<span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></div></pre></td></tr></table></figure>
 </li>
 <li><p><strong>См. также:</strong></p>
@@ -1309,7 +1309,7 @@
 <h2 id="Специальные-атрибуты"><a href="#Специальные-атрибуты" class="headerlink" title="Специальные атрибуты"></a>Специальные атрибуты</h2><h3 id="key"><a href="#key" class="headerlink" title="key"></a>key</h3><ul>
 <li><p><strong>Принимает:</strong> <code>string</code></p>
 <p>Атрибут key помогает алгоритму работы с виртуальным DOM определить, какие ноды соответствует какой строке данных. Если этот атрибут не указан, Vue использует алгоритм, минимизирующий перемещение элементов и старается обновить и повторно использовать как можно больше элементов правильного типа “на местах”. А если ключ указан, Vue изменяет порядок следования элементов, основываясь на изменении порядка ключей. Элементы, соответствующие ключам, которых больше нет, Vue всегда уничтожает.</p>
-<p>Потомки одного и того же общего родителя должны иметь <strong>уникальные ключи</strong>. Повторяющиеся ключи приведут к ошибкам при рендере.</p>
+<p>Потомки одного и того же общего родителя должны иметь <strong>уникальные ключи</strong>. Повторяющиеся ключи приведут к ошибкам при рендеринге.</p>
 <p>Как правило, используется в связке с <code>v-for</code>:</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">ul</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">li</span> <span class="attr">v-for</span>=<span class="string">"item in items"</span> <span class="attr">:key</span>=<span class="string">"item.id"</span>&gt;</span>...<span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></div></pre></td></tr></table></figure>
 <p>Можно также применить эту директиву, чтобы элемент всегда заменялся на новый, а не переиспользовался. Это может помочь, если вы хотите:</p>
@@ -1327,7 +1327,7 @@
 <p>Название элемента или компонента для регистрации ссылки на него. В объекте <code>$refs</code> появится поле с названием из этого атрибута и значением: элементом DOM, если атрибут стоял на простом теге или инстансом компонента, если атрибут стоял на пользовательском компоненте:</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="comment">&lt;!-- vm.$refs.p будет DOM-элементом --&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">ref</span>=<span class="string">"p"</span>&gt;</span>hello<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line"></div><div class="line"><span class="comment">&lt;!-- vm.$refs.child будет указывать на инстанс ChildComp --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">child-comp</span> <span class="attr">ref</span>=<span class="string">"child"</span>&gt;</span><span class="tag">&lt;/<span class="name">child-comp</span>&gt;</span></div></pre></td></tr></table></figure>
 <p>При использовании на элементах/компонентах с <code>v-for</code>, регистрируется массив ссылок на элементы DOM или инстансы компонентов.</p>
-<p>Важное замечание о времени регистрации ссылок: поскольку ссылки создаются функцией render, вы не cможете использовать их при первичном рендере — на тот момент они ещё не существуют! Кроме того, объект <code>$refs</code> не является реактивным, поэтому не стоит пытаться использовать его в шаблонах для связывания данных.</p>
+<p>Важное замечание о времени регистрации ссылок: поскольку ссылки создаются функцией render, вы не cможете использовать их при первичном рендеринге — на тот момент они ещё не существуют! Кроме того, объект <code>$refs</code> не является реактивным, поэтому не стоит пытаться использовать его в шаблонах для связывания данных.</p>
 </li>
 <li><p><strong>См. также:</strong> <a href="../guide/components.html#Ссылки-на-дочерние-компоненты">Ссылки на дочерние компоненты</a></p>
 </li>
@@ -1348,7 +1348,7 @@
 </ul>
 </li>
 <li><p><strong>Использование:</strong></p>
-<p>“Метакомпонент” для рендера динамических компонентов. Настоящий компонент для рендера определяется параметром <code>is</code>:</p>
+<p>“Метакомпонент” для рендеринга динамических компонентов. Настоящий компонент для рендеринга определяется параметром <code>is</code>:</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="comment">&lt;!-- динамический компонент, контролируемый --&gt;</span></div><div class="line"><span class="comment">&lt;!-- свойством vm `componentId`--&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">component</span> <span class="attr">:is</span>=<span class="string">"componentId"</span>&gt;</span><span class="tag">&lt;/<span class="name">component</span>&gt;</span></div><div class="line"></div><div class="line"><span class="comment">&lt;!-- может также рендерить зарегистрированный или переданный параметром компонент --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">component</span> <span class="attr">:is</span>=<span class="string">"$options.components.child"</span>&gt;</span><span class="tag">&lt;/<span class="name">component</span>&gt;</span></div></pre></td></tr></table></figure>
 </li>
 <li><p><strong>См. также:</strong> <a href="../guide/components.html#Динамическое-переключение-компонентов">Динамические компоненты</a></p>
@@ -1358,7 +1358,7 @@
 <li><p><strong>Входные параметры:</strong></p>
 <ul>
 <li><code>name</code> — string, используется для автоматической генерации имён CSS-классов для анимаций. Например, <code>name: &#39;fade&#39;</code> автоматически раскроется в <code>.fade-enter</code>, <code>.fade-enter-active</code> и т. д. Значение по умолчанию — <code>&quot;v&quot;</code>.</li>
-<li><code>appear</code> — boolean, вызывать ли анимацию при первом рендере. По умолчанию <code>false</code>.</li>
+<li><code>appear</code> — boolean, вызывать ли анимацию при первом рендеринге. По умолчанию <code>false</code>.</li>
 <li><code>css</code> — boolean, применять ли CSS-классы. По умолчанию <code>true</code>. Если установить в <code>false</code>, будут вызываться только обработчики JavaScript, зарегистрированные для событий компонента.</li>
 <li><code>type</code> — string, указывает тип событий, с помощью которых определяется момент завершения анимации. Доступные значения: <code>&quot;transition&quot;</code> и <code>&quot;animation&quot;</code>. По умолчанию автоматически выбирается тип, задающий наибольшую продолжительность.</li>
 <li><code>mode</code> — string, управляет порядком анимаций исчезновения и появления элементов. Доступные режимы <code>&quot;out-in&quot;</code> (сначала старый элемент исчезает, потом новый появляется) и <code>&quot;in-out&quot;</code> (сначала новый элемент появляется, потом исчезает старый). По умолчанию исчезновение и появление происходят одновременно.</li>
@@ -1384,7 +1384,7 @@
 </ul>
 </li>
 <li><p><strong>Использование:</strong></p>
-<p>Указывает анимацию перехода для <strong>одного</strong> элемента или компонента. <code>&lt;transition&gt;</code> не порождает дополнительного элемента DOM при рендере, и не отображается в иерархии компонентов в инспекторе. Этот компонент просто применяет поведение перехода к своему содержимому.</p>
+<p>Указывает анимацию перехода для <strong>одного</strong> элемента или компонента. <code>&lt;transition&gt;</code> не порождает дополнительного элемента DOM при рендеринге, и не отображается в иерархии компонентов в инспекторе. Этот компонент просто применяет поведение перехода к своему содержимому.</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="comment">&lt;!-- простой элемент --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">transition</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">v-if</span>=<span class="string">"ok"</span>&gt;</span>переключаемое содержимое<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">transition</span>&gt;</span></div><div class="line"></div><div class="line"><span class="comment">&lt;!-- динамический компонент --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">transition</span> <span class="attr">name</span>=<span class="string">"fade"</span> <span class="attr">mode</span>=<span class="string">"out-in"</span> <span class="attr">appear</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">component</span> <span class="attr">:is</span>=<span class="string">"view"</span>&gt;</span><span class="tag">&lt;/<span class="name">component</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">transition</span>&gt;</span></div><div class="line"></div><div class="line"><span class="comment">&lt;!-- хук на событие --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"transition-demo"</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">transition</span> @<span class="attr">after-enter</span>=<span class="string">"transitionComplete"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">v-show</span>=<span class="string">"ok"</span>&gt;</span>переключаемое содержимое<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">transition</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
 <figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="keyword">new</span> Vue(&#123;</div><div class="line">  ...</div><div class="line">  methods: &#123;</div><div class="line">    <span class="attr">transitionComplete</span>: <span class="function"><span class="keyword">function</span> (<span class="params">el</span>) </span>&#123;</div><div class="line">      <span class="comment">// сделайте что-нибудь с переданным элементом DOM ...</span></div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">  ...</div><div class="line">&#125;).$mount(<span class="string">'#transition-demo'</span>)</div></pre></td></tr></table></figure>
 </li>
@@ -1421,9 +1421,9 @@
 </ul>
 </li>
 <li><p><strong>Использование:</strong></p>
-<p>Оберните динамические компоненты тегом <code>&lt;keep-alive&gt;</code>, чтобы кешировать инстансы интерактивных компонентов вместо того, чтобы их уничтожать. Так же, как и <code>&lt;transition&gt;</code>, <code>&lt;keep-alive&gt;</code> — абстрактный компонент: при рендере он не превращается в элемент DOM, и не показывается в цепочке родителей компонента.</p>
+<p>Оберните динамические компоненты тегом <code>&lt;keep-alive&gt;</code>, чтобы кешировать инстансы интерактивных компонентов вместо того, чтобы их уничтожать. Так же, как и <code>&lt;transition&gt;</code>, <code>&lt;keep-alive&gt;</code> — абстрактный компонент: при рендеринге он не превращается в элемент DOM, и не показывается в цепочке родителей компонента.</p>
 <p>Когда компонент, расположенный внутри <code>&lt;keep-alive&gt;</code> показывается или скрывается, вызываются его хуки жизненного цикла <code>activated</code> или <code>deactivated</code> соответственно.</p>
-<p>В основном используется для сохранения состояния компонента, чтобы избежать повторного рендера.</p>
+<p>В основном используется для сохранения состояния компонента, чтобы избежать повторного рендеринга.</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="comment">&lt;!-- базовый вариант --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">keep-alive</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">component</span> <span class="attr">:is</span>=<span class="string">"view"</span>&gt;</span><span class="tag">&lt;/<span class="name">component</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">keep-alive</span>&gt;</span></div><div class="line"></div><div class="line"><span class="comment">&lt;!-- несколько потомков --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">keep-alive</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">comp-a</span> <span class="attr">v-if</span>=<span class="string">"a &gt; 1"</span>&gt;</span><span class="tag">&lt;/<span class="name">comp-a</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">comp-b</span> <span class="attr">v-else</span>&gt;</span><span class="tag">&lt;/<span class="name">comp-b</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">keep-alive</span>&gt;</span></div><div class="line"></div><div class="line"><span class="comment">&lt;!-- использование вместе с &lt;transition&gt; --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">transition</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">keep-alive</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">component</span> <span class="attr">:is</span>=<span class="string">"view"</span>&gt;</span><span class="tag">&lt;/<span class="name">component</span>&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">keep-alive</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">transition</span>&gt;</span></div></pre></td></tr></table></figure>
 </li>
 <li><p><strong><code>include</code> and <code>exclude</code></strong></p>
@@ -1445,7 +1445,7 @@
 </ul>
 </li>
 <li><p><strong>Использование:</strong></p>
-<p><code>&lt;slot&gt;</code> — элемент, чьё содержимое будет распределено в шаблон компонента. Сам элемент <code>&lt;slot&gt;</code> при рендере заменяется.</p>
+<p><code>&lt;slot&gt;</code> — элемент, чьё содержимое будет распределено в шаблон компонента. Сам элемент <code>&lt;slot&gt;</code> при рендеринге заменяется.</p>
 <p>Подробнее этот механизм описан в руководстве по ссылке ниже.</p>
 </li>
 <li><p><strong>См. также:</strong> <a href="../guide/components.html#Дистрибьюция-контента-через-слоты">Распределение контента слотами</a></p>
@@ -1454,7 +1454,7 @@
 <h2 id="Интерфейс-VNode"><a href="#Интерфейс-VNode" class="headerlink" title="Интерфейс VNode"></a>Интерфейс VNode</h2><ul>
 <li>Смотрите информацию об <a href="https://github.com/vuejs/vue/blob/dev/src/core/vdom/vnode.js" target="_blank" rel="external">объявлении классов VNode</a>.</li>
 </ul>
-<h2 id="Рендер-на-стороне-сервера"><a href="#Рендер-на-стороне-сервера" class="headerlink" title="Рендер на стороне сервера"></a>Рендер на стороне сервера</h2><ul>
+<h2 id="Рендеринг-на-стороне-сервера"><a href="#Рендеринг-на-стороне-сервера" class="headerlink" title="Рендеринг на стороне сервера"></a>Рендеринг на стороне сервера</h2><ul>
 <li>Смотрите <a href="https://github.com/vuejs/vue/tree/dev/packages/vue-server-renderer" target="_blank" rel="external">документацию пакета vue-server-renderer</a>.</li>
 </ul>
 

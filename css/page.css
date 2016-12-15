@@ -447,6 +447,7 @@ body.docs #nav {
   border: 1px solid #eee;
   border-radius: 2px;
   padding: 25px 35px;
+  margin-top: 1em;
   margin-bottom: 40px;
   font-size: 1.2em;
   line-height: 1.5em;
@@ -781,6 +782,30 @@ ul.demo li {
 }
 .content iframe {
   margin: 1em 0;
+}
+.content > table {
+  border: 2px solid $white;
+  margin: 1.2em auto;
+  padding: 1em;
+}
+.content > table td,
+.content > table th {
+  line-height: 1.6em;
+  padding: 0.5em 1.4em;
+  border: none;
+}
+.content > table td {
+  background-color: #fcfcfc;
+}
+.content > table th {
+  background-color: #42b983;
+  color: #fff;
+  padding-top: 0.85em;
+  padding-bottom: 0.85em;
+  text-align: left;
+}
+.content > table tbody code {
+  background-color: #efefef;
 }
 .content p.tip {
   padding: 12px 24px 12px 30px;
