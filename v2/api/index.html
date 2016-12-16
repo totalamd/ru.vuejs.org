@@ -486,11 +486,11 @@
 <li><p><strong>Тип:</strong> <code>{ [key: string]: Function }</code></p>
 </li>
 <li><p><strong>Подробности:</strong></p>
-<p>Методы, которые будут подмешаны к инстансу Vue. Вы можете получить запустить эти методы прямо из инстанса VM, или использовать их в директивах. <code>this</code> методов указывает на инстанс Vue.</p>
+<p>Методы, которые будут подмешаны к инстансу Vue. Вы можете запустить эти методы прямо из инстанса VM, или использовать их в директивах. <code>this</code> методов указывает на инстанс Vue.</p>
 <p class="tip">Обратите внимание, что <strong>вам не стоит использовать стрелочные функции при определении методов</strong> (напр. <code>plus: () =&gt; this.a++</code>). Поскольку стрелочные функции связываются с родительским контекстом, <code>this</code> не будет указывать на инстанс Vue, и <code>this.a</code> окажется неопределенным.</p>
 </li>
 <li><p><strong>Пример:</strong></p>
-<figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="keyword">var</span> vm = <span class="keyword">new</span> Vue(&#123;</div><div class="line">  <span class="attr">data</span>: &#123; <span class="attr">a</span>: <span class="number">1</span> &#125;,</div><div class="line">  <span class="attr">methods</span>: &#123;<span class="number">9</span></div><div class="line">    plus: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">      <span class="keyword">this</span>.a++</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;)</div><div class="line">vm.plus()</div><div class="line">vm.a <span class="comment">// 2</span></div></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="keyword">var</span> vm = <span class="keyword">new</span> Vue(&#123;</div><div class="line">  <span class="attr">data</span>: &#123; <span class="attr">a</span>: <span class="number">1</span> &#125;,</div><div class="line">  <span class="attr">methods</span>: &#123;</div><div class="line">    <span class="attr">plus</span>: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">      <span class="keyword">this</span>.a++</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;)</div><div class="line">vm.plus()</div><div class="line">vm.a <span class="comment">// 2</span></div></pre></td></tr></table></figure>
 </li>
 <li><p><strong>См. также:</strong> <a href="../guide/events.html">Методы и обработка событий</a></p>
 </li>
