@@ -578,7 +578,7 @@ new Vue({
 })
 </script>
 
-<p>После загрузки страницы это элемент получает фокус ввода. Если вы никуда не кликнули с момента открытия этой главы руководства, фокус ввода и сейчас должен быть на этом элементе. Рассмотрим директиву подробнее:</p>
+<p>После загрузки страницы этот элемент получает фокус ввода. Если вы никуда не кликнули с момента открытия этой главы руководства, фокус ввода и сейчас должен быть на этом элементе. Рассмотрим директиву подробнее:</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="comment">// Регистрируем глобальную пользовательскую директиву v-focus</span></div><div class="line">Vue.directive(<span class="string">'focus'</span>, &#123;</div><div class="line">  <span class="comment">// Когда привязанный элемент вставлен в DOM...</span></div><div class="line">  inserted: <span class="function"><span class="keyword">function</span> (<span class="params">el</span>) </span>&#123;</div><div class="line">    <span class="comment">// Получить фокус ввода</span></div><div class="line">    el.focus()</div><div class="line">  &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
 <p>Если вместо глобальной вы хотели бы зарегистрировать локальную директиву, можно использовать опцию <code>directives</code> при определении компонента:</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><div class="line">directives: &#123;</div><div class="line">  <span class="attr">focus</span>: &#123;</div><div class="line">    <span class="comment">// определение директивы</span></div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
