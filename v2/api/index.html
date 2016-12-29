@@ -258,7 +258,7 @@
 </li>
 <li><p><strong>Использование:</strong></p>
 <figure class="highlight js"><table><tr><td class="code"><pre><div class="line">Vue.config.keyCodes = &#123;</div><div class="line">  <span class="attr">v</span>: <span class="number">86</span>,</div><div class="line">  <span class="attr">f1</span>: <span class="number">112</span>,</div><div class="line">  <span class="attr">mediaPlayPause</span>: <span class="number">179</span>,</div><div class="line">  <span class="attr">up</span>: [<span class="number">38</span>, <span class="number">87</span>]</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>Определение пользовательских алиасов для директивы <code>v-on</code>.</p>
+<p>Определение пользовательских псевдонимов для директивы <code>v-on</code>.</p>
 </li>
 </ul>
 <h2 id="Глобальный-API"><a href="#Глобальный-API" class="headerlink" title="Глобальный API"></a>Глобальный API</h2><h3 id="Vue-extend">Vue.extend( options )</h3>
@@ -404,7 +404,7 @@
 </ul>
 </li>
 <li><p><strong>Использование:</strong></p>
-<p>Применяет миксин ко всем созданным впоследствии инстансам Vue. Так авторы плагинов могут встроить желаемое поведение в компоненты. <strong>Не рекомендуется использовать в коде приложений</strong>.</p>
+<p>Применяет примесь ко всем созданным впоследствии инстансам Vue. Так авторы плагинов могут встроить желаемое поведение в компоненты. <strong>Не рекомендуется использовать в коде приложений</strong>.</p>
 </li>
 <li><p><strong>См. также:</strong> <a href="../guide/mixins.html#Глобальные-примеси">Глобальные примеси</a></p>
 </li>
@@ -418,7 +418,7 @@
 </ul>
 </li>
 <li><p><strong>Использование:</strong></p>
-<p>Компилирует строковый шаблон в render-функцию. <strong>Доступен только в standalone сборке.</strong></p>
+<p>Компилирует строковый шаблон в render-функцию. <strong>Доступен только в standalone-сборке.</strong></p>
 <figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="keyword">var</span> res = Vue.compile(<span class="string">'&lt;div&gt;&lt;span&gt;&#123;&#123; msg &#125;&#125;&lt;/span&gt;&lt;/div&gt;'</span>)</div><div class="line"></div><div class="line"><span class="keyword">new</span> Vue(&#123;</div><div class="line">  <span class="attr">data</span>: &#123;</div><div class="line">    <span class="attr">msg</span>: <span class="string">'hello'</span></div><div class="line">  &#125;,</div><div class="line">  <span class="attr">render</span>: res.render,</div><div class="line">  <span class="attr">staticRenderFns</span>: res.staticRenderFns</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
 </li>
 <li><p><strong>См. также:</strong> <a href="../guide/render-function.html">Render-функции</a></p>
@@ -714,7 +714,7 @@
 <li><p><strong>Тип:</strong> <code>Array&lt;Object&gt;</code></p>
 </li>
 <li><p><strong>Подробности:</strong></p>
-<p>Массив объектов-примесей. Примеси могут содержать те же опции, что и обычные объекты инстансов Vue — они будут добавлены к основным опциям согласно логике <code>Vue.extend()</code>. Например, если и примесь и объект оба содержат хук <code>created</code>, вызваны будут они оба.</p>
+<p>Массив объектов-примесей. Примеси могут содержать те же опции, что и обычные объекты инстансов Vue — они будут добавлены к основным опциям согласно логике <code>Vue.extend()</code>. Например, если и примесь и объект инстанса содержат хук <code>created</code>, то будут вызваны оба.</p>
 <p>Хуки примесей вызываются в порядке их определения, до вызова собственных хуков компонента.</p>
 </li>
 <li><p><strong>Пример:</strong></p>
@@ -750,7 +750,7 @@
 <li><p><strong>По умолчанию:</strong> <code>["{{", "}}"]</code></p>
 </li>
 <li><p><strong>Подробности:</strong></p>
-<p>Разделители, выделяющие текст для интерполяции. <strong>Доступно только в standalone сборке.</strong></p>
+<p>Разделители, выделяющие текст для интерполяции. <strong>Доступно только в standalone-сборке.</strong></p>
 </li>
 <li><p><strong>Пример:</strong></p>
 <figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="keyword">new</span> Vue(&#123;</div><div class="line">  <span class="attr">delimiters</span>: [<span class="string">'$&#123;'</span>, <span class="string">'&#125;'</span>]</div><div class="line">&#125;)</div><div class="line"></div><div class="line"><span class="comment">// Разделители изменены на стиль строк-шаблонов в ES6</span></div></pre></td></tr></table></figure>
@@ -905,7 +905,7 @@
 <p>Запускает наблюдение за выражением или вычисляемой функцией на предмет изменений. В параметры коллбэка будут переданы новое и старое значения отслеживаемого объекта. Выражение может быть только простым путём до переменной с разделителями-точками. Для более сложных случаев используйте функцию.</p>
 </li>
 </ul>
-<p class="tip">Обратите внимание: когда изменяете (а не заменяете) объект или массив, старое и новое значения при вызове коллбэка будут совпадать, так как они ссылаются на один и тот же объект или массив. Vue не сохраняяет копии объекта на момент, предшествовавший изменениям.</p>
+<p class="tip">Обратите внимание: когда изменяете (а не заменяете) объект или массив, старое и новое значения при вызове коллбэка будут совпадать, так как они ссылаются на один и тот же объект или массив. Vue не сохраняет копии объекта на момент, предшествовавший изменениям.</p>
 
 <ul>
 <li><p><strong>Пример:</strong></p>
@@ -935,7 +935,7 @@
 <li><p><strong>Возвращает:</strong> установленное значение.</p>
 </li>
 <li><p><strong>Использование:</strong></p>
-<p><strong>Алиас</strong> глобального метода <code>Vue.set</code>.</p>
+<p><strong>Псевдоним</strong> глобального метода <code>Vue.set</code>.</p>
 </li>
 <li><p><strong>См. также:</strong> <a href="#Vue-set">Vue.set</a></p>
 </li>
@@ -950,12 +950,12 @@
 </ul>
 </li>
 <li><p><strong>Использование:</strong></p>
-<p><strong>Алиас</strong> глобального метода <code>Vue.delete</code>.</p>
+<p><strong>Псевдоним</strong> глобального метода <code>Vue.delete</code>.</p>
 </li>
 <li><p><strong>См. также:</strong> <a href="#Vue-delete">Vue.delete</a></p>
 </li>
 </ul>
-<h2 id="Методы-инстанса-—-cобытия"><a href="#Методы-инстанса-—-cобытия" class="headerlink" title="Методы инстанса — cобытия"></a>Методы инстанса — cобытия</h2><h3 id="vm-on">vm.$on( event, callback )</h3>
+<h2 id="Методы-инстанса-—-события"><a href="#Методы-инстанса-—-события" class="headerlink" title="Методы инстанса — события"></a>Методы инстанса — события</h2><h3 id="vm-on">vm.$on( event, callback )</h3>
 
 <ul>
 <li><p><strong>Аргументы:</strong></p>
