@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html lang="ru">
     <head>
-        <title>Миграция с Vue Router 0.7.x - vue.js</title>
+        <title>Миграция с Vue Router 0.7.x — vue.js</title>
         <meta charset="utf-8">
         <meta name="description" content="Vue.js - Intuitive, Fast and Composable MVVM for building interactive interfaces.">
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -649,7 +649,7 @@
 
 <h2 id="Ссылки"><a href="#Ссылки" class="headerlink" title="Ссылки"></a>Ссылки</h2><h3 id="v-link-заменено"><a href="#v-link-заменено" class="headerlink" title="v-link заменено"></a><code>v-link</code> <sup>заменено</sup></h3><p>Директива <code>v-link</code> заменена на новый <a href="http://router.vuejs.org/en/api/router-link.html" target="_blank" rel="external">компонент <code>&lt;router-link&gt;</code></a>, так как за данный тип работ, в Vue 2, теперь отвечают только компоненты. Это означает, что всякий раз, когда у вас есть ссылка, как эта:</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">v-link</span>=<span class="string">"'/about'"</span>&gt;</span>About<span class="tag">&lt;/<span class="name">a</span>&gt;</span></div></pre></td></tr></table></figure>
-<p>вам необходимо изменить ее следующим образом:</p>
+<p>вам необходимо изменить её следующим образом:</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">router-link</span> <span class="attr">to</span>=<span class="string">"/about"</span>&gt;</span>About<span class="tag">&lt;/<span class="name">router-link</span>&gt;</span></div></pre></td></tr></table></figure>
 <p>Запомните, что <code>target=&quot;_blank&quot;</code> больше не поддреживается в <code>&lt;router-link&gt;</code>, поэтому, если вам нужно открыть ссылку в новой вкладке, вы должны использовать тег <code>&lt;a&gt;</code>.</p>
 

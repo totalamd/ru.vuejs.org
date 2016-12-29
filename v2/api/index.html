@@ -2,18 +2,18 @@
 <!DOCTYPE html>
 <html lang="ru">
     <head>
-        <title>vue.js</title>
+        <title>API — vue.js</title>
         <meta charset="utf-8">
         <meta name="description" content="Vue.js - Intuitive, Fast and Composable MVVM for building interactive interfaces.">
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
         <meta property="og:type" content="article">
-        <meta property="og:title" content="vue.js">
+        <meta property="og:title" content="API - vue.js">
         <meta property="og:description" content="Vue.js - Intuitive, Fast and Composable MVVM for building interactive interfaces.">
         <meta property="og:image" content="https://ru.vuejs.org/images/logo.png">
 
         <meta name="twitter:card" content="summary">
-        <meta name="twitter:title" content="vue.js">
+        <meta name="twitter:title" content="API - vue.js">
         <meta name="twitter:description" content="Vue.js - Intuitive, Fast and Composable MVVM for building interactive interfaces.">
         <meta name="twitter:image" content="https://ru.vuejs.org/images/logo.png">
 
@@ -191,6 +191,8 @@
 </div>
 
     
+    
+      <h1>API</h1>
     
     <h2 id="Глобальные-параметры"><a href="#Глобальные-параметры" class="headerlink" title="Глобальные параметры"></a>Глобальные параметры</h2><p><code>Vue.config</code> — это объект, содержащий глобальные параметры Vue. Перед загрузкой приложения можно изменить следующие свойства:</p>
 <h3 id="silent"><a href="#silent" class="headerlink" title="silent"></a>silent</h3><ul>
@@ -404,7 +406,7 @@
 <li><p><strong>Использование:</strong></p>
 <p>Применяет миксин ко всем созданным впоследствии инстансам Vue. Так авторы плагинов могут встроить желаемое поведение в компоненты. <strong>Не рекомендуется использовать в коде приложений</strong>.</p>
 </li>
-<li><p><strong>См. также:</strong> <a href="../guide/mixins.html#Глобальные-миксины">Глобальные миксины</a></p>
+<li><p><strong>См. также:</strong> <a href="../guide/mixins.html#Глобальные-примеси">Глобальные примеси</a></p>
 </li>
 </ul>
 <h3 id="Vue-compile">Vue.compile( template )</h3>
@@ -494,7 +496,7 @@
 <li><p><strong>Пример:</strong></p>
 <figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="keyword">var</span> vm = <span class="keyword">new</span> Vue(&#123;</div><div class="line">  <span class="attr">data</span>: &#123; <span class="attr">a</span>: <span class="number">1</span> &#125;,</div><div class="line">  <span class="attr">methods</span>: &#123;</div><div class="line">    <span class="attr">plus</span>: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">      <span class="keyword">this</span>.a++</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;)</div><div class="line">vm.plus()</div><div class="line">vm.a <span class="comment">// 2</span></div></pre></td></tr></table></figure>
 </li>
-<li><p><strong>См. также:</strong> <a href="../guide/events.html">Методы и обработка событий</a></p>
+<li><p><strong>См. также:</strong> <a href="../guide/events.html">Обработка событий</a></p>
 </li>
 </ul>
 <h3 id="watch"><a href="#watch" class="headerlink" title="watch"></a>watch</h3><ul>
@@ -507,7 +509,7 @@
 <figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="keyword">var</span> vm = <span class="keyword">new</span> Vue(&#123;</div><div class="line">  <span class="attr">data</span>: &#123;</div><div class="line">    <span class="attr">a</span>: <span class="number">1</span>,</div><div class="line">    <span class="attr">b</span>: <span class="number">2</span>,</div><div class="line">    <span class="attr">c</span>: <span class="number">3</span></div><div class="line">  &#125;,</div><div class="line">  <span class="attr">watch</span>: &#123;</div><div class="line">    <span class="attr">a</span>: <span class="function"><span class="keyword">function</span> (<span class="params">val, oldVal</span>) </span>&#123;</div><div class="line">      <span class="built_in">console</span>.log(<span class="string">'новое значение: %s, старое значение: %s'</span>, val, oldVal)</div><div class="line">    &#125;,</div><div class="line">    <span class="comment">// строка с именем метода:</span></div><div class="line">    b: <span class="string">'someMethod'</span>,</div><div class="line">    <span class="comment">// глубокий (рекурсивный) наблюдатель:</span></div><div class="line">    c: &#123;</div><div class="line">      <span class="attr">handler</span>: <span class="function"><span class="keyword">function</span> (<span class="params">val, oldVal</span>) </span>&#123; <span class="comment">/* ... */</span> &#125;,</div><div class="line">      <span class="attr">deep</span>: <span class="literal">true</span></div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;)</div><div class="line">vm.a = <span class="number">2</span> <span class="comment">// -&gt; new: 2, old: 1</span></div></pre></td></tr></table></figure>
 <p class="tip">Обратите внимание, что <strong>вам не стоит использовать стрелочные функции при определении наблюдателей</strong> (напр. <code>searchQuery: newValue =&gt; this.updateAutocomplete(newValue)</code>). Поскольку стрелочные функции связываются с родительским контекстом, <code>this</code> не будет указывать на инстанс Vue, и <code>this.updateAutocomplete</code> окажется неопределенным.</p>
 </li>
-<li><p><strong>См. также:</strong> <a href="#vm-watch">Методы инстанса - vm.$watch</a></p>
+<li><p><strong>См. также:</strong> <a href="#vm-watch">Методы инстанса — vm.$watch</a></p>
 </li>
 </ul>
 <h2 id="Опции-—-DOM"><a href="#Опции-—-DOM" class="headerlink" title="Опции — DOM"></a>Опции — DOM</h2><h3 id="el"><a href="#el" class="headerlink" title="el"></a>el</h3><ul>
@@ -535,7 +537,7 @@
 <li><p><strong>См. также:</strong></p>
 <ul>
 <li><a href="../guide/instance.html#Диаграмма-жизненного-цикла">Диаграмма жизненного цикла</a></li>
-<li><a href="../guide/components.html#Дистрибьюция-контента-через-слоты">Распределение контента через слоты</a></li>
+<li><a href="../guide/components.html#Дистрибьюция-контента-через-слоты">Дистрибьюция контента через слоты</a></li>
 </ul>
 </li>
 </ul>
@@ -548,11 +550,11 @@
 </li>
 <li><p><strong>См. также:</strong></p>
 <ul>
-<li><a href="../guide/render-function">Render-функции</a></li>
+<li><a href="../guide/render-function.html">Render-функции</a></li>
 </ul>
 </li>
 </ul>
-<h2 id="Опции-—-хуки-жизненного-цикла"><a href="#Опции-—-хуки-жизненного-цикла" class="headerlink" title="Опции — хуки жизненного цикла"></a>Опции — хуки жизненного цикла</h2><p>Хук (hook - буквально “крючок”), функция, вызывающаяся в определенный момент жизненного цикла сущности, например, непосредственно перед или после создания компонента Vue. Хук позволяет расширить или изменить стандартное поведение на пользовательское.</p>
+<h2 id="Опции-—-хуки-жизненного-цикла"><a href="#Опции-—-хуки-жизненного-цикла" class="headerlink" title="Опции — хуки жизненного цикла"></a>Опции — хуки жизненного цикла</h2><p>Хук (hook — буквально “крючок”), функция, вызывающаяся в определенный момент жизненного цикла сущности, например, непосредственно перед или после создания компонента Vue. Хук позволяет расширить или изменить стандартное поведение на пользовательское.</p>
 <p>Контекст <code>this</code> хуков указывает на инстанс Vue c данными, вычисляемыми свойствами и методами. Это значит, что <strong>вам не следует использовать стрелочные функции для определения хуков жизненного цикла</strong> (напр. <code>created: () =&gt; this.fetchTodos()</code>). Поскольку стрелочные функции связываются с родительским контекстом, <code>this</code> не будет указывать на инстанс Vue, и <code>this.fetchTodos</code> окажется неопределенным.</p>
 <h3 id="beforeCreate"><a href="#beforeCreate" class="headerlink" title="beforeCreate"></a>beforeCreate</h3><ul>
 <li><p><strong>Тип:</strong> <code>Function</code></p>
@@ -637,8 +639,8 @@
 </li>
 <li><p><strong>См. также:</strong></p>
 <ul>
-<li><a href="#keep-alive">Встроенные компоненты - keep-alive</a></li>
-<li><a href="../guide/components.html#keep-alive">Динамические компоненты - keep-alive</a></li>
+<li><a href="#keep-alive">Встроенные компоненты — keep-alive</a></li>
+<li><a href="../guide/components.html#keep-alive">Динамические компоненты — keep-alive</a></li>
 </ul>
 </li>
 </ul>
@@ -832,8 +834,8 @@
 <figure class="highlight js"><table><tr><td class="code"><pre><div class="line">Vue.component(<span class="string">'blog-post'</span>, &#123;</div><div class="line">  <span class="attr">render</span>: <span class="function"><span class="keyword">function</span> (<span class="params">createElement</span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> header = <span class="keyword">this</span>.$slots.header</div><div class="line">    <span class="keyword">var</span> body   = <span class="keyword">this</span>.$slots.default</div><div class="line">    <span class="keyword">var</span> footer = <span class="keyword">this</span>.$slots.footer</div><div class="line">    <span class="keyword">return</span> createElement(<span class="string">'div'</span>, [</div><div class="line">      createElement(<span class="string">'header'</span>, header),</div><div class="line">      createElement(<span class="string">'main'</span>, body),</div><div class="line">      createElement(<span class="string">'footer'</span>, footer)</div><div class="line">    ])</div><div class="line">  &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
 <ul>
 <li><a href="#slot-1">Компонент <code>&lt;slot&gt;</code></a></li>
-<li><a href="../guide/components.html#Дистрибьюция-контента-через-слоты">Распределение контента через слоты</a></li>
-<li><a href="../guide/render-function.html#Slots">Render-функции и слоты</a></li>
+<li><a href="../guide/components.html#Дистрибьюция-контента-через-слоты">Дистрибьюция контента через слоты</a></li>
+<li><a href="../guide/render-function.html#Слоты">Render-функции — слоты</a></li>
 </ul>
 </li>
 </ul>
@@ -846,14 +848,14 @@
 <li><p><strong>Только для чтения</strong></p>
 </li>
 <li><p><strong>Подробности:</strong></p>
-<p>Используется для доступа к <a href="../guide/components.html#Scoped-Slots">слотам с ограниченной областью видимости</a>. Для каждого слота, включая и слот <code>default</code>, объект содержащий соответствующую функцию, что возвращает VNode.</p>
+<p>Используется для доступа к <a href="../guide/components.html#Слоты-с-ограниченной-областью-видимости">слотам с ограниченной областью видимости</a>. Для каждого слота, включая и слот <code>default</code>, объект содержащий соответствующую функцию, что возвращает VNode.</p>
 <p>Использование <code>vm.$scopedSlots</code> наиболее полезно при написании компонентов с использованием <a href="../guide/render-function.html">render-функций</a>.</p>
 </li>
 <li><p><strong>См. также:</strong></p>
 <ul>
 <li><a href="#slot-1"><code>&lt;slot&gt;</code> компонент</a></li>
-<li><a href="../guide/components.html#Scoped-Slots">Слоты с ограниченной областью видимости</a></li>
-<li><a href="../guide/render-function.html#Slots">Render-функции: Слоты</a></li>
+<li><a href="../guide/components.html#Слоты-с-ограниченной-областью-видимости">Слоты с ограниченной областью видимости</a></li>
+<li><a href="../guide/render-function.html#Слоты">Render-функции — слоты</a></li>
 </ul>
 </li>
 </ul>
@@ -867,7 +869,7 @@
 </li>
 <li><p><strong>См. также:</strong></p>
 <ul>
-<li><a href="../guide/components.html#Ссылки-на-дочерние-компоненты">Ссылки на дочерние компоненты</a></li>
+<li><a href="../guide/components.html#Ссылки-на-компоненты-потомки">Ссылки на компоненты-потомки</a></li>
 <li><a href="#ref">ref</a></li>
 </ul>
 </li>
@@ -880,7 +882,7 @@
 <li><p><strong>Подробности:</strong></p>
 <p>Запущен ли данный инстанс Vue на сервере.</p>
 </li>
-<li><p><strong>См. также:</strong> <a href="../guide/ssr.html">Рендеринг на сервере</a></p>
+<li><p><strong>См. также:</strong> <a href="../guide/ssr.html">SSR. Рендеринг на стороне сервера</a></p>
 </li>
 </ul>
 <h2 id="Методы-инстанса-—-данные"><a href="#Методы-инстанса-—-данные" class="headerlink" title="Методы инстанса — данные"></a>Методы инстанса — данные</h2><h3 id="vm-watch">vm.$watch( expOrFn, callback, [options] )</h3>
@@ -1036,7 +1038,7 @@
 <li><p><strong>См. также:</strong></p>
 <ul>
 <li><a href="../guide/instance.html#Диаграмма-жизненного-цикла">Диаграмма жизненного цикла</a></li>
-<li><a href="../guide/ssr.html">Рендеринг на сервере</a></li>
+<li><a href="../guide/ssr.html">SSR. Рендеринг на стороне сервера</a></li>
 </ul>
 </li>
 </ul>
@@ -1091,7 +1093,7 @@
 <li><p><strong>Пример:</strong></p>
 <figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">span</span> <span class="attr">v-text</span>=<span class="string">"msg"</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span></div><div class="line"><span class="comment">&lt;!-- то же, что --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">span</span>&gt;</span>&#123;&#123;msg&#125;&#125;<span class="tag">&lt;/<span class="name">span</span>&gt;</span></div></pre></td></tr></table></figure>
 </li>
-<li><p><strong>См. также:</strong> <a href="../guide/syntax.html#Текст">Синтаксис связывания данных — интерполяции</a></p>
+<li><p><strong>См. также:</strong> <a href="../guide/syntax.html#Текст">Синтаксис шаблонов — интерполяции</a></p>
 </li>
 </ul>
 <h3 id="v-html"><a href="#v-html" class="headerlink" title="v-html"></a>v-html</h3><ul>
@@ -1104,7 +1106,7 @@
 <li><p><strong>Пример:</strong></p>
 <figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">v-html</span>=<span class="string">"html"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
 </li>
-<li><p><strong>См. также:</strong> <a href="../guide/syntax.html#Сырой-HTML">Синтаксис связывания данных — интерполяции</a></p>
+<li><p><strong>См. также:</strong> <a href="../guide/syntax.html#Сырой-HTML">Синтаксис шаблонов — интерполяции</a></p>
 </li>
 </ul>
 <h3 id="v-show"><a href="#v-show" class="headerlink" title="v-show"></a>v-show</h3><ul>
@@ -1114,7 +1116,7 @@
 <p>Переключает CSS-свойство <code>display</code> элемента, в зависимости от того, истинно ли указанное выражение.</p>
 <p>При изменении состояния этой директивы вызываются анимации, заданные в transition.</p>
 </li>
-<li><p><strong>См. также:</strong> <a href="../guide/conditional.html#v-show">Условный рендеринг - v-show</a></p>
+<li><p><strong>См. также:</strong> <a href="../guide/conditional.html#v-show">Условный рендеринг — v-show</a></p>
 </li>
 </ul>
 <h3 id="v-if"><a href="#v-if" class="headerlink" title="v-if"></a>v-if</h3><ul>
@@ -1126,7 +1128,7 @@
 </li>
 </ul>
 <ul>
-<li><strong>См. также:</strong> <a href="../guide/conditional.html">Условный рендеринг — v-if</a></li>
+<li><strong>См. также:</strong> <a href="../guide/conditional.html#v-if">Условный рендеринг — v-if</a></li>
 </ul>
 <h3 id="v-else"><a href="#v-else" class="headerlink" title="v-else"></a>v-else</h3><ul>
 <li><p><strong>Не принимает какое-либо выражение</strong></p>
@@ -1156,7 +1158,7 @@
 <p>Обозначает “блок else if” для <code>v-if</code>. Можно объединять в цепочки.</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">v-if</span>=<span class="string">"type === 'A'"</span>&gt;</span></div><div class="line">  A</div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">v-else-if</span>=<span class="string">"type === 'B'"</span>&gt;</span></div><div class="line">  B</div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">v-else-if</span>=<span class="string">"type === 'C'"</span>&gt;</span></div><div class="line">  C</div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">v-else</span>&gt;</span></div><div class="line">  Не A/B/C</div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
 </li>
-<li><p><strong>См. также:</strong> <a href="../guide/conditional.html#v-else-if">Условный рендеринг - v-else-if</a></p>
+<li><p><strong>См. также:</strong> <a href="../guide/conditional.html#v-else-if">Условный рендеринг — v-else-if</a></p>
 </li>
 </ul>
 <h3 id="v-for"><a href="#v-for" class="headerlink" title="v-for"></a>v-for</h3><ul>
@@ -1207,7 +1209,7 @@
 </li>
 <li><p><strong>См. также:</strong></p>
 <ul>
-<li><a href="../guide/events.html">Методы и обработка событий</a></li>
+<li><a href="../guide/events.html">Обработка событий</a></li>
 <li><a href="../guide/components.html#Пользовательские-события">Компоненты — пользовательские события</a></li>
 </ul>
 </li>
@@ -1239,7 +1241,7 @@
 </li>
 <li><p><strong>См. также:</strong></p>
 <ul>
-<li><a href="../guide/class-and-style.html">Связывание классов и стилей</a></li>
+<li><a href="../guide/class-and-style.html">Работа с классами и стилями</a></li>
 <li><a href="../guide/components.html#Входные-параметры">Компоненты — входные параметры компонентов</a></li>
 </ul>
 </li>
@@ -1267,8 +1269,8 @@
 </li>
 <li><p><strong>См. также:</strong></p>
 <ul>
-<li><a href="../guide/forms.html">Связывание элементов ввода данных</a></li>
-<li><a href="../guide/components.html#Элементы-ввода-форм-и-пользовательские-события">Компоненты — компоненты для ввода данных с пользовательскими событиями</a></li>
+<li><a href="../guide/forms.html">Работа с формами</a></li>
+<li><a href="../guide/components.html#Поля-ввода-форм-с-использованием-пользовательских-событий">Компоненты — поля ввода форм с использованием пользовательских событий</a></li>
 </ul>
 </li>
 </ul>
@@ -1303,8 +1305,8 @@
 </li>
 <li><p><strong>См. также:</strong></p>
 <ul>
-<li><a href="../guide/syntax.html#Текст">Синтаксис связывания данных — интерполяции</a></li>
-<li><a href="../guide/components.html#Дешёвые-статические-компоненты-с-использованием-v-once">Компоненты — дешёвые статические компоненты с v-once</a></li>
+<li><a href="../guide/syntax.html#Текст">Синтаксис шаблонов — интерполяции</a></li>
+<li><a href="../guide/components.html#“Дешёвые”-статические-компоненты-с-использованием-v-once">Компоненты — дешёвые статические компоненты с v-once</a></li>
 </ul>
 </li>
 </ul>
@@ -1331,7 +1333,7 @@
 <p>При использовании на элементах/компонентах с <code>v-for</code>, регистрируется массив ссылок на элементы DOM или инстансы компонентов.</p>
 <p>Важное замечание о времени регистрации ссылок: поскольку ссылки создаются функцией render, вы не cможете использовать их при первичном рендеринге — на тот момент они ещё не существуют! Кроме того, объект <code>$refs</code> не является реактивным, поэтому не стоит пытаться использовать его в шаблонах для связывания данных.</p>
 </li>
-<li><p><strong>См. также:</strong> <a href="../guide/components.html#Ссылки-на-дочерние-компоненты">Ссылки на дочерние компоненты</a></p>
+<li><p><strong>См. также:</strong> <a href="../guide/components.html#Ссылки-на-компоненты-потомки">Ссылки на компоненты-потомки</a></p>
 </li>
 </ul>
 <h3 id="slot"><a href="#slot" class="headerlink" title="slot"></a>slot</h3><ul>
@@ -1353,7 +1355,7 @@
 <p>“Метакомпонент” для рендеринга динамических компонентов. Настоящий компонент для рендеринга определяется параметром <code>is</code>:</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="comment">&lt;!-- динамический компонент, контролируемый --&gt;</span></div><div class="line"><span class="comment">&lt;!-- свойством vm `componentId`--&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">component</span> <span class="attr">:is</span>=<span class="string">"componentId"</span>&gt;</span><span class="tag">&lt;/<span class="name">component</span>&gt;</span></div><div class="line"></div><div class="line"><span class="comment">&lt;!-- может также рендерить зарегистрированный или переданный параметром компонент --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">component</span> <span class="attr">:is</span>=<span class="string">"$options.components.child"</span>&gt;</span><span class="tag">&lt;/<span class="name">component</span>&gt;</span></div></pre></td></tr></table></figure>
 </li>
-<li><p><strong>См. также:</strong> <a href="../guide/components.html#Динамическое-переключение-компонентов">Динамические компоненты</a></p>
+<li><p><strong>См. также:</strong> <a href="../guide/components.html#Динамическое-переключение-компонентов">Динамическое переключение компонентов</a></p>
 </li>
 </ul>
 <h3 id="transition"><a href="#transition" class="headerlink" title="transition"></a>transition</h3><ul>
@@ -1390,7 +1392,7 @@
 <figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="comment">&lt;!-- простой элемент --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">transition</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">v-if</span>=<span class="string">"ok"</span>&gt;</span>переключаемое содержимое<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">transition</span>&gt;</span></div><div class="line"></div><div class="line"><span class="comment">&lt;!-- динамический компонент --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">transition</span> <span class="attr">name</span>=<span class="string">"fade"</span> <span class="attr">mode</span>=<span class="string">"out-in"</span> <span class="attr">appear</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">component</span> <span class="attr">:is</span>=<span class="string">"view"</span>&gt;</span><span class="tag">&lt;/<span class="name">component</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">transition</span>&gt;</span></div><div class="line"></div><div class="line"><span class="comment">&lt;!-- хук на событие --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"transition-demo"</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">transition</span> @<span class="attr">after-enter</span>=<span class="string">"transitionComplete"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">v-show</span>=<span class="string">"ok"</span>&gt;</span>переключаемое содержимое<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">transition</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
 <figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="keyword">new</span> Vue(&#123;</div><div class="line">  ...</div><div class="line">  methods: &#123;</div><div class="line">    <span class="attr">transitionComplete</span>: <span class="function"><span class="keyword">function</span> (<span class="params">el</span>) </span>&#123;</div><div class="line">      <span class="comment">// сделайте что-нибудь с переданным элементом DOM ...</span></div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">  ...</div><div class="line">&#125;).$mount(<span class="string">'#transition-demo'</span>)</div></pre></td></tr></table></figure>
 </li>
-<li><p><strong>См. также:</strong> <a href="../guide/transitions.html">Анимации переходов: появление, исчезновение и списки</a></p>
+<li><p><strong>См. также:</strong> <a href="../guide/transitions.html">Анимационные эффекты переходов: появление, исчезновение и списки</a></p>
 </li>
 </ul>
 <h3 id="transition-group"><a href="#transition-group" class="headerlink" title="transition-group"></a>transition-group</h3><ul>
@@ -1412,7 +1414,7 @@
 <p>Анимации перехода реализованы с помощью CSS-трансформаций. Когда позиция потомка изменилась после обновления, ему будет добавлен CSS-класс (автоматически сгенерированный из атрибута <code>name</code>, или же явно указанный в атрибуте <code>move-class</code>). Если после применения этого класса свойство <code>transform</code> можно будет анимировать, элемент будет с плавным переходом переведён туда, где он должен быть с помощью <a href="https://aerotwist.com/blog/flip-your-animations/" target="_blank" rel="external">техники FLIP</a>.</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">transition-group</span> <span class="attr">tag</span>=<span class="string">"ul"</span> <span class="attr">name</span>=<span class="string">"slide"</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">li</span> <span class="attr">v-for</span>=<span class="string">"item in items"</span> <span class="attr">:key</span>=<span class="string">"item.id"</span>&gt;</span></div><div class="line">    &#123;&#123; item.text &#125;&#125;</div><div class="line">  <span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">transition-group</span>&gt;</span></div></pre></td></tr></table></figure>
 </li>
-<li><p><strong>См. также:</strong> <a href="../guide/transitions.html">Анимации переходов: появление, исчезновение и списки</a></p>
+<li><p><strong>См. также:</strong> <a href="../guide/transitions.html">Анимационные эффекты переходов: появление, исчезновение и списки</a></p>
 </li>
 </ul>
 <h3 id="keep-alive"><a href="#keep-alive" class="headerlink" title="keep-alive"></a>keep-alive</h3><ul>
@@ -1437,7 +1439,7 @@
 <p>Проверяется сначала собственное значение опции <code>name</code> компонента, а в случае его недоступности — имя, указанное при локальной регистрации (ключ в опции <code>components</code> компонента-родителя). Анонимные компоненты таким образом проверить не получится.</p>
 <p class="tip"><code>&lt;keep-alive&gt;</code> не работает с функциональными компонентами, так как у них отсутствуют инстансы.</p>
 </li>
-<li><p><strong>См. также:</strong> <a href="../guide/components.html#keep-alive">Динамические компоненты — keep-alive</a></p>
+<li><p><strong>См. также:</strong> <a href="../guide/components.html#keep-alive">Динамическое переключение компонентов — keep-alive</a></p>
 </li>
 </ul>
 <h3 id="slot-1"><a href="#slot-1" class="headerlink" title="slot"></a>slot</h3><ul>
@@ -1450,7 +1452,7 @@
 <p><code>&lt;slot&gt;</code> — элемент, чьё содержимое будет распределено в шаблон компонента. Сам элемент <code>&lt;slot&gt;</code> при рендеринге заменяется.</p>
 <p>Подробнее этот механизм описан в руководстве по ссылке ниже.</p>
 </li>
-<li><p><strong>См. также:</strong> <a href="../guide/components.html#Дистрибьюция-контента-через-слоты">Распределение контента слотами</a></p>
+<li><p><strong>См. также:</strong> <a href="../guide/components.html#Дистрибьюция-контента-через-слоты">Дистрибьюция контента через слоты</a></p>
 </li>
 </ul>
 <h2 id="Интерфейс-VNode"><a href="#Интерфейс-VNode" class="headerlink" title="Интерфейс VNode"></a>Интерфейс VNode</h2><ul>
