@@ -2,18 +2,18 @@
 <!DOCTYPE html>
 <html lang="ru">
     <head>
-        <title>Развёртывание для production — vue.js</title>
+        <title>Советы по развёртыванию — vue.js</title>
         <meta charset="utf-8">
         <meta name="description" content="Vue.js - Intuitive, Fast and Composable MVVM for building interactive interfaces.">
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
         <meta property="og:type" content="article">
-        <meta property="og:title" content="Развёртывание для production - vue.js">
+        <meta property="og:title" content="Советы по развёртыванию - vue.js">
         <meta property="og:description" content="Vue.js - Intuitive, Fast and Composable MVVM for building interactive interfaces.">
         <meta property="og:image" content="https://ru.vuejs.org/images/logo.png">
 
         <meta name="twitter:card" content="summary">
-        <meta name="twitter:title" content="Развёртывание для production - vue.js">
+        <meta name="twitter:title" content="Советы по развёртыванию - vue.js">
         <meta name="twitter:description" content="Vue.js - Intuitive, Fast and Composable MVVM for building interactive interfaces.">
         <meta name="twitter:image" content="https://ru.vuejs.org/images/logo.png">
 
@@ -414,7 +414,7 @@
                 
                 
                 <li>
-                    <a href="/v2/guide/deployment.html" class="sidebar-link current">Развёртывание для production</a>
+                    <a href="/v2/guide/deployment.html" class="sidebar-link current">Советы по развёртыванию</a>
                 </li>
             
                 
@@ -560,25 +560,31 @@
 
     
     
-      <h1>Развёртывание для production</h1>
+      <h1>Советы по развёртыванию</h1>
     
-    <h2 id="Отключение-предупреждений"><a href="#Отключение-предупреждений" class="headerlink" title="Отключение предупреждений"></a>Отключение предупреждений</h2><p>В минифицированной standalone-сборке Vue код предупреждений уже вырезан. Если же вы используете инструменты вроде Webpack или Browserify, для достижения этого эффекта понадобится немного дополнительного конфигурирования.</p>
-<h3 id="Webpack"><a href="#Webpack" class="headerlink" title="Webpack"></a>Webpack</h3><p>Используйте плагин <a href="http://webpack.github.io/docs/list-of-plugins.html#defineplugin" target="_blank" rel="external">DefinePlugin</a> чтобы указать production-окружение, и позволить UglifyJS автоматически удалить код предупреждений при минификации. Пример конфига:</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="keyword">var</span> webpack = <span class="built_in">require</span>(<span class="string">'webpack'</span>)</div><div class="line"></div><div class="line"><span class="built_in">module</span>.exports = &#123;</div><div class="line">  <span class="comment">// ...</span></div><div class="line">  plugins: [</div><div class="line">    <span class="comment">// ...</span></div><div class="line">    <span class="keyword">new</span> webpack.DefinePlugin(&#123;</div><div class="line">      <span class="string">'process.env'</span>: &#123;</div><div class="line">        <span class="attr">NODE_ENV</span>: <span class="string">'"production"'</span></div><div class="line">      &#125;</div><div class="line">    &#125;),</div><div class="line">    <span class="keyword">new</span> webpack.optimize.UglifyJsPlugin(&#123;</div><div class="line">      <span class="attr">compress</span>: &#123;</div><div class="line">        <span class="attr">warnings</span>: <span class="literal">false</span></div><div class="line">      &#125;</div><div class="line">    &#125;)</div><div class="line">  ]</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h3 id="Browserify"><a href="#Browserify" class="headerlink" title="Browserify"></a>Browserify</h3><ul>
-<li><p>Запустите сборку, указав для переменной окружения <code>NODE_ENV</code> значение <code>&quot;production&quot;</code>. Это заставит <code>vueify</code> выбросить код, связанный с функционалом hot-reload и остальные development-инструменты.</p>
+    <h2 id="Включение-режима-production"><a href="#Включение-режима-production" class="headerlink" title="Включение режима production"></a>Включение режима production</h2><p>В процессе разработки Vue предусматривает множество полезных предупреждений, чтобы помочь разобраться с типичными ошибками и подводными камнями. Однако в production эти предупреждения бессмысленны и лишь увеличивают размер вашего приложения. К тому же, часть проверок для этих предупреждений добавит небольшие затраты к времени выполнения и поэтому должны быть исключены в режиме production.</p>
+<h3 id="Без-использования-систем-сборки"><a href="#Без-использования-систем-сборки" class="headerlink" title="Без использования систем сборки"></a>Без использования систем сборки</h3><p>Если вы используете standalone-сборку, т.е. напрямую подключаете Vue через тег <code>&lt;script&gt;</code> без использования каких-либо систем сборки, удостоверьтесь что используете минифицированную версию (<code>vue.min.js</code>) для production.</p>
+<h3 id="С-использованием-систем-сборки"><a href="#С-использованием-систем-сборки" class="headerlink" title="С использованием систем сборки"></a>С использованием систем сборки</h3><p>При использовании систем сборки, таких как Webpack или Browserify, режим production определяется по значению <code>process.env.NODE_ENV</code> внутри исходного кода Vue. По умолчанию используется режим для разработки. Обе системы сборки предоставляют возможности для переопределения этой переменной — для включения режима production в Vue и удаления всех проверок и предупреждений на этапе сборки. Все шаблоны <code>vue-cli</code> уже настроены для вас, но было бы полезно знать, как это делается:</p>
+<h4 id="Webpack"><a href="#Webpack" class="headerlink" title="Webpack"></a>Webpack</h4><p>Используйте плагин Webpack <a href="http://webpack.github.io/docs/list-of-plugins.html#defineplugin" target="_blank" rel="external">DefinePlugin</a> для установки переменных окружения. Это позволит UglifyJS на этапе сборки удалить все предупреждения. Пример конфигурации:</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="keyword">var</span> webpack = <span class="built_in">require</span>(<span class="string">'webpack'</span>)</div><div class="line"></div><div class="line"><span class="built_in">module</span>.exports = &#123;</div><div class="line">  <span class="comment">// ...</span></div><div class="line">  plugins: [</div><div class="line">    <span class="comment">// ...</span></div><div class="line">    <span class="keyword">new</span> webpack.DefinePlugin(&#123;</div><div class="line">      <span class="string">'process.env'</span>: &#123;</div><div class="line">        <span class="attr">NODE_ENV</span>: <span class="string">'"production"'</span></div><div class="line">      &#125;</div><div class="line">    &#125;)</div><div class="line">  ]</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="Browserify"><a href="#Browserify" class="headerlink" title="Browserify"></a>Browserify</h4><ul>
+<li><p>Запустите сборку, указав в команде переменную <code>NODE_ENV</code> с значением <code>&quot;production&quot;</code>. Это позволит <code>vueify</code> исключить код для горячей замены модулей, а также код относящийся к разработке.</p>
 </li>
-<li><p>Примените глобальную трансформацию <a href="https://github.com/hughsk/envify" target="_blank" rel="external">envify</a> для вашей сборки. Это позволит выбросить все предупреждения из исходного кода Vue. Пример:</p>
-</li>
-</ul>
+<li><p>Примените глобальную трансформацию <a href="https://github.com/hughsk/envify" target="_blank" rel="external">envify</a> к вашей сборке. Это позволит минификатору удалить все предупреждения из исходного кода Vue, обёрнутые в условия проверки переменной окружения. Например:</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">NODE_ENV=production browserify -g envify <span class="_">-e</span> main.js | uglifyjs -c -m &gt; build.js</div></pre></td></tr></table></figure>
-<ul>
-<li>Для извлечения стилей в отдельный CSS-файл, используйте плагин extract-css, включённый во vueify.</li>
+</li>
 </ul>
-<figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">NODE_ENV=production browserify -g envify -p [ vueify/plugins/extract-css -o build.css ] <span class="_">-e</span> main.js | uglifyjs -c -m &gt; build.js</div></pre></td></tr></table></figure>
+<h4 id="Rollup"><a href="#Rollup" class="headerlink" title="Rollup"></a>Rollup</h4><p>Используйте <a href="https://github.com/rollup/rollup-plugin-replace" target="_blank" rel="external">rollup-plugin-replace</a>:</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="keyword">const</span> replace = <span class="built_in">require</span>(<span class="string">'rollup-plugin-replace'</span>)</div><div class="line"></div><div class="line">rollup(&#123;</div><div class="line">  <span class="comment">// ...</span></div><div class="line">  plugins: [</div><div class="line">    replace(&#123;</div><div class="line">      <span class="string">'process.env.NODE_ENV'</span>: <span class="built_in">JSON</span>.stringify( <span class="string">'production'</span> )</div><div class="line">    &#125;)</div><div class="line">  ]</div><div class="line">&#125;).then(...)</div></pre></td></tr></table></figure>
+<h2 id="Пре-компиляция-шаблонов"><a href="#Пре-компиляция-шаблонов" class="headerlink" title="Пре-компиляция шаблонов"></a>Пре-компиляция шаблонов</h2><p>При использовании DOM в качестве шаблона или строковых шаблонов в JavaScript, компиляция в render-функцию будет выполняться на лету. Это достаточно быстро для большинства случаев, но если ваше приложение нуждается в максимальной производительности стоит этого избегать. Самый простой способ предварительной компиляции шаблонов — использовать <a href="./single-file-components.html">однофайловые компоненты</a>. На этапе сборки проекта будет выполнена предварительная компиляция, поэтому результирующий код будет содержать только render-функции вместо сырых строковых шаблонов.</p>
+<h2 id="Извлечение-CSS-из-компонентов"><a href="#Извлечение-CSS-из-компонентов" class="headerlink" title="Извлечение CSS из компонентов"></a>Извлечение CSS из компонентов</h2><p>При использовании однофайловых компонентов, CSS из компонента будет динамически добавлен как тег <code>&lt;style&gt;</code> через JavaScript. Это немного увеличивает затраты времени выполнения, поэтому при использовании рендеринга на стороне сервера может привести к “мельканию неоформленного содержимого” (англ. flash of unstyled content — FOUC). Извлечение CSS из всех компонентов в один файл позволит избежать этой проблемы, а также добиться лучших результатов в минификации и кешировании CSS.</p>
+<p>Обратитесь к документации соответствующих инструментов для сборки, чтобы узнать как это реализовать:</p>
+<ul>
+<li><a href="http://vue-loader.vuejs.org/en/configurations/extract-css.html" target="_blank" rel="external">Webpack + vue-loader</a> (в <code>vue-cli</code> с шаблоном webpack это уже настроено)</li>
+<li><a href="https://github.com/vuejs/vueify#css-extraction" target="_blank" rel="external">Browserify + vueify</a></li>
+<li><a href="https://github.com/znck/rollup-plugin-vue#options" target="_blank" rel="external">Rollup + rollup-plugin-vue</a></li>
+</ul>
 <h2 id="Отслеживание-ошибок-времени-выполнения"><a href="#Отслеживание-ошибок-времени-выполнения" class="headerlink" title="Отслеживание ошибок времени выполнения"></a>Отслеживание ошибок времени выполнения</h2><p>Если при рендеринге компонента произойдёт ошибка, она будет передана в глобальную функцию <code>Vue.config.errorHandler</code>, если таковая была указана. Использование этого хука в связке с сервисом отслеживания ошибок, например с <a href="https://sentry.io" target="_blank" rel="external">Sentry</a>, может быть неплохой идеей — тем более, что <a href="https://sentry.io/for/vue/" target="_blank" rel="external">интеграция с Vue официально поддерживается</a>.</p>
-<h2 id="Извлечение-CSS"><a href="#Извлечение-CSS" class="headerlink" title="Извлечение CSS"></a>Извлечение CSS</h2><p>При использовании в разработке <a href="./single-file-components.html">однофайловых компонентов</a>, теги <code>&lt;style&gt;</code> обновляются автоматически. Для “боевого” окружения вам может понадобиться поместить все стили в единый CSS-файл. Детальную информацию о том как это сделать можно прочесть в документации <a href="http://vue-loader.vuejs.org/en/configurations/extract-css.html" target="_blank" rel="external">vue-loader</a> и <a href="https://github.com/vuejs/vueify#css-extraction" target="_blank" rel="external">vueify</a>.</p>
-<p>Официальный шаблон <code>webpack</code> для <code>vue-cli</code> уже содержит готовую конфигурацию для извлечения стилей.</p>
 
     
       <div class="guide-links">

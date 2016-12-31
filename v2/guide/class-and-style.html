@@ -414,7 +414,7 @@
                 
                 
                 <li>
-                    <a href="/v2/guide/deployment.html" class="sidebar-link">Развёртывание для production</a>
+                    <a href="/v2/guide/deployment.html" class="sidebar-link">Советы по развёртыванию</a>
                 </li>
             
                 
@@ -603,7 +603,7 @@
 <figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">my-component</span> <span class="attr">v-bind:class</span>=<span class="string">"&#123; active: isActive &#125;"</span>&gt;</span><span class="tag">&lt;/<span class="name">my-component</span>&gt;</span></div></pre></td></tr></table></figure>
 <p>Если <code>isActive</code> истинно, результирующим HTML будет:</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">class</span>=<span class="string">"foo bar active"</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></div></pre></td></tr></table></figure>
-<h2 id="Связывание-inline-стилей"><a href="#Связывание-inline-стилей" class="headerlink" title="Связывание inline-стилей"></a>Связывание inline-стилей</h2><h3 id="Использование-объектов-1"><a href="#Использование-объектов-1" class="headerlink" title="Использование объектов"></a>Использование объектов</h3><p>Объектная запись для <code>v-bind:style</code> довольно прямолинейна и выглядит почти как обыкновенный CSS, хотя в действительности и используется JavaScript. Для указания свойств CSS можно применять как camelCase, так и kebab-case:</p>
+<h2 id="Связывание-inline-стилей"><a href="#Связывание-inline-стилей" class="headerlink" title="Связывание inline-стилей"></a>Связывание inline-стилей</h2><h3 id="Использование-объектов-1"><a href="#Использование-объектов-1" class="headerlink" title="Использование объектов"></a>Использование объектов</h3><p>Объектная запись для <code>v-bind:style</code> довольно проста — выглядит почти как CSS, хотя на самом деле это объект JavaScript. Для указания свойств CSS можно применять как camelCase, так и kebab-case (не забывайте про кавычки при использовании kebab-case):</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">v-bind:style</span>=<span class="string">"&#123; color: activeColor, fontSize: fontSize + 'px' &#125;"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
 <figure class="highlight js"><table><tr><td class="code"><pre><div class="line">data: &#123;</div><div class="line">  <span class="attr">activeColor</span>: <span class="string">'red'</span>,</div><div class="line">  <span class="attr">fontSize</span>: <span class="number">30</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>Передача объекта стилей по имени нередко может сделать код чище:</p>

@@ -414,7 +414,7 @@
                 
                 
                 <li>
-                    <a href="/v2/guide/deployment.html" class="sidebar-link">Развёртывание для production</a>
+                    <a href="/v2/guide/deployment.html" class="sidebar-link">Советы по развёртыванию</a>
                 </li>
             
                 
@@ -835,7 +835,10 @@ Vue.component('currency-input', {
     }
   }
 })
-new Vue({ el: '#currency-input-example' })
+new Vue({
+  el: '#currency-input-example',
+  data: { price: '' }
+})
 </script>
 
 <p>Очевидно, что наша реализация не лишена недостатков. Например, пользователь может ввести несколько десятичных точек, а кое-где и буквы вместо цифр. Для тех, кого интересует пример менее тривиальной и более надёжной реализации, вот он:</p>

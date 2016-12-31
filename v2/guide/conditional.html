@@ -414,7 +414,7 @@
                 
                 
                 <li>
-                    <a href="/v2/guide/deployment.html" class="sidebar-link">Развёртывание для production</a>
+                    <a href="/v2/guide/deployment.html" class="sidebar-link">Советы по развёртыванию</a>
                 </li>
             
                 
@@ -652,6 +652,7 @@ new Vue({
 <p><code>v-if</code> также <strong>ленив</strong>: если условие ложно на момент первоначального рендеринга, он не произведёт никаких действий — условный блок не будет отображён, пока условие впервые не станет истинным.</p>
 <p><code>v-show</code>, напротив, куда проще: элемент всегда присутствует в DOM, и только CSS-свойство переключается в зависимости от значения выражения.</p>
 <p>В целом у <code>v-if</code> выше стоимость переключения, а у <code>v-show</code> выше стоимость первичного рендеринга. Так что если вы предполагаете, что переключения будут частыми, используйте <code>v-show</code>, если же редкими или вовсе маловероятными — <code>v-if</code>.</p>
+<h2 id="v-if-вместе-с-v-for"><a href="#v-if-вместе-с-v-for" class="headerlink" title="v-if вместе с v-for"></a><code>v-if</code> вместе с <code>v-for</code></h2><p>При совместном использовании <code>v-if</code> и <code>v-for</code>, <code>v-for</code> имеет более высокий приоритет. Подробности на странице <a href="../guide/list.html#v-for-и-v-if">рендеринга списков</a>.</p>
 
     
       <div class="guide-links">

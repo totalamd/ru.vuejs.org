@@ -414,7 +414,7 @@
                 
                 
                 <li>
-                    <a href="/v2/guide/deployment.html" class="sidebar-link">Развёртывание для production</a>
+                    <a href="/v2/guide/deployment.html" class="sidebar-link">Советы по развёртыванию</a>
                 </li>
             
                 
@@ -619,11 +619,11 @@ var example2 = new Vue({
 
 <p>Вместо <code>in</code> как разделитель можно также использовать слово <code>of</code>, что приближает синтаксис к итераторам в JavaScript:</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">v-for</span>=<span class="string">"item of items"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
-<h3 id="v-for-и-template"><a href="#v-for-и-template" class="headerlink" title="v-for и template"></a>v-for и template</h3><p>Подобно <code>v-if</code>, для рендеринга нескольких элементов <code>v-for</code> также можно использовать на псевдоэлементе <code>&lt;template&gt;</code>. Например:</p>
+<h3 id="v-for-и-template"><a href="#v-for-и-template" class="headerlink" title="v-for и template"></a><code>v-for</code> и template</h3><p>Подобно <code>v-if</code>, для рендеринга нескольких элементов <code>v-for</code> также можно использовать на псевдоэлементе <code>&lt;template&gt;</code>. Например:</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">ul</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">template</span> <span class="attr">v-for</span>=<span class="string">"item in items"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span>&#123;&#123; item.msg &#125;&#125;<span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">li</span> <span class="attr">class</span>=<span class="string">"divider"</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">template</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></div></pre></td></tr></table></figure>
-<h3 id="v-for-для-объекта"><a href="#v-for-для-объекта" class="headerlink" title="v-for для объекта"></a>v-for для объекта</h3><p><code>v-for</code> можно также использовать для итерирования по свойствам объекта:</p>
+<h3 id="v-for-для-объекта"><a href="#v-for-для-объекта" class="headerlink" title="v-for для объекта"></a><code>v-for</code> для объекта</h3><p><code>v-for</code> можно также использовать для итерирования по свойствам объекта:</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">ul</span> <span class="attr">id</span>=<span class="string">"repeat-object"</span> <span class="attr">class</span>=<span class="string">"demo"</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">li</span> <span class="attr">v-for</span>=<span class="string">"value in object"</span>&gt;</span></div><div class="line">    &#123;&#123; value &#125;&#125;</div><div class="line">  <span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></div></pre></td></tr></table></figure>
-<figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="keyword">new</span> Vue(&#123;</div><div class="line">  <span class="attr">el</span>: <span class="string">'#repeat-object'</span>,</div><div class="line">  <span class="attr">data</span>: &#123;</div><div class="line">    <span class="attr">object</span>: &#123;</div><div class="line">      <span class="attr">FirstName</span>: <span class="string">'Иван'</span>,</div><div class="line">      <span class="attr">LastName</span>: <span class="string">'Петров'</span>,</div><div class="line">      <span class="attr">Age</span>: <span class="number">30</span></div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="keyword">new</span> Vue(&#123;</div><div class="line">  <span class="attr">el</span>: <span class="string">'#repeat-object'</span>,</div><div class="line">  <span class="attr">data</span>: &#123;</div><div class="line">    <span class="attr">object</span>: &#123;</div><div class="line">      <span class="attr">firstName</span>: <span class="string">'Иван'</span>,</div><div class="line">      <span class="attr">lastName</span>: <span class="string">'Петров'</span>,</div><div class="line">      <span class="attr">age</span>: <span class="number">30</span></div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
 <p>Результат:</p>
 
 <ul id="repeat-object" class="demo">
@@ -636,9 +636,9 @@ new Vue({
   el: '#repeat-object',
   data: {
     object: {
-      FirstName: 'Иван',
-      LastName: 'Петров',
-      Age: 30
+      firstName: 'Иван',
+      lastName: 'Петров',
+      age: 30
     }
   }
 })
@@ -708,7 +708,12 @@ new Vue({
 })
 </script>
 
-<h2 id="key"><a href="#key" class="headerlink" title="key"></a>key</h2><p>Когда Vue.js обновляет список элементов, отображаемый при помощи <code>v-for</code>, по умолчанию используется стратегия “обновления на месте”. Если порядок элементов данных изменился, то вместо перемещения элементов DOM Vue попросту обновит каждый элемент “на месте”, чтобы он отображал новые данные по соответствующему индексу. Во Vue версий 1.x подобное поведение достигалось указанием <code>track-by=&quot;$index&quot;</code>.</p>
+<h3 id="v-for-и-v-if"><a href="#v-for-и-v-if" class="headerlink" title="v-for и v-if"></a><code>v-for</code> и <code>v-if</code></h3><p>Когда они присутствуют на одном элементе, то <code>v-for</code> имеет больший приоритет перед <code>v-if</code>. Это означает, что <code>v-if</code> будет выполняться отдельно для каждой итерации цикла. Это очень полезно при необходимости отобразить только <em>некоторые</em> элементы списка, например:</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">li</span> <span class="attr">v-for</span>=<span class="string">"todo in todos"</span> <span class="attr">v-if</span>=<span class="string">"!todo.isComplete"</span>&gt;</span></div><div class="line">  &#123;&#123; todo &#125;&#125;</div><div class="line"><span class="tag">&lt;/<span class="name">li</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>В результате будут отображены только todo, которые ещё не выполнены.</p>
+<p>Если нужно чтобы по условию пропускалось выполнение всего цикла, то следует поместить <code>v-if</code> на элемент обёртки  (или <a href="conditional.html#Условные-группы-с-использованием-v-if-и-lt-template-gt"><code>&lt;template&gt;</code></a>). Например:</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">ul</span> <span class="attr">v-if</span>=<span class="string">"shouldRenderTodos"</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">li</span> <span class="attr">v-for</span>=<span class="string">"todo in todos"</span>&gt;</span></div><div class="line">    &#123;&#123; todo &#125;&#125;</div><div class="line">  <span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></div></pre></td></tr></table></figure>
+<h2 id="key"><a href="#key" class="headerlink" title="key"></a><code>key</code></h2><p>Когда Vue обновляет список элементов, отображаемый при помощи <code>v-for</code>, по умолчанию используется стратегия “обновления на месте”. Если порядок элементов данных изменился, то вместо перемещения элементов DOM Vue попросту обновит каждый элемент “на месте”, чтобы он отображал новые данные по соответствующему индексу. Во Vue версий 1.x подобное поведение достигалось указанием <code>track-by=&quot;$index&quot;</code>.</p>
 <p>Режим по умолчанию эффективен, но применим только в случаях <strong>когда результат рендеринга вашего списка не полагается на состояние дочерних компонентов или промежуточные состояния DOM (например, элементов ввода форм)</strong>.</p>
 <p>Чтобы дать Vue подсказку и позволить ему отслеживать идентичность каждого элемента, и таким образом повторно использовать и переупорядочивать существующие элементы, необходимо указать уникальный атрибут <code>key</code> для каждого элемента. Идеальным значением для <code>key</code> будет уникальный id элемента. Этот специальный атрибут является приблизительным эквивалентом <code>track-by</code> из Vue 1.x, но работает также, как и все остальные атрибуты, что приводит к необходимости использования <code>v-bind</code> для связывания с динамическими значениями (в примере ниже используется сокращение):</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">v-for</span>=<span class="string">"item in items"</span> <span class="attr">:key</span>=<span class="string">"item.id"</span>&gt;</span></div><div class="line">  <span class="comment">&lt;!-- содержимое --&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>

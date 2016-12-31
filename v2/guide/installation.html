@@ -414,7 +414,7 @@
                 
                 
                 <li>
-                    <a href="/v2/guide/deployment.html" class="sidebar-link">Развёртывание для production</a>
+                    <a href="/v2/guide/deployment.html" class="sidebar-link">Советы по развёртыванию</a>
                 </li>
             
                 
@@ -567,17 +567,17 @@
 <h2 id="Автономная-установка"><a href="#Автономная-установка" class="headerlink" title="Автономная установка"></a>Автономная установка</h2><p>Просто скачайте js-файл и подключите его тегом <code>&lt;script&gt;</code>. Будет зарегистрирована глобальная переменная <code>Vue</code>.</p>
 <p class="tip">Не используйте минифицированную версию во время разработки, иначе вы не будете получать предупреждения о типичных ошибках!</p>
 
-<div id="downloads"><br><a class="button" href="/js/vue.js" download="">Версия для разработки</a><span class="light info">С  предупреждениями для удобства разработки и отладки</span><br><br><a class="button" href="/js/vue.min.js" download="">Версия для production</a><span class="light info">Без предупреждений, 24.72 Кб min+gzip</span><br></div>
+<div id="downloads"><br><a class="button" href="/js/vue.js" download="">Версия для разработки</a><span class="light info">С  предупреждениями для удобства разработки и отладки</span><br><br><a class="button" href="/js/vue.min.js" download="">Версия для production</a><span class="light info">Без предупреждений, 25.75 Кб min+gzip</span><br></div>
 
 <h3 id="CDN"><a href="#CDN" class="headerlink" title="CDN"></a>CDN</h3><p>Рекомендуем этот вариант: на <a href="https://unpkg.com/vue/dist/vue.js" target="_blank" rel="external">unpkg</a> всегда доступна самая свежая версию Vue, загруженная в npm. Исходный код самого npm-пакета также доступен по ссылке <a href="https://unpkg.com/vue/" target="_blank" rel="external">unpkg.com/vue/</a>.</p>
-<p>Vue также доступен на <a href="//cdn.jsdelivr.net/vue/2.1.3/vue.js">jsdelivr</a> и <a href="//cdnjs.cloudflare.com/ajax/libs/vue/2.1.3/vue.js">cdnjs</a>, но эти сервисы синхронизируются с npm с некоторой задержкой, из-за чего новейшая версия может быть не всегда доступна.</p>
+<p>Vue также доступен на <a href="//cdn.jsdelivr.net/vue/2.1.8/vue.js">jsdelivr</a> и <a href="//cdnjs.cloudflare.com/ajax/libs/vue/2.1.8/vue.js">cdnjs</a>, но эти сервисы синхронизируются с npm с некоторой задержкой, из-за чего новейшая версия может быть не всегда доступна.</p>
 <h2 id="NPM"><a href="#NPM" class="headerlink" title="NPM"></a>NPM</h2><p>Рекомендуем использовать NPM при создании крупных приложений на Vue. Этот вариант прекрасно работает в паре с инструментами сборки, такими как <a href="http://webpack.github.io/" target="_blank" rel="external">Webpack</a> и <a href="http://browserify.org/" target="_blank" rel="external">Browserify</a>. Во Vue также есть совместимые с ними инструменты для использования <a href="single-file-components.html">однофайловых компонентов</a>.</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><div class="line"><span class="comment"># последняя стабильная версия</span></div><div class="line">$ npm install vue</div></pre></td></tr></table></figure>
 <h3 id="Standalone-или-runtime-сборка"><a href="#Standalone-или-runtime-сборка" class="headerlink" title="Standalone или runtime сборка"></a>Standalone или runtime сборка</h3><p>Есть два вида сборок:</p>
 <ul>
 <li><p><code>vue.common.js</code> — standalone-сборка — содержит компилятор шаблонов и поддерживает опцию <code>template</code>. <strong>Она опирается на API браузера, и не может быть использована для серверного рендеринга.</strong> Компилятор шаблонов отвечает за компиляцию строковых шаблонов Vue в <code>render</code>-функции на чистом JavaScript. Если вы хотите использовать опцию <code>template</code>, значит вам нужен компилятор шаблонов. Хранилище Vuex также требует использования standalone-сборки.</p>
 </li>
-<li><p><code>vue.js</code> — runtime-сборка — не содержит компилятора шаблонов и не поддерживает опцию <code>template</code>. Вы можете использовать только опцию <code>render</code>, но она работает лишь с однофайловыми компонентами, потому что в них шаблоны компилируются в <code>render</code>-функции на этапе сборки. Runtime-сборка приблизительно на 30% легче, чем standalone, и весит всего 17.14 Кб min+gzip.</p>
+<li><p><code>vue.js</code> — runtime-сборка — не содержит компилятора шаблонов и не поддерживает опцию <code>template</code>. Вы можете использовать только опцию <code>render</code>, но она работает лишь с однофайловыми компонентами, потому что в них шаблоны компилируются в <code>render</code>-функции на этапе сборки. Runtime-сборка приблизительно на 30% легче, чем standalone, и весит всего 17.87 Кб min+gzip.</p>
 </li>
 </ul>
 <p>По умолчанию, NPM-пакет экспортирует <strong>runtime-сборку</strong>. Для использования standalone-сборки необходимо добавить псевдоним в свою конфигурацию Webpack:</p>
