@@ -4,17 +4,17 @@
     <head>
         <title>Работа с формами — vue.js</title>
         <meta charset="utf-8">
-        <meta name="description" content="Vue.js - Intuitive, Fast and Composable MVVM for building interactive interfaces.">
+        <meta name="description" content="Vue.js — Интуитивный, быстрый и компонуемый MVVM для создания интерактивных интерфейсов.">
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
         <meta property="og:type" content="article">
         <meta property="og:title" content="Работа с формами - vue.js">
-        <meta property="og:description" content="Vue.js - Intuitive, Fast and Composable MVVM for building interactive interfaces.">
+        <meta property="og:description" content="Vue.js — Интуитивный, быстрый и компонуемый MVVM для создания интерактивных интерфейсов.">
         <meta property="og:image" content="https://ru.vuejs.org/images/logo.png">
 
         <meta name="twitter:card" content="summary">
         <meta name="twitter:title" content="Работа с формами - vue.js">
-        <meta name="twitter:description" content="Vue.js - Intuitive, Fast and Composable MVVM for building interactive interfaces.">
+        <meta name="twitter:description" content="Vue.js — Интуитивный, быстрый и компонуемый MVVM для создания интерактивных интерфейсов.">
         <meta name="twitter:image" content="https://ru.vuejs.org/images/logo.png">
 
         <link rel="icon" href="/images/logo.png" type="image/x-icon">
@@ -562,12 +562,12 @@
     
       <h1>Работа с формами</h1>
     
-    <h2 id="Базовое-использование"><a href="#Базовое-использование" class="headerlink" title="Базовое использование"></a>Базовое использование</h2><p>Вы можете использовать директиву <code>v-model</code> для двунаправленного связывания с элементами форм input и textarea. Корректный способ обновления элемента выбирается автоматически в зависимости от типа элемента. Несмотря на слегка волшебный вид, <code>v-model</code> в действительности представляет собой всего лишь синтаксический сахар для обновления данных в элементах ввода данных пользователем, с некоторыми поправками для краевых случаев.</p>
+    <h2 id="Типичное-использование"><a href="#Типичное-использование" class="headerlink" title="Типичное использование"></a>Типичное использование</h2><p>Вы можете использовать директиву <code>v-model</code> для двунаправленного связывания данных с элементами форм input и textarea. Способ обновления элемента выбирается автоматически в зависимости от типа элемента. Хотя <code>v-model</code> и выглядит как нечто слегка волшебное, в действительности это всего лишь синтаксический сахар для обновления данных в элементах ввода, с некоторыми поправками для граничных случаев.</p>
 <p class="tip">Для <code>v-model</code> не имеет значения изначальное значение элемента input или textarea. В качестве источника истины всегда рассматривается только состояние инстанса Vue.</p>
 
-<p class="tip" id="vmodel-ime-tip">Для языков, требующих <a href="https://en.wikipedia.org/wiki/Input_method" target="_blank" rel="external">IME</a> (китайский, японский, корейский и т.д.), можно заметить, что <code>v-model</code> не обновляется по мере IME-композиции. Если вы хотите обрабатывать и эти обновления, используйте события <code>input</code>.</p>
+<p class="tip" id="vmodel-ime-tip">В языках, требующих <a href="https://en.wikipedia.org/wiki/Input_method" target="_blank" rel="external">IME</a> (китайский, японский, корейский и т.д.), можно заметить, что <code>v-model</code> не обновляется по мере IME-композиции. Если вы хотите обрабатывать и эти обновления, используйте события <code>input</code>.</p>
 
-<h3 id="Текст"><a href="#Текст" class="headerlink" title="Текст"></a>Текст</h3><figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">v-model</span>=<span class="string">"message"</span> <span class="attr">placeholder</span>=<span class="string">"edit me"</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>Введённое сообщение: &#123;&#123; message &#125;&#125;<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div></pre></td></tr></table></figure>
+<h3 id="Текст"><a href="#Текст" class="headerlink" title="Текст"></a>Текст</h3><figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">v-model</span>=<span class="string">"message"</span> <span class="attr">placeholder</span>=<span class="string">"отредактируй меня"</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>Введённое сообщение: &#123;&#123; message &#125;&#125;<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div></pre></td></tr></table></figure>
 
 <div id="example-1" class="demo">
   <input v-model="message" placeholder="отредактируй меня">
@@ -599,9 +599,9 @@ new Vue({
 </script>
 
 
-<p class="tip">Интерполяция внутри тега textarea (<code>&lt;textarea&gt;{{text}}&lt;/textarea&gt;</code>) не будет работать. Используйте вместо этого директиву <code>v-model</code></p>
+<p class="tip">Интерполяция внутри тега textarea (<code>&lt;textarea&gt;{{text}}&lt;/textarea&gt;</code>) не будет работать. Используйте вместо неё директиву <code>v-model</code></p>
 
-<h3 id="Чекбоксы"><a href="#Чекбоксы" class="headerlink" title="Чекбоксы"></a>Чекбоксы</h3><p>Одиночный чекбокс, булево значение:</p>
+<h3 id="Чекбоксы"><a href="#Чекбоксы" class="headerlink" title="Чекбоксы"></a>Чекбоксы</h3><p>Один чекбокс, привязанный к булевому значению:</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"checkbox"</span> <span class="attr">id</span>=<span class="string">"checkbox"</span> <span class="attr">v-model</span>=<span class="string">"checked"</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span>=<span class="string">"checkbox"</span>&gt;</span>&#123;&#123; checked &#125;&#125;<span class="tag">&lt;/<span class="name">label</span>&gt;</span></div></pre></td></tr></table></figure>
 
 <div id="example-2" class="demo">
@@ -727,7 +727,7 @@ new Vue({
 })
 </script>
 
-<h2 id="Связывание-значений"><a href="#Связывание-значений" class="headerlink" title="Связывание значений"></a>Связывание значений</h2><p>Для радиокнопок, чекбоксов и выпадающих списков выбора, в качестве параметров <code>v-model</code> обычно указываются статические строки (для чекбоксов — булевы значения):</p>
+<h2 id="Связывание-значений"><a href="#Связывание-значений" class="headerlink" title="Связывание значений"></a>Связывание значений</h2><p>Для радиокнопок, чекбоксов и выпадающих списков выбора, в качестве параметров <code>v-model</code> обычно указываются статические строки (для чекбоксов — булевые значения):</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="comment">&lt;!-- `picked` получает строковое значение "a" при клике --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"radio"</span> <span class="attr">v-model</span>=<span class="string">"picked"</span> <span class="attr">value</span>=<span class="string">"a"</span>&gt;</span></div><div class="line"></div><div class="line"><span class="comment">&lt;!-- `toggle` может иметь значение true или false --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"checkbox"</span> <span class="attr">v-model</span>=<span class="string">"toggle"</span>&gt;</span></div><div class="line"></div><div class="line"><span class="comment">&lt;!-- `selected` при выборе становится равным строке "abc" --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">select</span> <span class="attr">v-model</span>=<span class="string">"selected"</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">option</span> <span class="attr">value</span>=<span class="string">"abc"</span>&gt;</span>ABC<span class="tag">&lt;/<span class="name">option</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">select</span>&gt;</span></div></pre></td></tr></table></figure>
 <p>Иногда хочется связать значение с динамическим свойством инстанса Vue. Для этого можно использовать <code>v-bind</code>. Кроме того, использование <code>v-bind</code> позволяет связывать поле ввода с нестроковыми переменными.</p>
 <h3 id="Чекбокс"><a href="#Чекбокс" class="headerlink" title="Чекбокс"></a>Чекбокс</h3><figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">input</span></span></div><div class="line">  <span class="attr">type</span>=<span class="string">"checkbox"</span></div><div class="line">  <span class="attr">v-model</span>=<span class="string">"toggle"</span></div><div class="line">  <span class="attr">v-bind:true-value</span>=<span class="string">"a"</span></div><div class="line">  <span class="attr">v-bind:false-value</span>=<span class="string">"b"</span></div><div class="line">&gt;</div></pre></td></tr></table></figure>
@@ -738,9 +738,9 @@ new Vue({
 <figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="comment">// когда выбрано:</span></div><div class="line"><span class="keyword">typeof</span> vm.selected <span class="comment">// -&gt; 'object'</span></div><div class="line">vm.selected.number <span class="comment">// -&gt; 123</span></div></pre></td></tr></table></figure>
 <h2 id="Модификаторы"><a href="#Модификаторы" class="headerlink" title="Модификаторы"></a>Модификаторы</h2><h3 id="lazy"><a href="#lazy" class="headerlink" title=".lazy"></a><code>.lazy</code></h3><p>По умолчанию, <code>v-model</code> синхронизирует ввод с данными на каждое событие <code>input</code> (за исключением <a href="#vmodel-ime-tip">вышеупомянутых</a> событий IME). Вы можете указать модификатор <code>lazy</code> чтобы вместо этого использовать для синхронизации события <code>change</code>:</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="comment">&lt;!-- синхронизируется после "change", а не "input" --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">v-model.lazy</span>=<span class="string">"msg"</span> &gt;</span></div></pre></td></tr></table></figure>
-<h3 id="number"><a href="#number" class="headerlink" title=".number"></a><code>.number</code></h3><p>Если вы хотите автоматически приводить пользовательский ввод к числу, добавьте модификатор <code>number</code>:</p>
+<h3 id="number"><a href="#number" class="headerlink" title=".number"></a><code>.number</code></h3><p>Если вы хотите автоматически приводить то, что ввёл пользователь к числу, добавьте модификатор <code>number</code>:</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">v-model.number</span>=<span class="string">"age"</span> <span class="attr">type</span>=<span class="string">"number"</span>&gt;</span></div></pre></td></tr></table></figure>
-<p>Зачастую это оказывается полезным, так как даже при указанном атрибуте <code>type=&quot;number&quot;</code> значением HTML input’а всегда является строка.</p>
+<p>Зачастую это оказывается полезным, так как даже при указанном атрибуте <code>type=&quot;number&quot;</code> значением input’а всегда является строка.</p>
 <h3 id="trim"><a href="#trim" class="headerlink" title=".trim"></a><code>.trim</code></h3><p>Если вы хотите автоматически обрезать пробелы в начале и в конце введённой строки, используйте модификатор <code>trim</code>:</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">v-model.trim</span>=<span class="string">"msg"</span>&gt;</span></div></pre></td></tr></table></figure>
 <h2 id="Использование-v-model-с-компонентами"><a href="#Использование-v-model-с-компонентами" class="headerlink" title="Использование v-model с компонентами"></a>Использование <code>v-model</code> с компонентами</h2><blockquote>

@@ -4,17 +4,17 @@
     <head>
         <title>API — vue.js</title>
         <meta charset="utf-8">
-        <meta name="description" content="Vue.js - Intuitive, Fast and Composable MVVM for building interactive interfaces.">
+        <meta name="description" content="Vue.js — Интуитивный, быстрый и компонуемый MVVM для создания интерактивных интерфейсов.">
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
         <meta property="og:type" content="article">
         <meta property="og:title" content="API - vue.js">
-        <meta property="og:description" content="Vue.js - Intuitive, Fast and Composable MVVM for building interactive interfaces.">
+        <meta property="og:description" content="Vue.js — Интуитивный, быстрый и компонуемый MVVM для создания интерактивных интерфейсов.">
         <meta property="og:image" content="https://ru.vuejs.org/images/logo.png">
 
         <meta name="twitter:card" content="summary">
         <meta name="twitter:title" content="API - vue.js">
-        <meta name="twitter:description" content="Vue.js - Intuitive, Fast and Composable MVVM for building interactive interfaces.">
+        <meta name="twitter:description" content="Vue.js — Интуитивный, быстрый и компонуемый MVVM для создания интерактивных интерфейсов.">
         <meta name="twitter:image" content="https://ru.vuejs.org/images/logo.png">
 
         <link rel="icon" href="/images/logo.png" type="image/x-icon">
@@ -537,7 +537,7 @@
 <li><p><strong>См. также:</strong></p>
 <ul>
 <li><a href="../guide/instance.html#Диаграмма-жизненного-цикла">Диаграмма жизненного цикла</a></li>
-<li><a href="../guide/components.html#Дистрибьюция-контента-через-слоты">Дистрибьюция контента через слоты</a></li>
+<li><a href="../guide/components.html#Распределение-контента-слотами">Распределение контента слотами</a></li>
 </ul>
 </li>
 </ul>
@@ -826,7 +826,7 @@
 <li><p><strong>Только для чтения</strong></p>
 </li>
 <li><p><strong>Подробности:</strong></p>
-<p>Используется для доступа к контенту, <a href="../guide/components.html#Дистрибьюция-контента-через-слоты">распределяемому слотами</a>. У каждого <a href="../guide/components.html#Именованные-слоты">именованного слота</a> есть соответствующее значение (например, содержимое <code>slot=&quot;foo&quot;</code> попадёт в <code>vm.$slots.foo</code>). Свойство <code>default</code> содержит узлы, не включённые в именованные слоты.</p>
+<p>Используется для доступа к контенту, <a href="../guide/components.html#Распределение-контента-слотами">распределяемому слотами</a>. У каждого <a href="../guide/components.html#Именованные-слоты">именованного слота</a> есть соответствующее значение (например, содержимое <code>slot=&quot;foo&quot;</code> попадёт в <code>vm.$slots.foo</code>). Свойство <code>default</code> содержит узлы, не включённые в именованные слоты.</p>
 <p>Особенно полезно <code>vm.$slots</code> в компонентах с <a href="../guide/render-function.html">render-функциями</a>.</p>
 </li>
 <li><p><strong>Пример:</strong></p>
@@ -834,7 +834,7 @@
 <figure class="highlight js"><table><tr><td class="code"><pre><div class="line">Vue.component(<span class="string">'blog-post'</span>, &#123;</div><div class="line">  <span class="attr">render</span>: <span class="function"><span class="keyword">function</span> (<span class="params">createElement</span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> header = <span class="keyword">this</span>.$slots.header</div><div class="line">    <span class="keyword">var</span> body   = <span class="keyword">this</span>.$slots.default</div><div class="line">    <span class="keyword">var</span> footer = <span class="keyword">this</span>.$slots.footer</div><div class="line">    <span class="keyword">return</span> createElement(<span class="string">'div'</span>, [</div><div class="line">      createElement(<span class="string">'header'</span>, header),</div><div class="line">      createElement(<span class="string">'main'</span>, body),</div><div class="line">      createElement(<span class="string">'footer'</span>, footer)</div><div class="line">    ])</div><div class="line">  &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
 <ul>
 <li><a href="#slot-1">Компонент <code>&lt;slot&gt;</code></a></li>
-<li><a href="../guide/components.html#Дистрибьюция-контента-через-слоты">Дистрибьюция контента через слоты</a></li>
+<li><a href="../guide/components.html#Распределение-контента-слотами">Распределение контента слотами</a></li>
 <li><a href="../guide/render-function.html#Слоты">Render-функции — слоты</a></li>
 </ul>
 </li>
@@ -1457,7 +1457,7 @@
 <p><code>&lt;slot&gt;</code> — элемент, чьё содержимое будет распределено в шаблон компонента. Сам элемент <code>&lt;slot&gt;</code> при рендеринге заменяется.</p>
 <p>Подробнее этот механизм описан в руководстве по ссылке ниже.</p>
 </li>
-<li><p><strong>См. также:</strong> <a href="../guide/components.html#Дистрибьюция-контента-через-слоты">Дистрибьюция контента через слоты</a></p>
+<li><p><strong>См. также:</strong> <a href="../guide/components.html#Распределение-контента-слотами">Расределение контента слотами</a></p>
 </li>
 </ul>
 <h2 id="Интерфейс-VNode"><a href="#Интерфейс-VNode" class="headerlink" title="Интерфейс VNode"></a>Интерфейс VNode</h2><ul>
