@@ -28,6 +28,17 @@
         <!-- this needs to be loaded before guide's inline scripts -->
         <script src="/js/vue.js"></script>
         <script>window.PAGE_TYPE = "guide"</script>
+
+        <!-- ga -->
+        <script>
+          (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+          (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+          })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+          ga('create', 'UA-46852172-1', 'ru.vuejs.org');
+          
+          ga('send', 'pageview');
+        </script>
     </head>
     <body class="docs">        <div id="mobile-bar" >
             <a class="menu-button"></a>
@@ -579,7 +590,7 @@
 <li><p>По причине этого ограничения <strong>аннотирование типов может быть громоздким</strong>. Единственной причиной, по которой нам необходимо вручную объявлять переменную <code>message</code> строкой, является неспособность TypeScript вывести тип в данном случае.</p>
 </li>
 </ul>
-<p>К счастью, <a href="https://github.com/vuejs/vue-class-component" target="_blank" rel="external">vue-class-component</a> может решить обе эти проблемы. Это официальная библиотека, которая позволяет объявлять компоненты как нативные классы JavaScript, используя декоратор <code>@Component</code>. В качестве примера давайте перепишем компонент, приведенный выше:</p>
+<p>К счастью, <a href="https://github.com/vuejs/vue-class-component" target="_blank" rel="external">vue-class-component</a> может решить обе эти проблемы. Это официальная библиотека, которая позволяет объявлять компоненты как нативные классы JavaScript, используя декоратор <code>@Component</code>. В качестве примера давайте перепишем компонент, приведённый выше:</p>
 <figure class="highlight ts"><table><tr><td class="code"><pre><div class="line"><span class="keyword">import</span> Vue = <span class="built_in">require</span>(<span class="string">'vue'</span>)</div><div class="line"><span class="keyword">import</span> Component from <span class="string">'vue-class-component'</span></div><div class="line"></div><div class="line"><span class="comment">// декоратор @Component указывает, что класс — это компонент Vue</span></div><div class="line">@Component(&#123;</div><div class="line">  <span class="comment">// сюда можно помещать все опции компонента</span></div><div class="line">  template: <span class="string">'&lt;button @click="onClick"&gt;Click!&lt;/button&gt;'</span></div><div class="line">&#125;)</div><div class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="keyword">class</span> MyComponent extends Vue &#123;</div><div class="line">  <span class="comment">// Данные инициализации могут быть объявлены как свойства инстанса</span></div><div class="line">  message: <span class="built_in">string</span> = <span class="string">'Hello!'</span></div><div class="line"></div><div class="line">  <span class="comment">// Методы компонента могут быть объявлены как методы инстанса</span></div><div class="line">  onClick (): <span class="built_in">void</span> &#123;</div><div class="line">    <span class="built_in">window</span>.alert(<span class="keyword">this</span>.message)</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>С таким альтернативным синтаксисом наши определения компонентов не только более краткие, но также позволяют TypeScript вывести типы <code>message</code> и <code>onClick</code> без необходимости в явном объявлении интерфейса. Такой подход позволяет управлять типами даже для вычисляемых свойств, хуков жизненного цикла и рендер-функций. Для полной информации об использовании смотрите <a href="https://github.com/vuejs/vue-class-component#vue-class-component" target="_blank" rel="external">документацию vue-class-component</a>.</p>
 
@@ -608,17 +619,6 @@
 
         <!-- main custom script for sidebars, version selects etc. -->
         <script src="/js/common.js"></script>
-
-        <!-- ga -->
-        <script>
-          (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-          (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-          })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-          ga('create', 'UA-46852172-1', 'ru.vuejs.org');
-          ga('send', 'pageview');
-        </script>
 
         <!-- search -->
         <link href="//cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css" rel='stylesheet' type='text/css'>

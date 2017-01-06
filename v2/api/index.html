@@ -28,6 +28,17 @@
         <!-- this needs to be loaded before guide's inline scripts -->
         <script src="/js/vue.js"></script>
         <script>window.PAGE_TYPE = "api"</script>
+
+        <!-- ga -->
+        <script>
+          (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+          (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+          })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+          ga('create', 'UA-46852172-1', 'ru.vuejs.org');
+          
+          ga('send', 'pageview');
+        </script>
     </head>
     <body class="docs">        <div id="mobile-bar" >
             <a class="menu-button"></a>
@@ -439,7 +450,7 @@
 </li>
 <li><p><strong>Пример:</strong></p>
 <figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="keyword">var</span> data = &#123; <span class="attr">a</span>: <span class="number">1</span> &#125;</div><div class="line"></div><div class="line"><span class="comment">// создаём инстанс напрямую:</span></div><div class="line"><span class="keyword">var</span> vm = <span class="keyword">new</span> Vue(&#123;</div><div class="line">  <span class="attr">data</span>: data</div><div class="line">&#125;)</div><div class="line">vm.a <span class="comment">// -&gt; 1</span></div><div class="line">vm.$data === data <span class="comment">// -&gt; true</span></div><div class="line"></div><div class="line"><span class="comment">// обязательно используйте функцию во Vue.extend():</span></div><div class="line"><span class="keyword">var</span> Component = Vue.extend(&#123;</div><div class="line">  <span class="attr">data</span>: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> &#123; <span class="attr">a</span>: <span class="number">1</span> &#125;</div><div class="line">  &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
-<p class="tip">Обратите внимание, что <strong>вам не стоит использовать стрелочные функции в параметре <code>data</code></strong> (напр. <code>data: () =&gt; { return { a: this.myProp }}</code>). Поскольку стрелочные функции связываются с родительским контекстом, <code>this</code> не будет указывать на инстанс Vue и <code>this.myProp</code> окажется неопределенным.</p>
+<p class="tip">Обратите внимание, что <strong>вам не стоит использовать стрелочные функции в параметре <code>data</code></strong> (напр. <code>data: () =&gt; { return { a: this.myProp }}</code>). Поскольку стрелочные функции связываются с родительским контекстом, <code>this</code> не будет указывать на инстанс Vue и <code>this.myProp</code> окажется неопределённым.</p>
 </li>
 <li><p><strong>См. также:</strong> <a href="../guide/reactivity.html">Подробно о реактивности</a></p>
 </li>
@@ -473,7 +484,7 @@
 </li>
 <li><p><strong>Подробности:</strong></p>
 <p>Вычисляемые свойства, которые будут подмешаны к инстансу Vue. В геттерах и сеттерах <code>this</code> будет указывать на инстанс Vue.</p>
-<p class="tip">Обратите внимание, что <strong>вам не стоит использовать стрелочные функции при определении вычисляемых свойств</strong> (напр. <code>aDouble: () =&gt; this.a * 2</code>). Поскольку стрелочные функции связываются с родительским контекстом, <code>this</code> не будет указывать на инстанс Vue, и <code>this.a</code> окажется неопределенным.</p>
+<p class="tip">Обратите внимание, что <strong>вам не стоит использовать стрелочные функции при определении вычисляемых свойств</strong> (напр. <code>aDouble: () =&gt; this.a * 2</code>). Поскольку стрелочные функции связываются с родительским контекстом, <code>this</code> не будет указывать на инстанс Vue, и <code>this.a</code> окажется неопределённым.</p>
 
 <p>Вычисляемые свойства кешируются и повторно вычисляются только при изменении реактивных зависимостей.</p>
 </li>
@@ -491,7 +502,7 @@
 </li>
 <li><p><strong>Подробности:</strong></p>
 <p>Методы, которые будут подмешаны к инстансу Vue. Вы можете запустить эти методы прямо из инстанса VM, или использовать их в директивах. <code>this</code> методов указывает на инстанс Vue.</p>
-<p class="tip">Обратите внимание, что <strong>вам не стоит использовать стрелочные функции при определении методов</strong> (напр. <code>plus: () =&gt; this.a++</code>). Поскольку стрелочные функции связываются с родительским контекстом, <code>this</code> не будет указывать на инстанс Vue, и <code>this.a</code> окажется неопределенным.</p>
+<p class="tip">Обратите внимание, что <strong>вам не стоит использовать стрелочные функции при определении методов</strong> (напр. <code>plus: () =&gt; this.a++</code>). Поскольку стрелочные функции связываются с родительским контекстом, <code>this</code> не будет указывать на инстанс Vue, и <code>this.a</code> окажется неопределённым.</p>
 </li>
 <li><p><strong>Пример:</strong></p>
 <figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="keyword">var</span> vm = <span class="keyword">new</span> Vue(&#123;</div><div class="line">  <span class="attr">data</span>: &#123; <span class="attr">a</span>: <span class="number">1</span> &#125;,</div><div class="line">  <span class="attr">methods</span>: &#123;</div><div class="line">    <span class="attr">plus</span>: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">      <span class="keyword">this</span>.a++</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;)</div><div class="line">vm.plus()</div><div class="line">vm.a <span class="comment">// 2</span></div></pre></td></tr></table></figure>
@@ -507,7 +518,7 @@
 </li>
 <li><p><strong>Пример:</strong></p>
 <figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="keyword">var</span> vm = <span class="keyword">new</span> Vue(&#123;</div><div class="line">  <span class="attr">data</span>: &#123;</div><div class="line">    <span class="attr">a</span>: <span class="number">1</span>,</div><div class="line">    <span class="attr">b</span>: <span class="number">2</span>,</div><div class="line">    <span class="attr">c</span>: <span class="number">3</span></div><div class="line">  &#125;,</div><div class="line">  <span class="attr">watch</span>: &#123;</div><div class="line">    <span class="attr">a</span>: <span class="function"><span class="keyword">function</span> (<span class="params">val, oldVal</span>) </span>&#123;</div><div class="line">      <span class="built_in">console</span>.log(<span class="string">'новое значение: %s, старое значение: %s'</span>, val, oldVal)</div><div class="line">    &#125;,</div><div class="line">    <span class="comment">// строка с именем метода:</span></div><div class="line">    b: <span class="string">'someMethod'</span>,</div><div class="line">    <span class="comment">// глубокий (рекурсивный) наблюдатель:</span></div><div class="line">    c: &#123;</div><div class="line">      <span class="attr">handler</span>: <span class="function"><span class="keyword">function</span> (<span class="params">val, oldVal</span>) </span>&#123; <span class="comment">/* ... */</span> &#125;,</div><div class="line">      <span class="attr">deep</span>: <span class="literal">true</span></div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;)</div><div class="line">vm.a = <span class="number">2</span> <span class="comment">// -&gt; new: 2, old: 1</span></div></pre></td></tr></table></figure>
-<p class="tip">Обратите внимание, что <strong>вам не стоит использовать стрелочные функции при определении наблюдателей</strong> (напр. <code>searchQuery: newValue =&gt; this.updateAutocomplete(newValue)</code>). Поскольку стрелочные функции связываются с родительским контекстом, <code>this</code> не будет указывать на инстанс Vue, и <code>this.updateAutocomplete</code> окажется неопределенным.</p>
+<p class="tip">Обратите внимание, что <strong>вам не стоит использовать стрелочные функции при определении наблюдателей</strong> (напр. <code>searchQuery: newValue =&gt; this.updateAutocomplete(newValue)</code>). Поскольку стрелочные функции связываются с родительским контекстом, <code>this</code> не будет указывать на инстанс Vue, и <code>this.updateAutocomplete</code> окажется неопределённым.</p>
 </li>
 <li><p><strong>См. также:</strong> <a href="#vm-watch">Методы инстанса — vm.$watch</a></p>
 </li>
@@ -554,8 +565,8 @@
 </ul>
 </li>
 </ul>
-<h2 id="Опции-—-хуки-жизненного-цикла"><a href="#Опции-—-хуки-жизненного-цикла" class="headerlink" title="Опции — хуки жизненного цикла"></a>Опции — хуки жизненного цикла</h2><p>Хук (hook — буквально “крючок”), функция, вызывающаяся в определенный момент жизненного цикла сущности, например, непосредственно перед или после создания компонента Vue. Хук позволяет расширить или изменить стандартное поведение на пользовательское.</p>
-<p>Контекст <code>this</code> хуков указывает на инстанс Vue c данными, вычисляемыми свойствами и методами. Это значит, что <strong>вам не следует использовать стрелочные функции для определения хуков жизненного цикла</strong> (напр. <code>created: () =&gt; this.fetchTodos()</code>). Поскольку стрелочные функции связываются с родительским контекстом, <code>this</code> не будет указывать на инстанс Vue, и <code>this.fetchTodos</code> окажется неопределенным.</p>
+<h2 id="Опции-—-хуки-жизненного-цикла"><a href="#Опции-—-хуки-жизненного-цикла" class="headerlink" title="Опции — хуки жизненного цикла"></a>Опции — хуки жизненного цикла</h2><p>Хук (hook — буквально “крючок”), функция, вызывающаяся в определённый момент жизненного цикла сущности, например, непосредственно перед или после создания компонента Vue. Хук позволяет расширить или изменить стандартное поведение на пользовательское.</p>
+<p>Контекст <code>this</code> хуков указывает на инстанс Vue c данными, вычисляемыми свойствами и методами. Это значит, что <strong>вам не следует использовать стрелочные функции для определения хуков жизненного цикла</strong> (напр. <code>created: () =&gt; this.fetchTodos()</code>). Поскольку стрелочные функции связываются с родительским контекстом, <code>this</code> не будет указывать на инстанс Vue, и <code>this.fetchTodos</code> окажется неопределённым.</p>
 <h3 id="beforeCreate"><a href="#beforeCreate" class="headerlink" title="beforeCreate"></a>beforeCreate</h3><ul>
 <li><p><strong>Тип:</strong> <code>Function</code></p>
 </li>
@@ -1483,17 +1494,6 @@
 
         <!-- main custom script for sidebars, version selects etc. -->
         <script src="/js/common.js"></script>
-
-        <!-- ga -->
-        <script>
-          (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-          (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-          })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-          ga('create', 'UA-46852172-1', 'ru.vuejs.org');
-          ga('send', 'pageview');
-        </script>
 
         <!-- search -->
         <link href="//cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css" rel='stylesheet' type='text/css'>
