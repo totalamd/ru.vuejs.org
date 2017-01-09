@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html lang="ru">
     <head>
-        <title>Сравнение с другими фреймворками — vue.js</title>
+        <title>Сравнение с другими фреймворками — Vue.js</title>
         <meta charset="utf-8">
         <meta name="description" content="Vue.js — Интуитивный, быстрый и компонуемый MVVM для создания интерактивных интерфейсов.">
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -707,7 +707,7 @@
 <li><p>В вопросах производительности Vue существенно выигрывает — даже с учётом последнего обновления Glimmer engine в Ember 2.0. Vue автоматически объединяет операции обновления, в то время как в Ember требуется ручное управление циклом выполнения в ситуациях, где производительность критична.</p>
 </li>
 </ul>
-<h2 id="Knockout"><a href="#Knockout" class="headerlink" title="Knockout"></a>Knockout</h2><p>Knockout был пионером MVVM-подхода и отслеживания изменений в данных. Его система реактивности очень похожа на используемую Vue. Список <a href="http://knockoutjs.com/documentation/browser-support.html" target="_blank" rel="external">поддерживаемых браузеров</a> — впечатляет, особенно с учётом всех немалых возможностей фреймворка, доступных даже в IE6! Vue поддерживает же только IE9+.</p>
+<h2 id="Knockout"><a href="#Knockout" class="headerlink" title="Knockout"></a>Knockout</h2><p>Knockout был пионером MVVM-подхода и отслеживания изменений в данных. Его система реактивности очень похожа на используемую Vue. Список <a href="http://knockoutjs.com/documentation/browser-support.html" target="_blank" rel="external">поддерживаемых браузеров</a> — впечатляет, особенно с учётом всех немалых возможностей фреймворка, доступных даже в IE6! Vue же поддерживает только IE9+.</p>
 <p>Со временем, впрочем, разработка Knockout замедлилась и он понемногу начал показывать признаки своего возраста. Например, компонентной системе недостаёт полного набора хуков жизненного цикла, а интерфейс передачи дочерних компонентов, хоть и используется очень широко, выглядит по сравнению со <a href="components.html#Распределение-контента-слотами">слотами Vue</a> не очень выигрышно.</p>
 <p>Кроме того, похоже что существует разница в философских подходах к API, которая, если вам интересно, может быть продемонстрирована различиями при создании <a href="https://gist.github.com/chrisvfritz/9e5f2d6826af00fcbace7be8f6dccb89" target="_blank" rel="external">простого списка todo</a>. Конечно же, это — субъективный вопрос, но многим API Vue кажется проще и лучше структурированным.</p>
 <h2 id="Polymer"><a href="#Polymer" class="headerlink" title="Polymer"></a>Polymer</h2><p>Polymer — это ещё один проект, спонсируемый Google. В действительности, он тоже послужил источником вдохновения для Vue. Компоненты Vue можно приблизительно сравнивать с пользовательскими элементами Polymer. Стиль разработки с использованием обоих фреймворков довольно похож. Самая существенная разница состоит в том, что Polymer базируется на последних возможностях Web Components и требует для работы использования весьма нетривиальных полифиллов (с потерей быстродействия в браузерах без нативной поддержки эти возможностей). Vue, напротив, без каких-либо зависимостей или полифиллов работает во всех браузерах, начиная с IE9.</p>
@@ -719,7 +719,7 @@
 <ul>
 <li><a href="transitions.html">Система анимации переходов</a>. У Riot её просто нет.</li>
 <li>Значительно более мощный роутер. API роутинга Riot’а — предельно минималистичен.</li>
-<li>Лучшая производительность. <a href="https://github.com/vuejs/vuejs.org/issues/346" target="_blank" rel="external">Несмотря на заявленное</a> использование virtual DOM, в действительности Riot применяет dirty checking, и потому страдает от тех же проблем, что и Angular 1.</li>
+<li>Лучшая производительность. <a href="https://github.com/vuejs/vuejs.org/issues/346" target="_blank" rel="external">Несмотря на заявленное</a> использование Virtual DOM, в действительности Riot применяет dirty checking, и потому страдает от тех же проблем, что и Angular 1.</li>
 <li>Поддержка более зрелого инструментария. Vue официально поддерживает <a href="https://github.com/vuejs/vue-loader" target="_blank" rel="external">Webpack</a>, <a href="https://github.com/vuejs/vueify" target="_blank" rel="external">Browserify</a>, и <a href="https://github.com/vuejs/systemjs-plugin-vue" target="_blank" rel="external">SystemJS</a>, в то время как Riot полагается в вопросах интеграции с системами сборки на поддержку сообщества.</li>
 </ul>
 
