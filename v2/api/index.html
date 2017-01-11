@@ -8,12 +8,12 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
         <meta property="og:type" content="article">
-        <meta property="og:title" content="API - vue.js">
+        <meta property="og:title" content="API — Vue.js">
         <meta property="og:description" content="Vue.js — Интуитивный, быстрый и компонуемый MVVM для создания интерактивных интерфейсов.">
         <meta property="og:image" content="https://ru.vuejs.org/images/logo.png">
 
         <meta name="twitter:card" content="summary">
-        <meta name="twitter:title" content="API - vue.js">
+        <meta name="twitter:title" content="API — Vue.js">
         <meta name="twitter:description" content="Vue.js — Интуитивный, быстрый и компонуемый MVVM для создания интерактивных интерфейсов.">
         <meta name="twitter:image" content="https://ru.vuejs.org/images/logo.png">
 
@@ -257,7 +257,7 @@
 </li>
 <li><p><strong>Использование:</strong></p>
 <figure class="highlight js"><table><tr><td class="code"><pre><div class="line">Vue.config.ignoredElements = [</div><div class="line">  <span class="string">'my-custom-web-component'</span>, <span class="string">'another-web-component'</span></div><div class="line">]</div></pre></td></tr></table></figure>
-<p>Позволяет Vue игнорировать пользовательские компоненты, установленные за пределами Vue (например, используя Web Components APIs). Иначе возникнет предупреждение о “Неизвестном пользовательском элементе”, означающее, что вы забыли зарегистрировать глобальный компонент или допустили ошибку в написании имени компонента.</p>
+<p>Позволяет Vue игнорировать пользовательские компоненты, установленные за пределами Vue (например, используя Web Components API). Иначе возникнет предупреждение о “Неизвестном пользовательском элементе”, означающее, что вы забыли зарегистрировать глобальный компонент или допустили ошибку в написании имени компонента.</p>
 </li>
 </ul>
 <h3 id="keyCodes"><a href="#keyCodes" class="headerlink" title="keyCodes"></a>keyCodes</h3><ul>
@@ -284,7 +284,7 @@
 <figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"mount-point"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
 <figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="comment">// Создание конструктора</span></div><div class="line"><span class="keyword">var</span> Profile = Vue.extend(&#123;</div><div class="line">  <span class="attr">template</span>: <span class="string">'&lt;p&gt;&#123;&#123;firstName&#125;&#125; &#123;&#123;lastName&#125;&#125;, также известный как &#123;&#123;alias&#125;&#125;&lt;/p&gt;'</span>,</div><div class="line">  <span class="attr">data</span>: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> &#123;</div><div class="line">      <span class="attr">firstName</span>: <span class="string">'Уолтер'</span>,</div><div class="line">      <span class="attr">lastName</span>: <span class="string">'Уайт'</span>,</div><div class="line">      <span class="attr">alias</span>: <span class="string">'Гейзенберг'</span></div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;)</div><div class="line"><span class="comment">// создаёт инстанс Profile и монтирует его к элементу DOM</span></div><div class="line"><span class="keyword">new</span> Profile().$mount(<span class="string">'#mount-point'</span>)</div></pre></td></tr></table></figure>
 <p>Результатом будет:</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>Walter White aka Heisenberg<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>Уолтер Уайт, также известный как Гейзенберг<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div></pre></td></tr></table></figure>
 </li>
 <li><p><strong>См. также:</strong> <a href="../guide/components.html">Компоненты</a></p>
 </li>
@@ -302,7 +302,7 @@
 <p>Выполняет функцию callback при следующем цикле обновления DOM. Вызывайте сразу после изменения данных, чтобы работать с обновлённым DOM.</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="comment">// изменение данных</span></div><div class="line">vm.msg = <span class="string">'Привет'</span></div><div class="line"><span class="comment">// DOM ещё не обновлён</span></div><div class="line">Vue.nextTick(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="comment">// теперь DOM обновлён</span></div><div class="line">&#125;)</div></pre></td></tr></table></figure>
 <blockquote>
-<p>Добавлено в версии 2.1.0: если коллбэк не указан, а окружение поддерживает промисы — возвращает промис.</p>
+<p>Добавлено в версии 2.1.0: возвращает <code>Promise</code>, если окружение их поддерживает и коллбэк не указан.</p>
 </blockquote>
 </li>
 <li><p><strong>См. также:</strong> <a href="../guide/reactivity.html#Асинхронная-очередь-обновлений">Асинхронная очередь обновлений</a></p>
@@ -398,7 +398,7 @@
 </ul>
 </li>
 <li><p><strong>Использование:</strong></p>
-<p>Устанавливает плагин Vue.js. Если плагин — объект, у него должен быть публичный метод <code>install</code>. Если плагин — функция, она будет воспринята как метод install. Этот метод будет выполнен с Vue в качестве аргумента.</p>
+<p>Устанавливает плагин Vue.js. Если плагин — объект, у него должен быть публичный метод <code>install</code>. Если плагин — функция, она будет воспринята как метод <code>install</code>. Этот метод будет выполнен с Vue в качестве аргумента.</p>
 <p>Плагин будет установлен только один раз, независимо от количества вызовов этого метода с одним и тем же плагином.</p>
 </li>
 <li><p><strong>См. также:</strong> <a href="../guide/plugins.html">Плагины</a></p>
@@ -427,7 +427,7 @@
 </ul>
 </li>
 <li><p><strong>Использование:</strong></p>
-<p>Компилирует строковый шаблон в render-функцию. <strong>Доступен только в standalone-сборке.</strong></p>
+<p>Компилирует строковый шаблон в <code>render</code>-функцию. <strong>Доступен только в standalone-сборке.</strong></p>
 <figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="keyword">var</span> res = Vue.compile(<span class="string">'&lt;div&gt;&lt;span&gt;&#123;&#123; msg &#125;&#125;&lt;/span&gt;&lt;/div&gt;'</span>)</div><div class="line"></div><div class="line"><span class="keyword">new</span> Vue(&#123;</div><div class="line">  <span class="attr">data</span>: &#123;</div><div class="line">    <span class="attr">msg</span>: <span class="string">'hello'</span></div><div class="line">  &#125;,</div><div class="line">  <span class="attr">render</span>: res.render,</div><div class="line">  <span class="attr">staticRenderFns</span>: res.staticRenderFns</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
 </li>
 <li><p><strong>См. также:</strong> <a href="../guide/render-function.html">Render-функции</a></p>
@@ -442,8 +442,8 @@
 <p>Объект с данными инстанса Vue. Vue рекурсивно переводит его поля в геттеры/сеттеры, и он становится “реактивным”. <strong>Объект должен быть простым</strong>: Vue проигнорирует свойства прототипа и нативные объекты, как например из API браузера. Прежде всего, рекомендуем чтобы данные были просто данными — не стоит передавать сюда объекты с собственным управлением внутренним состоянием.</p>
 <p>Добавлять реактивные свойства к корневому объекту данных после его инициализации нельзя. Поэтому определяйте корневые реактивные свойства до создания инстанса.</p>
 <p>После создания инстанса, объект с данными доступен в <code>vm.$data</code>. Кроме того, инстанс Vue проксирует обнаруженные в нём свойства, так что <code>vm.a</code> эквивалентно <code>vm.$data.a</code>.</p>
-<p>Свойства, названия которых начинается с <code>_</code> или <code>$</code> <strong>не</strong> проксируются из-за возможных конфликтов со внутренними свойствами и методами API Vue. Доступ к таким свойствам возможен только через <code>vm.$data._property</code>.</p>
-<p>Для определения <strong>компонента</strong> <code>data</code> должен быть функцией, возвращающей объект для инициализации, потому что из одного определения компонента может быть создано несколько инстансов. Если бы мы использовали для <code>data</code> простой объект, все созданные инстансы получили бы <strong>ссылку на него</strong>! А когда <code>data</code> — функция, при создании нового инстанса можно вызвать её и получить свежую копию данных для инициализации.</p>
+<p>Свойства, названия которых начинается с <code>_</code> или <code>$</code> <strong>не проксируются</strong> из-за возможных конфликтов со внутренними свойствами и методами API Vue. Доступ к таким свойствам возможен только через <code>vm.$data._property</code>.</p>
+<p>Для определения <strong>компонента</strong> опция <code>data</code> должна быть функцией, возвращающей объект для инициализации, потому что из одного определения компонента может быть создано несколько инстансов. Если бы мы использовали для <code>data</code> простой объект, все созданные инстансы получили бы <strong>ссылку на него</strong>! А когда <code>data</code> — функция, при создании нового инстанса можно вызвать её и получить свежую копию данных для инициализации.</p>
 <p>Чтобы получить полную копию оригинального объекта, передайте <code>vm.$data</code> в <code>JSON.parse(JSON.stringify(...))</code>.</p>
 </li>
 <li><p><strong>Пример:</strong></p>
@@ -512,7 +512,7 @@
 <li><p><strong>Тип:</strong> <code>{ [key: string]: string | Function | Object }</code></p>
 </li>
 <li><p><strong>Подробности:</strong></p>
-<p>Объект, ключи которого — выражения для наблюдения, а значения — коллбэки, вызываемые при их изменении. Значения также могут строками с именами методов, или объектами, содержащими дополнительные опции. Инстанс Vue вызовет <code>$watch()</code> соответствующий каждому ключа объекта при своём создании.</p>
+<p>Объект, ключи которого — выражения для наблюдения, а значения — коллбэки, вызываемые при их изменении. Значения также могут строками с именами методов, или объектами, содержащими дополнительные опции. Инстанс Vue вызовет <code>$watch()</code> соответствующий каждому ключу объекта при своём создании.</p>
 </li>
 <li><p><strong>Пример:</strong></p>
 <figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="keyword">var</span> vm = <span class="keyword">new</span> Vue(&#123;</div><div class="line">  <span class="attr">data</span>: &#123;</div><div class="line">    <span class="attr">a</span>: <span class="number">1</span>,</div><div class="line">    <span class="attr">b</span>: <span class="number">2</span>,</div><div class="line">    <span class="attr">c</span>: <span class="number">3</span></div><div class="line">  &#125;,</div><div class="line">  <span class="attr">watch</span>: &#123;</div><div class="line">    <span class="attr">a</span>: <span class="function"><span class="keyword">function</span> (<span class="params">val, oldVal</span>) </span>&#123;</div><div class="line">      <span class="built_in">console</span>.log(<span class="string">'новое значение: %s, старое значение: %s'</span>, val, oldVal)</div><div class="line">    &#125;,</div><div class="line">    <span class="comment">// строка с именем метода:</span></div><div class="line">    b: <span class="string">'someMethod'</span>,</div><div class="line">    <span class="comment">// глубокий (рекурсивный) наблюдатель:</span></div><div class="line">    c: &#123;</div><div class="line">      <span class="attr">handler</span>: <span class="function"><span class="keyword">function</span> (<span class="params">val, oldVal</span>) </span>&#123; <span class="comment">/* ... */</span> &#125;,</div><div class="line">      <span class="attr">deep</span>: <span class="literal">true</span></div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;)</div><div class="line">vm.a = <span class="number">2</span> <span class="comment">// -&gt; new: 2, old: 1</span></div></pre></td></tr></table></figure>
@@ -530,7 +530,7 @@
 <p>Указывает, на какой существующий DOM-элемент смонтировать инстанс Vue. Может быть строковым CSS-селектором или собственно объектом типа HTMLElement.</p>
 <p>После монтирования инстанса, переданный или найденный по CSS-селектору элемент будет доступен в <code>vm.$el</code>.</p>
 <p>Если эта опция указана при создании инстанса, компиляция начнётся сразу же. В остальных случаях, вызовите <code>vm.$mount()</code>, чтобы запустить компиляцию.</p>
-<p class="tip">Указанный элемент служит только точкой монтирования. В отличии от Vue 1.x, он обязательно будет заменен DOM-ом, сгенерированным Vue. Поэтому не стоит монтировать в корневые элементы <code>&lt;html&gt;</code> или <code>&lt;body&gt;</code>.</p>
+<p class="tip">Указанный элемент служит только точкой монтирования. В отличии от Vue 1.x, он обязательно будет заменён DOM-ом, сгенерированным Vue. Поэтому не стоит монтировать в корневые элементы <code>&lt;html&gt;</code> или <code>&lt;body&gt;</code>.</p>
 </li>
 <li><p><strong>См. также:</strong> <a href="../guide/instance.html#Диаграмма-жизненного-цикла">Диаграмма жизненного цикла</a></p>
 </li>
@@ -554,7 +554,7 @@
 <li><p><strong>Тип:</strong> <code>Function</code></p>
 </li>
 <li><p><strong>Подробности:</strong></p>
-<p>Альтернатива строковым шаблонам, позволяющая задействовать все алгоритмические возможности JavaScript. Render-функция получает первым аргументом метод <code>createElement</code>, нужный для создания <code>VNode</code>-ов.</p>
+<p>Альтернатива строковым шаблонам, позволяющая задействовать все алгоритмические возможности JavaScript. <code>Render</code>-функция получает первым аргументом метод <code>createElement</code>, нужный для создания <code>VNode</code>-ов.</p>
 <p>Если компонент функциональный, вторым параметром передаётся <code>context</code>, дающий доступ к контекстным данным, так как функциональные компоненты не имеют инстансов.</p>
 </li>
 <li><p><strong>См. также:</strong></p>
@@ -826,7 +826,7 @@
 <li><p><strong>Только для чтения</strong></p>
 </li>
 <li><p><strong>Подробности:</strong></p>
-<p>Компоненты-потомки инстанса. <strong>Обратите внимание, что порядок следования элементов в <code>$children</code> не гарантируется, и этот массив не реактивен.</strong> Вместо того, чтобы использовать <code>$children</code> для связывания данных, попробуйте использовать обычный массив и директиву <code>v-for</code> для создания дочерних компонент, и используйте этот массив как “источник истины”.</p>
+<p>Компоненты-потомки инстанса. <strong>Обратите внимание, что порядок следования элементов в <code>$children</code> не гарантируется, и этот массив не реактивен.</strong> Вместо того, чтобы использовать <code>$children</code> для связывания данных, попробуйте использовать обычный массив и директиву <code>v-for</code> для создания дочерних компонентов, и используйте этот массив как “источник истины”.</p>
 </li>
 </ul>
 <h3 id="vm-slots"><a href="#vm-slots" class="headerlink" title="vm.$slots"></a>vm.$slots</h3><ul>
@@ -974,7 +974,7 @@
 </ul>
 </li>
 <li><p><strong>Использование:</strong></p>
-<p>Создает подписку на пользовательское событие текущего vm. Такое событие можно породить функцией <code>vm.$emit</code>. Коллбэк получит все дополнительные аргументы, переданные этому методу.</p>
+<p>Создаёт подписку на пользовательское событие текущего vm. Такое событие можно породить функцией <code>vm.$emit</code>. Коллбэк получит все дополнительные аргументы, переданные этому методу.</p>
 </li>
 <li><p><strong>Пример:</strong></p>
 <figure class="highlight js"><table><tr><td class="code"><pre><div class="line">vm.$on(<span class="string">'test'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">msg</span>) </span>&#123;</div><div class="line">  <span class="built_in">console</span>.log(msg)</div><div class="line">&#125;)</div><div class="line">vm.$emit(<span class="string">'test'</span>, <span class="string">'привет'</span>)</div><div class="line"><span class="comment">// -&gt; "привет"</span></div></pre></td></tr></table></figure>
@@ -990,7 +990,7 @@
 </ul>
 </li>
 <li><p><strong>Использование:</strong></p>
-<p>Создает подписку на пользовательское событие, но срабатывает только один раз. После первого же использования подписчик будет удалён.</p>
+<p>Создаёт подписку на пользовательское событие, но срабатывает только один раз. После первого же использования подписчик будет удалён.</p>
 </li>
 </ul>
 <h3 id="vm-off">vm.$off( [event, callback] )</h3>
@@ -1069,7 +1069,7 @@
 <li><p><strong>Использование:</strong></p>
 <p>Выполняет функцию callback при следующем цикле обновления DOM. Вызывайте сразу после изменения данных, чтобы работать с обновлённым DOM. Функция делает то же самое, что и глобальный <code>Vue.nextTick</code>, но кроме того связывает <code>this</code> с текущим инстансом в коллбэке.</p>
 <blockquote>
-<p>Добавлено в версии 2.1.0: если коллбэк не указан, а окружение поддерживает промисы — возвращает промис.</p>
+<p>Добавлено в версии 2.1.0: возвращает <code>Promise</code>, если окружение их поддерживает и коллбэк не указан.</p>
 </blockquote>
 </li>
 <li><p><strong>Пример:</strong></p>
@@ -1110,7 +1110,7 @@
 </li>
 <li><p><strong>Подробности:</strong></p>
 <p>Управляет HTML-содержимым элемента (<code>innerHTML</code>). <strong>Обратите внимание, что содержимое вставляется как обычный HTML — то есть не компилируется как шаблон Vue</strong>. Не стоит организовывать вложенные шаблоны с помощью <code>v-html</code>, попробуйте лучше применить компоненты.</p>
-<p class="tip">Динамический рендеринг произвольного HTML-кода на сайте — это очень опасная практика, легко приводящая к уязвимостям к <a href="https://en.wikipedia.org/wiki/Cross-site_scripting" target="_blank" rel="external">XSS-атакам</a>. Передавайте в <code>v-html</code> только содержимое, которому можно доверять, и <strong>никогда</strong> - необработанный пользовательский ввод.</p>
+<p class="tip">Динамический рендеринг произвольного HTML-кода на сайте — это очень опасная практика, легко приводящая к <a href="https://en.wikipedia.org/wiki/Cross-site_scripting" target="_blank" rel="external">XSS-уязвимостям</a>. Передавайте в <code>v-html</code> только содержимое, которому можно доверять, и <strong>никогда</strong> — необработанный пользовательский ввод.</p>
 </li>
 <li><p><strong>Пример:</strong></p>
 <figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">v-html</span>=<span class="string">"html"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
@@ -1176,7 +1176,7 @@
 <li><p><strong>Принимает:</strong> <code>Array | Object | number | string</code></p>
 </li>
 <li><p><strong>Использование:</strong></p>
-<p>Многократно рендерит элемент или блок шаблона, основываясь на переданных данных. Значение директивы должно следовать синтаксису <code>alias in expression</code> — в alias будет элемент текущей итерации:</p>
+<p>Многократно рендерит элемент или блок шаблона, основываясь на переданных данных. Значение директивы должно следовать синтаксису <code>alias in expression</code> — в <code>alias</code> будет элемент текущей итерации:</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">v-for</span>=<span class="string">"item in items"</span>&gt;</span></div><div class="line">  &#123;&#123; item.text &#125;&#125;</div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
 <p> Кроме того, вы можете указать название для индекса (или ключа, если вы работаете с объектом):</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">v-for</span>=<span class="string">"(item, index) in items"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">v-for</span>=<span class="string">"(val, key) in object"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">v-for</span>=<span class="string">"(val, key, index) in object"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
@@ -1196,7 +1196,7 @@
 <h3 id="v-on"><a href="#v-on" class="headerlink" title="v-on"></a>v-on</h3><ul>
 <li><p><strong>Сокращение:</strong> <code>@</code></p>
 </li>
-<li><p><strong>Принимает:</strong> <code>Function | Inline Statement</code></p>
+<li><p><strong>Принимает:</strong> <code>Function | Inline-выражение</code></p>
 </li>
 <li><p><strong>Параметр:</strong> <code>event (обязательный)</code></p>
 </li>
@@ -1302,7 +1302,7 @@
 <li><p><strong>Не принимает какое-либо выражение</strong></p>
 </li>
 <li><p><strong>Использование:</strong></p>
-<p>Эта директива останется на элементе до тех пор, пока связанный с ним инстанс Vue не закончит компиляцию. Если добавить CSS-правило вроде <code>[v-cloak] { display: none }</code>, этой директивой можно прятать нескомпилированные шаблоны до тех пор, пока инстанс Vue не будет готов.</p>
+<p>Эта директива останется на элементе до тех пор, пока связанный с ним инстанс Vue не закончит компиляцию. В сочетании с CSS-правилом  <code>[v-cloak] { display: none }</code> этой директивой можно скрывать нескомпилированные шаблоны до тех пор, пока инстанс Vue не будет готов.</p>
 </li>
 <li><p><strong>Пример:</strong></p>
 <figure class="highlight css"><table><tr><td class="code"><pre><div class="line"><span class="selector-attr">[v-cloak]</span> &#123;</div><div class="line">  <span class="attribute">display</span>: none;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
@@ -1326,7 +1326,7 @@
 </ul>
 <h2 id="Специальные-атрибуты"><a href="#Специальные-атрибуты" class="headerlink" title="Специальные атрибуты"></a>Специальные атрибуты</h2><h3 id="key"><a href="#key" class="headerlink" title="key"></a>key</h3><ul>
 <li><p><strong>Принимает:</strong> <code>string</code></p>
-<p>Атрибут key помогает алгоритму работы с виртуальным DOM определить, какие ноды соответствует какой строке данных. Если этот атрибут не указан, Vue использует алгоритм, минимизирующий перемещение элементов и старается обновить и повторно использовать как можно больше элементов правильного типа “на местах”. А если ключ указан, Vue изменяет порядок следования элементов, основываясь на изменении порядка ключей. Элементы, соответствующие ключам, которых больше нет, Vue всегда уничтожает.</p>
+<p>Атрибут <code>key</code> помогает алгоритму работы с виртуальным DOM определить, какие ноды соответствует какой строке данных. Если этот атрибут не указан, Vue использует алгоритм, минимизирующий перемещение элементов и старается обновить и повторно использовать как можно больше элементов правильного типа “на местах”. А если ключ указан, Vue изменяет порядок следования элементов, основываясь на изменении порядка ключей. Элементы, соответствующие ключам, которых больше нет, Vue всегда уничтожает.</p>
 <p>Потомки одного и того же общего родителя должны иметь <strong>уникальные ключи</strong>. Повторяющиеся ключи приведут к ошибкам при рендеринге.</p>
 <p>Как правило, используется в связке с <code>v-for</code>:</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">ul</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">li</span> <span class="attr">v-for</span>=<span class="string">"item in items"</span> <span class="attr">:key</span>=<span class="string">"item.id"</span>&gt;</span>...<span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></div></pre></td></tr></table></figure>
@@ -1345,7 +1345,7 @@
 <p>Название элемента или компонента для регистрации ссылки на него. В объекте <code>$refs</code> появится поле с названием из этого атрибута и значением: элементом DOM, если атрибут стоял на простом теге или инстансом компонента, если атрибут стоял на пользовательском компоненте:</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="comment">&lt;!-- vm.$refs.p будет DOM-элементом --&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">ref</span>=<span class="string">"p"</span>&gt;</span>hello<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line"></div><div class="line"><span class="comment">&lt;!-- vm.$refs.child будет указывать на инстанс ChildComp --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">child-comp</span> <span class="attr">ref</span>=<span class="string">"child"</span>&gt;</span><span class="tag">&lt;/<span class="name">child-comp</span>&gt;</span></div></pre></td></tr></table></figure>
 <p>При использовании на элементах/компонентах с <code>v-for</code>, регистрируется массив ссылок на элементы DOM или инстансы компонентов.</p>
-<p>Важное замечание о времени регистрации ссылок: поскольку ссылки создаются функцией render, вы не cможете использовать их при первичном рендеринге — на тот момент они ещё не существуют! Кроме того, объект <code>$refs</code> не является реактивным, поэтому не стоит пытаться использовать его в шаблонах для связывания данных.</p>
+<p>Важное замечание о времени регистрации ссылок: поскольку ссылки создаются <code>render</code>-функцией, вы не cможете использовать их при первичном рендеринге — на тот момент они ещё не существуют! Кроме того, объект <code>$refs</code> не является реактивным, поэтому не стоит пытаться использовать его в шаблонах для связывания данных.</p>
 </li>
 <li><p><strong>См. также:</strong> <a href="../guide/components.html#Ссылки-на-компоненты-потомки">Ссылки на компоненты-потомки</a></p>
 </li>
@@ -1424,7 +1424,7 @@
 </li>
 <li><p><strong>Использование:</strong></p>
 <p>Указывает анимацию перехода для <strong>нескольких</strong> элементов или компонентов. <code>&lt;transition-group&gt;</code> превращается в реальный элемент DOM. По умолчанию для этого используется тег <code>&lt;span&gt;</code>, но можно указать любой другой в параметре <code>tag</code>.</p>
-<p>Обратите внимание, что каждый потомок <code>&lt;transition-group&gt;</code> должен иметь <strong>уникальный key</strong>, чтобы анимации работали корректно.</p>
+<p>Обратите внимание, что каждый потомок <code>&lt;transition-group&gt;</code> должен иметь <strong>уникальное значение key</strong>, чтобы анимации работали корректно.</p>
 <p>Анимации перехода реализованы с помощью CSS-трансформаций. Когда позиция потомка изменилась после обновления, ему будет добавлен CSS-класс (автоматически сгенерированный из атрибута <code>name</code>, или же явно указанный в атрибуте <code>move-class</code>). Если после применения этого класса свойство <code>transform</code> можно будет анимировать, элемент будет с плавным переходом переведён туда, где он должен быть с помощью <a href="https://aerotwist.com/blog/flip-your-animations/" target="_blank" rel="external">техники FLIP</a>.</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">transition-group</span> <span class="attr">tag</span>=<span class="string">"ul"</span> <span class="attr">name</span>=<span class="string">"slide"</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">li</span> <span class="attr">v-for</span>=<span class="string">"item in items"</span> <span class="attr">:key</span>=<span class="string">"item.id"</span>&gt;</span></div><div class="line">    &#123;&#123; item.text &#125;&#125;</div><div class="line">  <span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">transition-group</span>&gt;</span></div></pre></td></tr></table></figure>
 </li>
