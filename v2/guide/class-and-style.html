@@ -595,7 +595,7 @@
 <figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"active text-danger"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
 <p>Для переключения классов, переданных в массиве, в зависимости от некоторого условия, можно применить условный оператор <code>?</code>:</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">v-bind:class</span>=<span class="string">"[isActive ? activeClass : '', errorClass]"</span>&gt;</span></div></pre></td></tr></table></figure>
-<p>В этом случае ‘errorClass’ будет применён к элементу всегда, а <code>activeClass</code> — только в случае истинности <code>isActive</code>.</p>
+<p>В этом случае <code>errorClass</code> будет применён к элементу всегда, а <code>activeClass</code> — только в случае истинности <code>isActive</code>.</p>
 <p>Однако, такая запись становится слегка громоздкой, если у вас есть несколько классов, задаваемых по условию. Поэтому можно использовать и смешанный синтаксис:</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">v-bind:class</span>=<span class="string">"[&#123; active: isActive &#125;, errorClass]"</span>&gt;</span></div></pre></td></tr></table></figure>
 <h3 id="Использование-с-компонентами"><a href="#Использование-с-компонентами" class="headerlink" title="Использование с компонентами"></a>Использование с компонентами</h3><blockquote>
@@ -646,7 +646,8 @@
             <script src="/js/smooth-scroll.min.js"></script>
         
 
-        <!-- main custom script for sidebars, version selects etc. -->
+        <!-- main custom script for sidebars, version selects etc. -->     
+        <script src="/js/css.escape.js"></script>
         <script src="/js/common.js"></script>
 
         <!-- search -->

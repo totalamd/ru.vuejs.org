@@ -860,7 +860,7 @@ new Vue({
 <h2 id="Переходы-между-элементами"><a href="#Переходы-между-элементами" class="headerlink" title="Переходы между элементами"></a>Переходы между элементами</h2><p>Подробно <a href="#Переходы-между-компонентами">переходы между компонентами</a> мы обсудим позднее, а сейчас поговорим о переходах с помощью <code>v-if</code>/<code>v-else</code>. Один из наиболее частых случаев — переход от списка к сообщению, что список пуст:</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">transition</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">table</span> <span class="attr">v-if</span>=<span class="string">"items.length &gt; 0"</span>&gt;</span></div><div class="line">    <span class="comment">&lt;!-- ... --&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">table</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">p</span> <span class="attr">v-else</span>&gt;</span>Жаль, но ничего не найдено.<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">transition</span>&gt;</span></div></pre></td></tr></table></figure>
 <p>Это сработает, но следует знать о нескольких скользких моментах:</p>
-<p class="tip">При переключении между элементами, <strong>использующими одноимённые теги</strong>, нужно указать Vue, что это различные элементы, установив уникальные значения атрибута <code>key</code>. В противном случае, компилятор Vue из соображений эффективности только поменяет содержимое элемента. Несмотря на отсутствие технической необходимости, <strong>считается хорошим тоном всегда заворачивать множественные теги в компонент <code>&lt;transition&gt;</code>.</strong></p>
+<p class="tip">При переключении между элементами, <strong>использующими одноимённые теги</strong>, нужно указать Vue, что это различные элементы, установив уникальные значения атрибута <code>key</code>. В противном случае, компилятор Vue из соображений эффективности только поменяет содержимое элемента. Несмотря на отсутствие технической необходимости, <strong>считается хорошим тоном всегда оборачивать множественные теги в компонент <code>&lt;transition&gt;</code>.</strong></p>
 
 <p>Например:</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">transition</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">button</span> <span class="attr">v-if</span>=<span class="string">"isEditing"</span> <span class="attr">key</span>=<span class="string">"save"</span>&gt;</span></div><div class="line">    Сохранить</div><div class="line">  <span class="tag">&lt;/<span class="name">button</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">button</span> <span class="attr">v-else</span> <span class="attr">key</span>=<span class="string">"edit"</span>&gt;</span></div><div class="line">    Редактировать</div><div class="line">  <span class="tag">&lt;/<span class="name">button</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">transition</span>&gt;</span></div></pre></td></tr></table></figure>
@@ -1468,7 +1468,8 @@ new Vue({
             <script src="/js/smooth-scroll.min.js"></script>
         
 
-        <!-- main custom script for sidebars, version selects etc. -->
+        <!-- main custom script for sidebars, version selects etc. -->     
+        <script src="/js/css.escape.js"></script>
         <script src="/js/common.js"></script>
 
         <!-- search -->
