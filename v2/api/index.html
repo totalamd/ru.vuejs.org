@@ -222,7 +222,7 @@
 <li><p><strong>Использование:</strong></p>
 <figure class="highlight js"><table><tr><td class="code"><pre><div class="line">Vue.config.optionMergeStrategies._my_option = <span class="function"><span class="keyword">function</span> (<span class="params">parent, child, vm</span>) </span>&#123;</div><div class="line">  <span class="keyword">return</span> child + <span class="number">1</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">const</span> Profile = Vue.extend(&#123;</div><div class="line">  <span class="attr">_my_option</span>: <span class="number">1</span></div><div class="line">&#125;)</div><div class="line"></div><div class="line"><span class="comment">// Profile.options._my_option = 2</span></div></pre></td></tr></table></figure>
 <p>Меняет стратегию слияния опций на вашу собственную.</p>
-<p>Стратегия слияния получает значения опции родительского и дочернего элемента первым и вторым параметром соответственно.<br>Третьим параметром передаётся контекст действующего инстанса Vue.</p>
+<p>Стратегия слияния получает значения опции родительского и дочернего элемента первым и вторым параметром соответственно.<br>Третьим параметром передаётся контекст действующего экземпляра Vue.</p>
 </li>
 <li><p><strong>См. также:</strong> <a href="../guide/mixins.html#Пользовательские-стратегии-слияния-опций">Пользовательские стратегии слияния опций</a></p>
 </li>
@@ -244,7 +244,7 @@
 </li>
 <li><p><strong>Использование:</strong></p>
 <figure class="highlight js"><table><tr><td class="code"><pre><div class="line">Vue.config.errorHandler = <span class="function"><span class="keyword">function</span> (<span class="params">err, vm</span>) </span>&#123;</div><div class="line">  <span class="comment">// обработка ошибки</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>Устанавливает обработчик для ошибок, не пойманных во время рендеринга компонентов и в наблюдателях. Обработчик получит в параметрах ошибку и действующий инстанс Vue.</p>
+<p>Устанавливает обработчик для ошибок, не пойманных во время рендеринга компонентов и в наблюдателях. Обработчик получит в параметрах ошибку и действующий экземпляр Vue.</p>
 <blockquote>
 <p>Сервис отслеживания ошибок <a href="https://sentry.io" target="_blank" rel="external">Sentry</a> предлагает <a href="https://sentry.io/for/vue/" target="_blank" rel="external">официальную интеграцию</a> с использованием этого свойства.</p>
 </blockquote>
@@ -282,7 +282,7 @@
 <p>Создаёт “подкласс” базового конструктора Vue. Принимает параметром объект с опциями нового компонента.</p>
 <p>Внимание: у объекта, переданного в <code>Vue.extend()</code> свойство <code>data</code> должно быть функцией.</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"mount-point"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
-<figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="comment">// Создание конструктора</span></div><div class="line"><span class="keyword">var</span> Profile = Vue.extend(&#123;</div><div class="line">  <span class="attr">template</span>: <span class="string">'&lt;p&gt;&#123;&#123;firstName&#125;&#125; &#123;&#123;lastName&#125;&#125;, также известный как &#123;&#123;alias&#125;&#125;&lt;/p&gt;'</span>,</div><div class="line">  <span class="attr">data</span>: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> &#123;</div><div class="line">      <span class="attr">firstName</span>: <span class="string">'Уолтер'</span>,</div><div class="line">      <span class="attr">lastName</span>: <span class="string">'Уайт'</span>,</div><div class="line">      <span class="attr">alias</span>: <span class="string">'Гейзенберг'</span></div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;)</div><div class="line"><span class="comment">// создаёт инстанс Profile и монтирует его к элементу DOM</span></div><div class="line"><span class="keyword">new</span> Profile().$mount(<span class="string">'#mount-point'</span>)</div></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="comment">// Создание конструктора</span></div><div class="line"><span class="keyword">var</span> Profile = Vue.extend(&#123;</div><div class="line">  <span class="attr">template</span>: <span class="string">'&lt;p&gt;&#123;&#123;firstName&#125;&#125; &#123;&#123;lastName&#125;&#125;, также известный как &#123;&#123;alias&#125;&#125;&lt;/p&gt;'</span>,</div><div class="line">  <span class="attr">data</span>: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> &#123;</div><div class="line">      <span class="attr">firstName</span>: <span class="string">'Уолтер'</span>,</div><div class="line">      <span class="attr">lastName</span>: <span class="string">'Уайт'</span>,</div><div class="line">      <span class="attr">alias</span>: <span class="string">'Гейзенберг'</span></div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;)</div><div class="line"><span class="comment">// создаёт экземпляр Profile и монтирует его к элементу DOM</span></div><div class="line"><span class="keyword">new</span> Profile().$mount(<span class="string">'#mount-point'</span>)</div></pre></td></tr></table></figure>
 <p>Результатом будет:</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>Уолтер Уайт, также известный как Гейзенберг<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div></pre></td></tr></table></figure>
 </li>
@@ -322,7 +322,7 @@
 </li>
 <li><p><strong>Использование:</strong></p>
 <p>Меняет значение поля. Если объект реактивный, поле тоже станет реактивным, а шаблон обновится. Обычно нужен, потому что Vue не может среагировать на неявное добавление полей.</p>
-<p><strong>Обратите внимание что объект не может быть инстансом Vue или корневым объектом data инстанса Vue.</strong></p>
+<p><strong>Обратите внимание что объект не может быть экземпляром Vue или корневым объектом data экземпляра Vue.</strong></p>
 </li>
 <li><p><strong>См. также:</strong> <a href="../guide/reactivity.html">Подробно о реактивности</a></p>
 </li>
@@ -338,7 +338,7 @@
 </li>
 <li><p><strong>Использование:</strong></p>
 <p>Удаляет поле. Если объект реактивный, шаблон обновится. Обычно нужен, потому что Vue не может среагировать на неявное удаление полей (но вам редко когда это понадобится).</p>
-<p><strong>Обратите внимание что объект не может быть инстансом Vue или корневым объектом data инстанса Vue.</strong></p>
+<p><strong>Обратите внимание что объект не может быть экземпляром Vue или корневым объектом data экземпляра Vue.</strong></p>
 </li>
 <li><p><strong>См. также:</strong> <a href="../guide/reactivity.html">Подробно о реактивности</a></p>
 </li>
@@ -413,7 +413,7 @@
 </ul>
 </li>
 <li><p><strong>Использование:</strong></p>
-<p>Применяет примесь ко всем созданным впоследствии инстансам Vue. Так авторы плагинов могут встроить желаемое поведение в компоненты. <strong>Не рекомендуется использовать в коде приложений</strong>.</p>
+<p>Применяет примесь ко всем созданным впоследствии экземплярам Vue. Так авторы плагинов могут встроить желаемое поведение в компоненты. <strong>Не рекомендуется использовать в коде приложений</strong>.</p>
 </li>
 <li><p><strong>См. также:</strong> <a href="../guide/mixins.html#Глобальные-примеси">Глобальные примеси</a></p>
 </li>
@@ -439,16 +439,16 @@
 <li><p><strong>Ограничение:</strong> При создании компонента, может быть только типа <code>Function</code>.</p>
 </li>
 <li><p><strong>Подробности:</strong></p>
-<p>Объект с данными инстанса Vue. Vue рекурсивно переводит его поля в геттеры/сеттеры, и он становится “реактивным”. <strong>Объект должен быть простым</strong>: Vue проигнорирует свойства прототипа и нативные объекты, как например из API браузера. Прежде всего, рекомендуем чтобы данные были просто данными — не стоит передавать сюда объекты с собственным управлением внутренним состоянием.</p>
-<p>Добавлять реактивные свойства к корневому объекту данных после его инициализации нельзя. Поэтому определяйте корневые реактивные свойства до создания инстанса.</p>
-<p>После создания инстанса, объект с данными доступен в <code>vm.$data</code>. Кроме того, инстанс Vue проксирует обнаруженные в нём свойства, так что <code>vm.a</code> эквивалентно <code>vm.$data.a</code>.</p>
+<p>Объект с данными экземпляра Vue. Vue рекурсивно переводит его поля в геттеры/сеттеры, и он становится “реактивным”. <strong>Объект должен быть простым</strong>: Vue проигнорирует свойства прототипа и нативные объекты, как например из API браузера. Прежде всего, рекомендуем чтобы данные были просто данными — не стоит передавать сюда объекты с собственным управлением внутренним состоянием.</p>
+<p>Добавлять реактивные свойства к корневому объекту данных после его инициализации нельзя. Поэтому определяйте корневые реактивные свойства до создания экземпляра.</p>
+<p>После создания экземпляра, объект с данными доступен в <code>vm.$data</code>. Кроме того, экземпляр Vue проксирует обнаруженные в нём свойства, так что <code>vm.a</code> эквивалентно <code>vm.$data.a</code>.</p>
 <p>Свойства, названия которых начинается с <code>_</code> или <code>$</code> <strong>не проксируются</strong> из-за возможных конфликтов со внутренними свойствами и методами API Vue. Доступ к таким свойствам возможен только через <code>vm.$data._property</code>.</p>
-<p>Для определения <strong>компонента</strong> опция <code>data</code> должна быть функцией, возвращающей объект для инициализации, потому что из одного определения компонента может быть создано несколько инстансов. Если бы мы использовали для <code>data</code> простой объект, все созданные инстансы получили бы <strong>ссылку на него</strong>! А когда <code>data</code> — функция, при создании нового инстанса можно вызвать её и получить свежую копию данных для инициализации.</p>
+<p>Для определения <strong>компонента</strong> опция <code>data</code> должна быть функцией, возвращающей объект для инициализации, потому что из одного определения компонента может быть создано несколько экземпляров. Если бы мы использовали для <code>data</code> простой объект, все созданные экземпляры получили бы <strong>ссылку на него</strong>! А когда <code>data</code> — функция, при создании нового экземпляра можно вызвать её и получить свежую копию данных для инициализации.</p>
 <p>Чтобы получить полную копию оригинального объекта, передайте <code>vm.$data</code> в <code>JSON.parse(JSON.stringify(...))</code>.</p>
 </li>
 <li><p><strong>Пример:</strong></p>
-<figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="keyword">var</span> data = &#123; <span class="attr">a</span>: <span class="number">1</span> &#125;</div><div class="line"></div><div class="line"><span class="comment">// создаём инстанс напрямую:</span></div><div class="line"><span class="keyword">var</span> vm = <span class="keyword">new</span> Vue(&#123;</div><div class="line">  <span class="attr">data</span>: data</div><div class="line">&#125;)</div><div class="line">vm.a <span class="comment">// -&gt; 1</span></div><div class="line">vm.$data === data <span class="comment">// -&gt; true</span></div><div class="line"></div><div class="line"><span class="comment">// обязательно используйте функцию во Vue.extend():</span></div><div class="line"><span class="keyword">var</span> Component = Vue.extend(&#123;</div><div class="line">  <span class="attr">data</span>: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> &#123; <span class="attr">a</span>: <span class="number">1</span> &#125;</div><div class="line">  &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
-<p class="tip">Обратите внимание, что <strong>вам не стоит использовать стрелочные функции в параметре <code>data</code></strong> (напр. <code>data: () =&gt; { return { a: this.myProp }}</code>). Поскольку стрелочные функции связываются с родительским контекстом, <code>this</code> не будет указывать на инстанс Vue и <code>this.myProp</code> окажется неопределённым.</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="keyword">var</span> data = &#123; <span class="attr">a</span>: <span class="number">1</span> &#125;</div><div class="line"></div><div class="line"><span class="comment">// создаём экземпляр напрямую:</span></div><div class="line"><span class="keyword">var</span> vm = <span class="keyword">new</span> Vue(&#123;</div><div class="line">  <span class="attr">data</span>: data</div><div class="line">&#125;)</div><div class="line">vm.a <span class="comment">// -&gt; 1</span></div><div class="line">vm.$data === data <span class="comment">// -&gt; true</span></div><div class="line"></div><div class="line"><span class="comment">// обязательно используйте функцию во Vue.extend():</span></div><div class="line"><span class="keyword">var</span> Component = Vue.extend(&#123;</div><div class="line">  <span class="attr">data</span>: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> &#123; <span class="attr">a</span>: <span class="number">1</span> &#125;</div><div class="line">  &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<p class="tip">Обратите внимание, что <strong>вам не стоит использовать стрелочные функции в параметре <code>data</code></strong> (напр. <code>data: () =&gt; { return { a: this.myProp }}</code>). Поскольку стрелочные функции связываются с родительским контекстом, <code>this</code> не будет указывать на экземпляр Vue и <code>this.myProp</code> окажется неопределённым.</p>
 </li>
 <li><p><strong>См. также:</strong> <a href="../guide/reactivity.html">Подробно о реактивности</a></p>
 </li>
@@ -468,7 +468,7 @@
 <h3 id="propsData"><a href="#propsData" class="headerlink" title="propsData"></a>propsData</h3><ul>
 <li><p><strong>Тип:</strong> <code>{ [key: string]: any }</code></p>
 </li>
-<li><p><strong>Ограничение:</strong> учитывается только при создании инстанса выражением <code>new</code>.</p>
+<li><p><strong>Ограничение:</strong> учитывается только при создании экземпляра выражением <code>new</code>.</p>
 </li>
 <li><p><strong>Подробности:</strong></p>
 <p>Параметры компонента при его создании. Обычно используются для облегчения модульного тестирования.</p>
@@ -481,8 +481,8 @@
 <li><p><strong>Тип:</strong> <code>{ [key: string]: Function | { get: Function, set: Function, cache: Boolean } }</code></p>
 </li>
 <li><p><strong>Подробности:</strong></p>
-<p>Вычисляемые свойства, которые будут подмешаны к инстансу Vue. В геттерах и сеттерах <code>this</code> будет указывать на инстанс Vue.</p>
-<p class="tip">Обратите внимание, что <strong>вам не стоит использовать стрелочные функции при определении вычисляемых свойств</strong> (напр. <code>aDouble: () =&gt; this.a * 2</code>). Поскольку стрелочные функции связываются с родительским контекстом, <code>this</code> не будет указывать на инстанс Vue, и <code>this.a</code> окажется неопределённым.</p>
+<p>Вычисляемые свойства, которые будут подмешаны к экземпляру Vue. В геттерах и сеттерах <code>this</code> будет указывать на экземпляр Vue.</p>
+<p class="tip">Обратите внимание, что <strong>вам не стоит использовать стрелочные функции при определении вычисляемых свойств</strong> (напр. <code>aDouble: () =&gt; this.a * 2</code>). Поскольку стрелочные функции связываются с родительским контекстом, <code>this</code> не будет указывать на экземпляр Vue, и <code>this.a</code> окажется неопределённым.</p>
 
 <p>Вычисляемые свойства кешируются и повторно вычисляются только при изменении реактивных зависимостей. Обратите внимание, что если определённая зависимость выходит за область видимости экземпляра (т.е не реактивная), то вычисляемое свойство не будет обновляться. В этой ситуации кеширование можно отключить с помощью опции <code>cache: false</code>. Тем не менее, так как зависимость не реактивная, её изменение не будет вызывать обновление DOM.</p>
 <p>В большинстве ситуаций <code>cache: false</code> не станет идеальным решением. По возможности лучше переносить внешние данные в систему реактивности. Например, если вычисляемое свойство зависит от размера окна, вы можете хранить эту информацию в <code>data</code>, а затем использовать событие <code>resize</code> чтобы поддерживать значение актуальным. Теперь данные реактивны!</p>
@@ -500,8 +500,8 @@
 <li><p><strong>Тип:</strong> <code>{ [key: string]: Function }</code></p>
 </li>
 <li><p><strong>Подробности:</strong></p>
-<p>Методы, которые будут подмешаны к инстансу Vue. Вы можете запустить эти методы прямо из инстанса VM, или использовать их в директивах. <code>this</code> методов указывает на инстанс Vue.</p>
-<p class="tip">Обратите внимание, что <strong>вам не стоит использовать стрелочные функции при определении методов</strong> (напр. <code>plus: () =&gt; this.a++</code>). Поскольку стрелочные функции связываются с родительским контекстом, <code>this</code> не будет указывать на инстанс Vue, и <code>this.a</code> окажется неопределённым.</p>
+<p>Методы, которые будут подмешаны к экземпляру Vue. Вы можете запустить эти методы прямо из экземпляра VM, или использовать их в директивах. <code>this</code> методов указывает на экземпляр Vue.</p>
+<p class="tip">Обратите внимание, что <strong>вам не стоит использовать стрелочные функции при определении методов</strong> (напр. <code>plus: () =&gt; this.a++</code>). Поскольку стрелочные функции связываются с родительским контекстом, <code>this</code> не будет указывать на экземпляр Vue, и <code>this.a</code> окажется неопределённым.</p>
 </li>
 <li><p><strong>Пример:</strong></p>
 <figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="keyword">var</span> vm = <span class="keyword">new</span> Vue(&#123;</div><div class="line">  <span class="attr">data</span>: &#123; <span class="attr">a</span>: <span class="number">1</span> &#125;,</div><div class="line">  <span class="attr">methods</span>: &#123;</div><div class="line">    <span class="attr">plus</span>: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">      <span class="keyword">this</span>.a++</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;)</div><div class="line">vm.plus()</div><div class="line">vm.a <span class="comment">// 2</span></div></pre></td></tr></table></figure>
@@ -513,24 +513,24 @@
 <li><p><strong>Тип:</strong> <code>{ [key: string]: string | Function | Object }</code></p>
 </li>
 <li><p><strong>Подробности:</strong></p>
-<p>Объект, ключи которого — выражения для наблюдения, а значения — коллбэки, вызываемые при их изменении. Значения также могут строками с именами методов, или объектами, содержащими дополнительные опции. Инстанс Vue вызовет <code>$watch()</code> соответствующий каждому ключу объекта при своём создании.</p>
+<p>Объект, ключи которого — выражения для наблюдения, а значения — коллбэки, вызываемые при их изменении. Значения также могут строками с именами методов, или объектами, содержащими дополнительные опции. Экземпляр Vue вызовет <code>$watch()</code> соответствующий каждому ключу объекта при своём создании.</p>
 </li>
 <li><p><strong>Пример:</strong></p>
 <figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="keyword">var</span> vm = <span class="keyword">new</span> Vue(&#123;</div><div class="line">  <span class="attr">data</span>: &#123;</div><div class="line">    <span class="attr">a</span>: <span class="number">1</span>,</div><div class="line">    <span class="attr">b</span>: <span class="number">2</span>,</div><div class="line">    <span class="attr">c</span>: <span class="number">3</span></div><div class="line">  &#125;,</div><div class="line">  <span class="attr">watch</span>: &#123;</div><div class="line">    <span class="attr">a</span>: <span class="function"><span class="keyword">function</span> (<span class="params">val, oldVal</span>) </span>&#123;</div><div class="line">      <span class="built_in">console</span>.log(<span class="string">'новое значение: %s, старое значение: %s'</span>, val, oldVal)</div><div class="line">    &#125;,</div><div class="line">    <span class="comment">// строка с именем метода:</span></div><div class="line">    b: <span class="string">'someMethod'</span>,</div><div class="line">    <span class="comment">// глубокий (рекурсивный) наблюдатель:</span></div><div class="line">    c: &#123;</div><div class="line">      <span class="attr">handler</span>: <span class="function"><span class="keyword">function</span> (<span class="params">val, oldVal</span>) </span>&#123; <span class="comment">/* ... */</span> &#125;,</div><div class="line">      <span class="attr">deep</span>: <span class="literal">true</span></div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;)</div><div class="line">vm.a = <span class="number">2</span> <span class="comment">// -&gt; новое значение: 2, старое значение: 1</span></div></pre></td></tr></table></figure>
-<p class="tip">Обратите внимание, что <strong>вам не стоит использовать стрелочные функции при определении наблюдателей</strong> (напр. <code>searchQuery: newValue =&gt; this.updateAutocomplete(newValue)</code>). Поскольку стрелочные функции связываются с родительским контекстом, <code>this</code> не будет указывать на инстанс Vue, и <code>this.updateAutocomplete</code> окажется неопределённым.</p>
+<p class="tip">Обратите внимание, что <strong>вам не стоит использовать стрелочные функции при определении наблюдателей</strong> (напр. <code>searchQuery: newValue =&gt; this.updateAutocomplete(newValue)</code>). Поскольку стрелочные функции связываются с родительским контекстом, <code>this</code> не будет указывать на экземпляр Vue, и <code>this.updateAutocomplete</code> окажется неопределённым.</p>
 </li>
-<li><p><strong>См. также:</strong> <a href="#vm-watch">Методы инстанса — vm.$watch</a></p>
+<li><p><strong>См. также:</strong> <a href="#vm-watch">Методы экземпляра — vm.$watch</a></p>
 </li>
 </ul>
 <h2 id="Опции-—-DOM"><a href="#Опции-—-DOM" class="headerlink" title="Опции — DOM"></a>Опции — DOM</h2><h3 id="el"><a href="#el" class="headerlink" title="el"></a>el</h3><ul>
 <li><p><strong>Тип:</strong> <code>string | HTMLElement</code></p>
 </li>
-<li><p><strong>Ограничение:</strong> учитывается только при создании инстанса выражением <code>new</code>.</p>
+<li><p><strong>Ограничение:</strong> учитывается только при создании экземпляра выражением <code>new</code>.</p>
 </li>
 <li><p><strong>Подробности:</strong></p>
-<p>Указывает, на какой существующий DOM-элемент смонтировать инстанс Vue. Может быть строковым CSS-селектором или собственно объектом типа HTMLElement.</p>
-<p>После монтирования инстанса, переданный или найденный по CSS-селектору элемент будет доступен в <code>vm.$el</code>.</p>
-<p>Если эта опция указана при создании инстанса, компиляция начнётся сразу же. В остальных случаях, вызовите <code>vm.$mount()</code>, чтобы запустить компиляцию.</p>
+<p>Указывает, на какой существующий DOM-элемент смонтировать экземпляр Vue. Может быть строковым CSS-селектором или собственно объектом типа HTMLElement.</p>
+<p>После монтирования экземпляра, переданный или найденный по CSS-селектору элемент будет доступен в <code>vm.$el</code>.</p>
+<p>Если эта опция указана при создании экземпляра, компиляция начнётся сразу же. В остальных случаях, вызовите <code>vm.$mount()</code>, чтобы запустить компиляцию.</p>
 <p class="tip">Указанный элемент служит только точкой монтирования. В отличии от Vue 1.x, он обязательно будет заменён DOM-ом, сгенерированным Vue. Поэтому не стоит монтировать в корневые элементы <code>&lt;html&gt;</code> или <code>&lt;body&gt;</code>.</p>
 </li>
 <li><p><strong>См. также:</strong> <a href="../guide/instance.html#Диаграмма-жизненного-цикла">Диаграмма жизненного цикла</a></p>
@@ -540,7 +540,7 @@
 <li><p><strong>Тип:</strong> <code>string</code></p>
 </li>
 <li><p><strong>Подробности:</strong></p>
-<p>Строковый шаблон с разметкой для инстанса Vue. Этот шаблон <strong>заменит</strong> элемент в точке монтирования. Вся уже существующая разметка в точке монтирования будет проигнорирована, если в шаблоне нет слота распределения контента.</p>
+<p>Строковый шаблон с разметкой для экземпляра Vue. Этот шаблон <strong>заменит</strong> элемент в точке монтирования. Вся уже существующая разметка в точке монтирования будет проигнорирована, если в шаблоне нет слота распределения контента.</p>
 <p>Если строка начинается с <code>#</code>, она будет использована как querySelector, а в качестве строкового шаблона будет использован innerHTML элемента с указанным id. Так вы сможете включать шаблоны, из тегов вроде <code>&lt;script type=&quot;x-template&quot;&gt;</code>.</p>
 <p class="tip">С точки зрения безопасности необходимо использовать только те шаблоны Vue, которым вы можете доверять. Никогда не используйте в качестве шаблона данные, вводимые пользователем.</p>
 </li>
@@ -556,7 +556,7 @@
 </li>
 <li><p><strong>Подробности:</strong></p>
 <p>Альтернатива строковым шаблонам, позволяющая задействовать все алгоритмические возможности JavaScript. <code>Render</code>-функция получает первым аргументом метод <code>createElement</code>, нужный для создания <code>VNode</code>-ов.</p>
-<p>Если компонент функциональный, вторым параметром передаётся <code>context</code>, дающий доступ к контекстным данным, так как функциональные компоненты не имеют инстансов.</p>
+<p>Если компонент функциональный, вторым параметром передаётся <code>context</code>, дающий доступ к контекстным данным, так как функциональные компоненты не имеют экземпляров.</p>
 </li>
 <li><p><strong>См. также:</strong></p>
 <ul>
@@ -565,12 +565,12 @@
 </li>
 </ul>
 <h2 id="Опции-—-хуки-жизненного-цикла"><a href="#Опции-—-хуки-жизненного-цикла" class="headerlink" title="Опции — хуки жизненного цикла"></a>Опции — хуки жизненного цикла</h2><p>Хук (hook — буквально “крючок”), функция, вызывающаяся в определённый момент жизненного цикла сущности, например, непосредственно перед или после создания компонента Vue. Хук позволяет расширить или изменить стандартное поведение на пользовательское.</p>
-<p>Контекст <code>this</code> хуков указывает на инстанс Vue c данными, вычисляемыми свойствами и методами. Это значит, что <strong>вам не следует использовать стрелочные функции для определения хуков жизненного цикла</strong> (напр. <code>created: () =&gt; this.fetchTodos()</code>). Поскольку стрелочные функции связываются с родительским контекстом, <code>this</code> не будет указывать на инстанс Vue, и <code>this.fetchTodos</code> окажется неопределённым.</p>
+<p>Контекст <code>this</code> хуков указывает на экземпляр Vue c данными, вычисляемыми свойствами и методами. Это значит, что <strong>вам не следует использовать стрелочные функции для определения хуков жизненного цикла</strong> (напр. <code>created: () =&gt; this.fetchTodos()</code>). Поскольку стрелочные функции связываются с родительским контекстом, <code>this</code> не будет указывать на экземпляр Vue, и <code>this.fetchTodos</code> окажется неопределённым.</p>
 <h3 id="beforeCreate"><a href="#beforeCreate" class="headerlink" title="beforeCreate"></a>beforeCreate</h3><ul>
 <li><p><strong>Тип:</strong> <code>Function</code></p>
 </li>
 <li><p><strong>Подробности:</strong></p>
-<p>Вызывается синхронно сразу после инициализации инстанса, до настройки наблюдения за данными, механизмов слежения и событий.</p>
+<p>Вызывается синхронно сразу после инициализации экземпляра, до настройки наблюдения за данными, механизмов слежения и событий.</p>
 </li>
 <li><p><strong>См. также:</strong> <a href="../guide/instance.html#Диаграмма-жизненного-цикла">Диаграмма жизненного цикла</a></p>
 </li>
@@ -579,7 +579,7 @@
 <li><p><strong>Тип:</strong> <code>Function</code></p>
 </li>
 <li><p><strong>Подробности:</strong></p>
-<p>Вызывается синхронно сразу после создания инстанса. На этом этапе инстанс закончил обработку опций и настроил наблюдение за данными, вычисляемые свойства, методы, коллбэки слежения и событий. Однако, фаза монтирования ещё не начата, и свойство <code>$el</code> ещё не доступно.</p>
+<p>Вызывается синхронно сразу после создания экземпляра. На этом этапе экземпляр закончил обработку опций и настроил наблюдение за данными, вычисляемые свойства, методы, коллбэки слежения и событий. Однако, фаза монтирования ещё не начата, и свойство <code>$el</code> ещё не доступно.</p>
 </li>
 <li><p><strong>См. также:</strong> <a href="../guide/instance.html#Диаграмма-жизненного-цикла">Диаграмма жизненного цикла</a></p>
 </li>
@@ -598,7 +598,7 @@
 <li><p><strong>Тип:</strong> <code>Function</code></p>
 </li>
 <li><p><strong>Подробности:</strong></p>
-<p>Вызывается сразу после того как инстанс был смонтирован, а взамен <code>el</code> создан <code>vm.$el</code>. Если корневой инстанс смонтирован на элемент документа, <code>vm.$el</code> тоже будет элементом документа.</p>
+<p>Вызывается сразу после того как экземпляр был смонтирован, а взамен <code>el</code> создан <code>vm.$el</code>. Если корневой экземпляр смонтирован на элемент документа, <code>vm.$el</code> тоже будет элементом документа.</p>
 <p><strong>При рендеринге на стороне сервера этот хук не вызывается.</strong></p>
 </li>
 <li><p><strong>См. также:</strong> <a href="../guide/instance.html#Диаграмма-жизненного-цикла">Диаграмма жизненного цикла</a></p>
@@ -658,7 +658,7 @@
 <li><p><strong>Тип:</strong> <code>Function</code></p>
 </li>
 <li><p><strong>Подробности:</strong></p>
-<p>Вызывается перед уничтожением инстанса Vue. На этом этапе инстанс всё ещё полностью функционален.</p>
+<p>Вызывается перед уничтожением экземпляра Vue. На этом этапе экземпляр всё ещё полностью функционален.</p>
 <p><strong>При рендеринге на стороне сервера этот хук не вызывается.</strong></p>
 </li>
 <li><p><strong>См. также:</strong> <a href="../guide/instance.html#Диаграмма-жизненного-цикла">Диаграмма жизненного цикла</a></p>
@@ -668,7 +668,7 @@
 <li><p><strong>Тип:</strong> <code>Function</code></p>
 </li>
 <li><p><strong>Подробности:</strong></p>
-<p>Вызывается после уничтожения инстанса Vue. К моменту вызова этого хука, все директивы инстанса Vue уже отвязаны, все подписчики событий удалены, а все дочерние инстансы Vue уничтожены.</p>
+<p>Вызывается после уничтожения экземпляра Vue. К моменту вызова этого хука, все директивы экземпляра Vue уже отвязаны, все подписчики событий удалены, а все дочерние экземпляры Vue уничтожены.</p>
 <p><strong>При рендеринге на стороне сервера этот хук не вызывается.</strong></p>
 </li>
 <li><p><strong>См. также:</strong> <a href="../guide/instance.html#Диаграмма-жизненного-цикла">Диаграмма жизненного цикла</a></p>
@@ -678,7 +678,7 @@
 <li><p><strong>Тип:</strong> <code>Object</code></p>
 </li>
 <li><p><strong>Подробности:</strong></p>
-<p>Хэш директив, доступных инстансу Vue.</p>
+<p>Хэш директив, доступных экземпляру Vue.</p>
 </li>
 <li><p><strong>См. также:</strong></p>
 <ul>
@@ -691,7 +691,7 @@
 <li><p><strong>Тип:</strong> <code>Object</code></p>
 </li>
 <li><p><strong>Подробности:</strong></p>
-<p>Хэш фильтров, доступных инстансу Vue.</p>
+<p>Хэш фильтров, доступных экземпляру Vue.</p>
 </li>
 <li><p><strong>См. также:</strong></p>
 <ul>
@@ -703,7 +703,7 @@
 <li><p><strong>Тип:</strong> <code>Object</code></p>
 </li>
 <li><p><strong>Подробности:</strong></p>
-<p>Хэш компонентов, доступных инстансу Vue.</p>
+<p>Хэш компонентов, доступных экземпляру Vue.</p>
 </li>
 <li><p><strong>См. также:</strong></p>
 <ul>
@@ -712,10 +712,10 @@
 </li>
 </ul>
 <h2 id="Опции-—-разное"><a href="#Опции-—-разное" class="headerlink" title="Опции — разное"></a>Опции — разное</h2><h3 id="parent"><a href="#parent" class="headerlink" title="parent"></a>parent</h3><ul>
-<li><p><strong>Тип:</strong> <code>инстанс Vue</code></p>
+<li><p><strong>Тип:</strong> <code>экземпляр Vue</code></p>
 </li>
 <li><p><strong>Подробности:</strong></p>
-<p>Определяет родительский инстанс для создаваемого. Устанавливает отношение “родитель-потомок” между ними. Родитель будет доступен дочернему инстансу посредством <code>this.$parent</code>, а дочерний инстанс будет добавлен в массив <code>$children</code> родителя.</p>
+<p>Определяет родительский экземпляр для создаваемого. Устанавливает отношение “родитель-потомок” между ними. Родитель будет доступен дочернему экземпляру посредством <code>this.$parent</code>, а дочерний экземпляр будет добавлен в массив <code>$children</code> родителя.</p>
 <p class="tip">Старайтесь реже использовать <code>$parent</code> и <code>$children</code> — этот механизм мы предусмотрели на крайний случай. Для общения между родителем и ребёнком лучше использовать свойства и события.</p>
 
 </li>
@@ -724,7 +724,7 @@
 <li><p><strong>Тип:</strong> <code>Array&lt;Object&gt;</code></p>
 </li>
 <li><p><strong>Подробности:</strong></p>
-<p>Массив объектов-примесей. Примеси могут содержать те же опции, что и обычные объекты инстансов Vue — они будут добавлены к основным опциям согласно логике <code>Vue.extend()</code>. Например, если и примесь и объект инстанса содержат хук <code>created</code>, то будут вызваны оба.</p>
+<p>Массив объектов-примесей. Примеси могут содержать те же опции, что и обычные объекты экземпляров Vue — они будут добавлены к основным опциям согласно логике <code>Vue.extend()</code>. Например, если и примесь и объект экземпляра содержат хук <code>created</code>, то будут вызваны оба.</p>
 <p>Хуки примесей вызываются в порядке их определения, до вызова собственных хуков компонента.</p>
 </li>
 <li><p><strong>Пример:</strong></p>
@@ -770,16 +770,16 @@
 <li><p><strong>Тип:</strong> <code>boolean</code></p>
 </li>
 <li><p><strong>Подробности:</strong></p>
-<p>Превращает компонент в функциональный, то есть не имеющий собственного состояния (<code>data</code>) и своего инстанса (<code>this</code>). Такие компоненты по сути — просто <code>render</code>-функция, возвращающая узлы виртуального DOM. Это сильно ускоряет их рендеринг.</p>
+<p>Превращает компонент в функциональный, то есть не имеющий собственного состояния (<code>data</code>) и своего экземпляра (<code>this</code>). Такие компоненты по сути — просто <code>render</code>-функция, возвращающая узлы виртуального DOM. Это сильно ускоряет их рендеринг.</p>
 </li>
 <li><p><strong>См. также:</strong> <a href="../guide/render-function.html#Функциональные-компоненты">Функциональные компоненты</a></p>
 </li>
 </ul>
-<h2 id="Свойства-инстанса"><a href="#Свойства-инстанса" class="headerlink" title="Свойства инстанса"></a>Свойства инстанса</h2><h3 id="vm-data"><a href="#vm-data" class="headerlink" title="vm.$data"></a>vm.$data</h3><ul>
+<h2 id="Свойства-экземпляра"><a href="#Свойства-экземпляра" class="headerlink" title="Свойства экземпляра"></a>Свойства экземпляра</h2><h3 id="vm-data"><a href="#vm-data" class="headerlink" title="vm.$data"></a>vm.$data</h3><ul>
 <li><p><strong>Тип:</strong> <code>Object</code></p>
 </li>
 <li><p><strong>Подробности:</strong></p>
-<p>Объект с данными, над которым инстанс Vue осуществляет наблюдение. Инстанс проксирует сюда вызовы своих полей. (Например, <code>vm.a</code> будет указывать на <code>vm.$data.a</code>)</p>
+<p>Объект с данными, над которым экземпляр Vue осуществляет наблюдение. Экземпляр проксирует сюда вызовы своих полей. (Например, <code>vm.a</code> будет указывать на <code>vm.$data.a</code>)</p>
 </li>
 <li><p><strong>См. также:</strong> <a href="#data">Опции — данные</a></p>
 </li>
@@ -790,7 +790,7 @@
 <li><p><strong>Только для чтения</strong></p>
 </li>
 <li><p><strong>Подробности:</strong></p>
-<p>Корневой элемент DOM, управляемый инстансом Vue.</p>
+<p>Корневой элемент DOM, управляемый экземпляром Vue.</p>
 </li>
 </ul>
 <h3 id="vm-options"><a href="#vm-options" class="headerlink" title="vm.$options"></a>vm.$options</h3><ul>
@@ -799,35 +799,35 @@
 <li><p><strong>Только для чтения</strong></p>
 </li>
 <li><p><strong>Подробности:</strong></p>
-<p>Опции, переданные в конструктор инстанса Vue. Полезно, если вы хотите передавать туда собственные опции:</p>
+<p>Опции, переданные в конструктор экземпляра Vue. Полезно, если вы хотите передавать туда собственные опции:</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="keyword">new</span> Vue(&#123;</div><div class="line">  <span class="attr">customOption</span>: <span class="string">'что-нибудь'</span>,</div><div class="line">  <span class="attr">created</span>: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.$options.customOption) <span class="comment">// -&gt; 'что-нибудь'</span></div><div class="line">  &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
 </li>
 </ul>
 <h3 id="vm-parent"><a href="#vm-parent" class="headerlink" title="vm.$parent"></a>vm.$parent</h3><ul>
-<li><p><strong>Тип:</strong> <code>инстанс Vue</code></p>
+<li><p><strong>Тип:</strong> <code>экземпляр Vue</code></p>
 </li>
 <li><p><strong>Только для чтения</strong></p>
 </li>
 <li><p><strong>Подробности:</strong></p>
-<p>Инстанс родителя, если он есть у текущего инстанса.</p>
+<p>Экземпляр родителя, если он есть у текущего экземпляра.</p>
 </li>
 </ul>
 <h3 id="vm-root"><a href="#vm-root" class="headerlink" title="vm.$root"></a>vm.$root</h3><ul>
-<li><p><strong>Тип:</strong> <code>инстанс Vue</code></p>
+<li><p><strong>Тип:</strong> <code>экземпляр Vue</code></p>
 </li>
 <li><p><strong>Только для чтения</strong></p>
 </li>
 <li><p><strong>Подробности:</strong></p>
-<p>Корневой инстанс Vue текущего дерева компонентов. Если у инстанса нет родителя, в этом поле будет он сам.</p>
+<p>Корневой экземпляр Vue текущего дерева компонентов. Если у экземпляра нет родителя, в этом поле будет он сам.</p>
 </li>
 </ul>
 <h3 id="vm-children"><a href="#vm-children" class="headerlink" title="vm.$children"></a>vm.$children</h3><ul>
-<li><p><strong>Тип:</strong> <code>Array&lt;инстанс Vue&gt;</code></p>
+<li><p><strong>Тип:</strong> <code>Array&lt;экземпляр Vue&gt;</code></p>
 </li>
 <li><p><strong>Только для чтения</strong></p>
 </li>
 <li><p><strong>Подробности:</strong></p>
-<p>Компоненты-потомки инстанса. <strong>Обратите внимание, что порядок следования элементов в <code>$children</code> не гарантируется, и этот массив не реактивен.</strong> Вместо того, чтобы использовать <code>$children</code> для связывания данных, попробуйте использовать обычный массив и директиву <code>v-for</code> для создания дочерних компонентов, и используйте этот массив как “источник истины”.</p>
+<p>Компоненты-потомки экземпляра. <strong>Обратите внимание, что порядок следования элементов в <code>$children</code> не гарантируется, и этот массив не реактивен.</strong> Вместо того, чтобы использовать <code>$children</code> для связывания данных, попробуйте использовать обычный массив и директиву <code>v-for</code> для создания дочерних компонентов, и используйте этот массив как “источник истины”.</p>
 </li>
 </ul>
 <h3 id="vm-slots"><a href="#vm-slots" class="headerlink" title="vm.$slots"></a>vm.$slots</h3><ul>
@@ -890,12 +890,12 @@
 <li><p><strong>Только для чтения</strong></p>
 </li>
 <li><p><strong>Подробности:</strong></p>
-<p>Запущен ли данный инстанс Vue на сервере.</p>
+<p>Запущен ли данный экземпляр Vue на сервере.</p>
 </li>
 <li><p><strong>См. также:</strong> <a href="../guide/ssr.html">SSR. Рендеринг на стороне сервера</a></p>
 </li>
 </ul>
-<h2 id="Методы-инстанса-—-данные"><a href="#Методы-инстанса-—-данные" class="headerlink" title="Методы инстанса — данные"></a>Методы инстанса — данные</h2><h3 id="vm-watch">vm.$watch( expOrFn, callback, [options] )</h3>
+<h2 id="Методы-экземпляра-—-данные"><a href="#Методы-экземпляра-—-данные" class="headerlink" title="Методы экземпляра — данные"></a>Методы экземпляра — данные</h2><h3 id="vm-watch">vm.$watch( expOrFn, callback, [options] )</h3>
 
 <ul>
 <li><p><strong>Аргументы:</strong></p>
@@ -962,7 +962,7 @@
 <li><p><strong>См. также:</strong> <a href="#Vue-delete">Vue.delete</a></p>
 </li>
 </ul>
-<h2 id="Методы-инстанса-—-события"><a href="#Методы-инстанса-—-события" class="headerlink" title="Методы инстанса — события"></a>Методы инстанса — события</h2><h3 id="vm-on">vm.$on( event, callback )</h3>
+<h2 id="Методы-экземпляра-—-события"><a href="#Методы-экземпляра-—-события" class="headerlink" title="Методы экземпляра — события"></a>Методы экземпляра — события</h2><h3 id="vm-on">vm.$on( event, callback )</h3>
 
 <ul>
 <li><p><strong>Аргументы:</strong></p>
@@ -1020,10 +1020,10 @@
 <li><code>{string} event</code></li>
 <li><code>[...args]</code></li>
 </ul>
-<p>Порождает событие в текущем инстансе. Все дополнительно указанные параметры будут переданы в коллбэк подписки.</p>
+<p>Порождает событие в текущем экземпляре. Все дополнительно указанные параметры будут переданы в коллбэк подписки.</p>
 </li>
 </ul>
-<h2 id="Методы-инстанса-—-жизненный-цикл"><a href="#Методы-инстанса-—-жизненный-цикл" class="headerlink" title="Методы инстанса — жизненный цикл"></a>Методы инстанса — жизненный цикл</h2><h3 id="vm-mount">vm.$mount( [elementOrSelector] )</h3>
+<h2 id="Методы-экземпляра-—-жизненный-цикл"><a href="#Методы-экземпляра-—-жизненный-цикл" class="headerlink" title="Методы экземпляра — жизненный цикл"></a>Методы экземпляра — жизненный цикл</h2><h3 id="vm-mount">vm.$mount( [elementOrSelector] )</h3>
 
 <ul>
 <li><p><strong>Аргументы:</strong></p>
@@ -1032,12 +1032,12 @@
 <li><code>{boolean} [hydrating]</code></li>
 </ul>
 </li>
-<li><p><strong>Возвращает:</strong> <code>vm</code> — сам инстанс</p>
+<li><p><strong>Возвращает:</strong> <code>vm</code> — сам экземпляр</p>
 </li>
 <li><p><strong>Использование:</strong></p>
-<p>Если при создании инстанса Vue не была указана опция <code>el</code>, он окажется в “непримонтированном” (unmounted) состоянии, то есть без ассоциированного элемента DOM. Вызовите <code>vm.$mount()</code>, чтобы примонтировать такой инстанс.</p>
+<p>Если при создании экземпляра Vue не была указана опция <code>el</code>, он окажется в “непримонтированном” (unmounted) состоянии, то есть без ассоциированного элемента DOM. Вызовите <code>vm.$mount()</code>, чтобы примонтировать такой экземпляр.</p>
 <p>Если параметр <code>elementOrSelector</code> не указан, шаблон будет отрендерен как элемент вне документа. Вы сможете затем вставить такой элемент нативным интерфейсом DOM.</p>
-<p>Метод возвращает сам инстанс, чтобы вы могли вызывать дополнительные методы по цепочке.</p>
+<p>Метод возвращает сам экземпляр, чтобы вы могли вызывать дополнительные методы по цепочке.</p>
 </li>
 <li><p><strong>Пример:</strong></p>
 <figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="keyword">var</span> MyComponent = Vue.extend(&#123;</div><div class="line">  <span class="attr">template</span>: <span class="string">'&lt;div&gt;Привет!&lt;/div&gt;'</span></div><div class="line">&#125;)</div><div class="line"></div><div class="line"><span class="comment">// создаём и монтируем в #app (заменит #app):</span></div><div class="line"><span class="keyword">new</span> MyComponent().$mount(<span class="string">'#app'</span>)</div><div class="line"></div><div class="line"><span class="comment">// другой вариант записи, делает то же самое:</span></div><div class="line"><span class="keyword">new</span> MyComponent(&#123; <span class="attr">el</span>: <span class="string">'#app'</span> &#125;)</div><div class="line"></div><div class="line"><span class="comment">// рендерим вне документа и вставляем в DOM позднее:</span></div><div class="line"><span class="keyword">var</span> component = <span class="keyword">new</span> MyComponent().$mount()</div><div class="line"><span class="built_in">document</span>.getElementById(<span class="string">'app'</span>).appendChild(component.$el)</div></pre></td></tr></table></figure>
@@ -1053,7 +1053,7 @@
 
 <ul>
 <li><p><strong>Использование:</strong></p>
-<p>Заставляет инстанс Vue произвести перерендеринг. Обратите внимание, что этот метод затронет не все дочерние компоненты, а только сам инстанс и дочерние компоненты с контентными слотами.</p>
+<p>Заставляет экземпляр Vue произвести перерендеринг. Обратите внимание, что этот метод затронет не все дочерние компоненты, а только сам экземпляр и дочерние компоненты с контентными слотами.</p>
 </li>
 </ul>
 <h3 id="vm-nextTick">vm.$nextTick( [callback] )</h3>
@@ -1065,13 +1065,13 @@
 </ul>
 </li>
 <li><p><strong>Использование:</strong></p>
-<p>Выполняет функцию <code>callback</code> при следующем цикле обновления DOM. Вызывайте сразу после изменения данных, чтобы работать с обновлённым DOM. Функция делает то же самое, что и глобальный <code>Vue.nextTick</code>, но кроме того связывает <code>this</code> с текущим инстансом в коллбэке.</p>
+<p>Выполняет функцию <code>callback</code> при следующем цикле обновления DOM. Вызывайте сразу после изменения данных, чтобы работать с обновлённым DOM. Функция делает то же самое, что и глобальный <code>Vue.nextTick</code>, но кроме того связывает <code>this</code> с текущим экземпляром в коллбэке.</p>
 <blockquote>
 <p>Добавлено в версии 2.1.0: возвращает <code>Promise</code>, если окружение их поддерживает и коллбэк не указан.</p>
 </blockquote>
 </li>
 <li><p><strong>Пример:</strong></p>
-<figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="keyword">new</span> Vue(&#123;</div><div class="line">  <span class="comment">// ...</span></div><div class="line">  methods: &#123;</div><div class="line">    <span class="comment">// ...</span></div><div class="line">    example: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">      <span class="comment">// меняем данные:</span></div><div class="line">      <span class="keyword">this</span>.message = <span class="string">'changed'</span></div><div class="line">      <span class="comment">// DOM ещё не обновлён</span></div><div class="line">      <span class="keyword">this</span>.$nextTick(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">        <span class="comment">// теперь DOM обновлён</span></div><div class="line">        <span class="comment">// `this` указывает на текущий инстанс</span></div><div class="line">        <span class="keyword">this</span>.doSomethingElse()</div><div class="line">      &#125;)</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="keyword">new</span> Vue(&#123;</div><div class="line">  <span class="comment">// ...</span></div><div class="line">  methods: &#123;</div><div class="line">    <span class="comment">// ...</span></div><div class="line">    example: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">      <span class="comment">// меняем данные:</span></div><div class="line">      <span class="keyword">this</span>.message = <span class="string">'changed'</span></div><div class="line">      <span class="comment">// DOM ещё не обновлён</span></div><div class="line">      <span class="keyword">this</span>.$nextTick(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">        <span class="comment">// теперь DOM обновлён</span></div><div class="line">        <span class="comment">// `this` указывает на текущий экземпляр</span></div><div class="line">        <span class="keyword">this</span>.doSomethingElse()</div><div class="line">      &#125;)</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
 </li>
 <li><p><strong>См. также:</strong></p>
 <ul>
@@ -1297,7 +1297,7 @@
 <li><p><strong>Не принимает какое-либо выражение</strong></p>
 </li>
 <li><p><strong>Использование:</strong></p>
-<p>Эта директива останется на элементе до тех пор, пока связанный с ним инстанс Vue не закончит компиляцию. В сочетании с CSS-правилом  <code>[v-cloak] { display: none }</code> этой директивой можно скрывать нескомпилированные шаблоны до тех пор, пока инстанс Vue не будет готов.</p>
+<p>Эта директива останется на элементе до тех пор, пока связанный с ним экземпляр Vue не закончит компиляцию. В сочетании с CSS-правилом  <code>[v-cloak] { display: none }</code> этой директивой можно скрывать нескомпилированные шаблоны до тех пор, пока экземпляр Vue не будет готов.</p>
 </li>
 <li><p><strong>Пример:</strong></p>
 <figure class="highlight css"><table><tr><td class="code"><pre><div class="line"><span class="selector-attr">[v-cloak]</span> &#123;</div><div class="line">  <span class="attribute">display</span>: none;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
@@ -1337,9 +1337,9 @@
 </ul>
 <h3 id="ref"><a href="#ref" class="headerlink" title="ref"></a>ref</h3><ul>
 <li><p><strong>Принимает:</strong> <code>string</code></p>
-<p>Название элемента или компонента для регистрации ссылки на него. В объекте <code>$refs</code> появится поле с названием из этого атрибута и значением: элементом DOM, если атрибут стоял на простом теге или инстансом компонента, если атрибут стоял на пользовательском компоненте:</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="comment">&lt;!-- vm.$refs.p будет DOM-элементом --&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">ref</span>=<span class="string">"p"</span>&gt;</span>hello<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line"></div><div class="line"><span class="comment">&lt;!-- vm.$refs.child будет указывать на инстанс ChildComp --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">child-comp</span> <span class="attr">ref</span>=<span class="string">"child"</span>&gt;</span><span class="tag">&lt;/<span class="name">child-comp</span>&gt;</span></div></pre></td></tr></table></figure>
-<p>При использовании на элементах/компонентах с <code>v-for</code>, регистрируется массив ссылок на элементы DOM или инстансы компонентов.</p>
+<p>Название элемента или компонента для регистрации ссылки на него. В объекте <code>$refs</code> появится поле с названием из этого атрибута и значением: элементом DOM, если атрибут стоял на простом теге или экземпляром компонента, если атрибут стоял на пользовательском компоненте:</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="comment">&lt;!-- vm.$refs.p будет DOM-элементом --&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">ref</span>=<span class="string">"p"</span>&gt;</span>hello<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line"></div><div class="line"><span class="comment">&lt;!-- vm.$refs.child будет указывать на экземпляр ChildComp --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">child-comp</span> <span class="attr">ref</span>=<span class="string">"child"</span>&gt;</span><span class="tag">&lt;/<span class="name">child-comp</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>При использовании на элементах/компонентах с <code>v-for</code>, регистрируется массив ссылок на элементы DOM или экземпляры компонентов.</p>
 <p>Важное замечание о времени регистрации ссылок: поскольку ссылки создаются <code>render</code>-функцией, вы не cможете использовать их при первичном рендеринге — на тот момент они ещё не существуют! Кроме того, объект <code>$refs</code> не является реактивным, поэтому не стоит пытаться использовать его в шаблонах для связывания данных.</p>
 </li>
 <li><p><strong>См. также:</strong> <a href="../guide/components.html#Ссылки-на-компоненты-потомки">Ссылки на компоненты-потомки</a></p>
@@ -1440,7 +1440,7 @@
 </ul>
 </li>
 <li><p><strong>Использование:</strong></p>
-<p>Оберните динамические компоненты тегом <code>&lt;keep-alive&gt;</code>, чтобы кешировать инстансы интерактивных компонентов вместо того, чтобы их уничтожать. Так же, как и <code>&lt;transition&gt;</code>, <code>&lt;keep-alive&gt;</code> — абстрактный компонент: при рендеринге он не превращается в элемент DOM, и не показывается в цепочке родителей компонента.</p>
+<p>Оберните динамические компоненты тегом <code>&lt;keep-alive&gt;</code>, чтобы кешировать экземпляры интерактивных компонентов вместо того, чтобы их уничтожать. Так же, как и <code>&lt;transition&gt;</code>, <code>&lt;keep-alive&gt;</code> — абстрактный компонент: при рендеринге он не превращается в элемент DOM, и не показывается в цепочке родителей компонента.</p>
 <p>Когда компонент, расположенный внутри <code>&lt;keep-alive&gt;</code> показывается или скрывается, вызываются его хуки жизненного цикла <code>activated</code> или <code>deactivated</code> соответственно.</p>
 <p>В основном используется для сохранения состояния компонента, чтобы избежать повторного рендеринга.</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="comment">&lt;!-- базовый вариант --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">keep-alive</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">component</span> <span class="attr">:is</span>=<span class="string">"view"</span>&gt;</span><span class="tag">&lt;/<span class="name">component</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">keep-alive</span>&gt;</span></div><div class="line"></div><div class="line"><span class="comment">&lt;!-- несколько потомков --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">keep-alive</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">comp-a</span> <span class="attr">v-if</span>=<span class="string">"a &gt; 1"</span>&gt;</span><span class="tag">&lt;/<span class="name">comp-a</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">comp-b</span> <span class="attr">v-else</span>&gt;</span><span class="tag">&lt;/<span class="name">comp-b</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">keep-alive</span>&gt;</span></div><div class="line"></div><div class="line"><span class="comment">&lt;!-- использование вместе с &lt;transition&gt; --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">transition</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">keep-alive</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">component</span> <span class="attr">:is</span>=<span class="string">"view"</span>&gt;</span><span class="tag">&lt;/<span class="name">component</span>&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">keep-alive</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">transition</span>&gt;</span></div></pre></td></tr></table></figure>
@@ -1452,7 +1452,7 @@
 <p>Входные параметры <code>include</code> и <code>exclude</code> позволяют организовать условное кеширование компонентов. Оба параметра можно указать в виде строки со списком имён компонентов через запятую, или регулярным выражением:</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="comment">&lt;!-- строка с именами через запятую --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">keep-alive</span> <span class="attr">include</span>=<span class="string">"a,b"</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">component</span> <span class="attr">:is</span>=<span class="string">"view"</span>&gt;</span><span class="tag">&lt;/<span class="name">component</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">keep-alive</span>&gt;</span></div><div class="line"></div><div class="line"><span class="comment">&lt;!-- регулярное выражение (используйте v-bind) --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">keep-alive</span> <span class="attr">:include</span>=<span class="string">"/a|b/"</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">component</span> <span class="attr">:is</span>=<span class="string">"view"</span>&gt;</span><span class="tag">&lt;/<span class="name">component</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">keep-alive</span>&gt;</span></div></pre></td></tr></table></figure>
 <p>Проверяется сначала собственное значение опции <code>name</code> компонента, а в случае его недоступности — имя, указанное при локальной регистрации (ключ в опции <code>components</code> компонента-родителя). Анонимные компоненты таким образом проверить не получится.</p>
-<p class="tip"><code>&lt;keep-alive&gt;</code> не работает с функциональными компонентами, так как у них отсутствуют инстансы.</p>
+<p class="tip"><code>&lt;keep-alive&gt;</code> не работает с функциональными компонентами, так как у них отсутствуют экземпляры.</p>
 </li>
 <li><p><strong>См. также:</strong> <a href="../guide/components.html#keep-alive">Динамическое переключение компонентов — keep-alive</a></p>
 </li>
