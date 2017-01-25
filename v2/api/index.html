@@ -478,14 +478,13 @@
 </li>
 </ul>
 <h3 id="computed"><a href="#computed" class="headerlink" title="computed"></a>computed</h3><ul>
-<li><p><strong>Тип:</strong> <code>{ [key: string]: Function | { get: Function, set: Function, cache: Boolean } }</code></p>
+<li><p><strong>Тип:</strong> <code>{ [key: string]: Function | { get: Function, set: Function } }</code></p>
 </li>
 <li><p><strong>Подробности:</strong></p>
 <p>Вычисляемые свойства, которые будут подмешаны к экземпляру Vue. В геттерах и сеттерах <code>this</code> будет указывать на экземпляр Vue.</p>
 <p class="tip">Обратите внимание, что <strong>вам не стоит использовать стрелочные функции при определении вычисляемых свойств</strong> (напр. <code>aDouble: () =&gt; this.a * 2</code>). Поскольку стрелочные функции связываются с родительским контекстом, <code>this</code> не будет указывать на экземпляр Vue, и <code>this.a</code> окажется неопределённым.</p>
 
-<p>Вычисляемые свойства кешируются и повторно вычисляются только при изменении реактивных зависимостей. Обратите внимание, что если определённая зависимость выходит за область видимости экземпляра (т.е не реактивная), то вычисляемое свойство не будет обновляться. В этой ситуации кеширование можно отключить с помощью опции <code>cache: false</code>. Тем не менее, так как зависимость не реактивная, её изменение не будет вызывать обновление DOM.</p>
-<p>В большинстве ситуаций <code>cache: false</code> не станет идеальным решением. По возможности лучше переносить внешние данные в систему реактивности. Например, если вычисляемое свойство зависит от размера окна, вы можете хранить эту информацию в <code>data</code>, а затем использовать событие <code>resize</code> чтобы поддерживать значение актуальным. Теперь данные реактивны!</p>
+<p>Вычисляемые свойства кешируются и повторно вычисляются только при изменении реактивных зависимостей.</p>
 </li>
 <li><p><strong>Пример:</strong></p>
 <figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="keyword">var</span> vm = <span class="keyword">new</span> Vue(&#123;</div><div class="line">  <span class="attr">data</span>: &#123; <span class="attr">a</span>: <span class="number">1</span> &#125;,</div><div class="line">  <span class="attr">computed</span>: &#123;</div><div class="line">    <span class="comment">// если свойство только возвращает данные, достаточно простой функции:</span></div><div class="line">    aDouble: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">      <span class="keyword">return</span> <span class="keyword">this</span>.a * <span class="number">2</span></div><div class="line">    &#125;,</div><div class="line">    <span class="comment">// свойство и возвращает, и получает данные:</span></div><div class="line">    aPlus: &#123;</div><div class="line">      <span class="attr">get</span>: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.a + <span class="number">1</span></div><div class="line">      &#125;,</div><div class="line">      <span class="attr">set</span>: <span class="function"><span class="keyword">function</span> (<span class="params">v</span>) </span>&#123;</div><div class="line">        <span class="keyword">this</span>.a = v - <span class="number">1</span></div><div class="line">      &#125;</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;)</div><div class="line">vm.aPlus   <span class="comment">// -&gt; 2</span></div><div class="line">vm.aPlus = <span class="number">3</span></div><div class="line">vm.a       <span class="comment">// -&gt; 2</span></div><div class="line">vm.aDouble <span class="comment">// -&gt; 4</span></div></pre></td></tr></table></figure>
@@ -620,7 +619,7 @@
 </li>
 <li><p><strong>Подробности:</strong></p>
 <p>Вызывается после того, как виртуальный DOM был обновлён из-за изменения данных.</p>
-<p>DOM компонента уже будет обновлён к моменту вызова этого хука, поэтому можно выполнять зависящие от DOM операции. Старайтесь избегать изменения состояния в этом хуке, чтобы не попасть в бесконечный цикл обновления.</p>
+<p>DOM компонента будет уже обновлён к моменту вызова этого хука, поэтому вы можете выполнять операции связанные с DOM здесь. Тем не менее, в большинстве случаев старайтесь избегать изменения состояния в этом хуке. Для реагирования на изменение состояния лучше использовать <a href="#computed">вычисляемые свойства</a> или <a href="#watch">отслеживание с помощью watcher</a>.</p>
 <p><strong>При рендеринге на стороне сервера этот хук не вызывается.</strong></p>
 </li>
 <li><p><strong>См. также:</strong> <a href="../guide/instance.html#Диаграмма-жизненного-цикла">Диаграмма жизненного цикла</a></p>
