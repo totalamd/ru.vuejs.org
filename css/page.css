@@ -808,6 +808,8 @@ ul.demo li {
   border-collapse: collapse;
   margin: 1.2em auto;
   padding: 0;
+  display: block;
+  overflow-x: auto;
 }
 .content > table td,
 .content > table th {
