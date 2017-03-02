@@ -335,13 +335,13 @@
 <li><p><strong>См. также:</strong> <a href="../guide/reactivity.html#Асинхронная-очередь-обновлений">Асинхронная очередь обновлений</a></p>
 </li>
 </ul>
-<h3 id="Vue-set">Vue.set( object, key, value )</h3>
+<h3 id="Vue-set">Vue.set( target, key, value )</h3>
 
 <ul>
 <li><p><strong>Аргументы:</strong></p>
 <ul>
-<li><code>{Object} object</code></li>
-<li><code>{string} key</code></li>
+<li><code>{Object | Array} target</code></li>
+<li><code>{string | number} key</code></li>
 <li><code>{any} value</code></li>
 </ul>
 </li>
@@ -1037,13 +1037,13 @@
 <figure class="highlight js"><table><tr><td class="code"><pre><div class="line">vm.$watch(<span class="string">'a'</span>, callback, &#123;</div><div class="line">  <span class="attr">immediate</span>: <span class="literal">true</span></div><div class="line">&#125;)</div><div class="line"><span class="comment">// callback вызывается сразу, с текущим значением `a`</span></div></pre></td></tr></table></figure>
 </li>
 </ul>
-<h3 id="vm-set">vm.$set( object, key, value )</h3>
+<h3 id="vm-set">vm.$set( target, key, value )</h3>
 
 <ul>
 <li><p><strong>Аргументы:</strong></p>
 <ul>
-<li><code>{Object} object</code></li>
-<li><code>{string} key</code></li>
+<li><code>{Object | Array} target</code></li>
+<li><code>{string | number} key</code></li>
 <li><code>{any} value</code></li>
 </ul>
 </li>
@@ -1055,13 +1055,13 @@
 <li><p><strong>См. также:</strong> <a href="#Vue-set">Vue.set</a></p>
 </li>
 </ul>
-<h3 id="vm-delete">vm.$delete( object, key )</h3>
+<h3 id="vm-delete">vm.$delete( target, key )</h3>
 
 <ul>
 <li><p><strong>Аргументы:</strong></p>
 <ul>
-<li><code>{Object} object</code></li>
-<li><code>{string} key</code></li>
+<li><code>{Object | Array} target</code></li>
+<li><code>{string | number} key</code></li>
 </ul>
 </li>
 <li><p><strong>Использование:</strong></p>
