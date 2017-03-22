@@ -754,7 +754,7 @@ new Vue({
 </ol>
 <p>Обойти первую проблему можно двумя способами, оба из которых не только дадут эффект аналогичный <code>vm.items[indexOfItem] = newValue</code>, но и инициируют реактивные обновления состояния приложения:</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="comment">// Vue.set</span></div><div class="line">Vue.set(example1.items, indexOfItem, newValue)</div></pre></td></tr></table></figure>
-<figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="comment">// Array.prototype.splice`</span></div><div class="line">example1.items.splice(indexOfItem, <span class="number">1</span>, newValue)</div></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="comment">// Array.prototype.splice</span></div><div class="line">example1.items.splice(indexOfItem, <span class="number">1</span>, newValue)</div></pre></td></tr></table></figure>
 <p>Для обхода второй проблемы можно также использовать <code>splice</code>:</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><div class="line">example1.items.splice(newLength)</div></pre></td></tr></table></figure>
 <h2 id="Отображение-отфильтрованных-отсортированных-результатов"><a href="#Отображение-отфильтрованных-отсортированных-результатов" class="headerlink" title="Отображение отфильтрованных/отсортированных результатов"></a>Отображение отфильтрованных/отсортированных результатов</h2><p>Иногда хочется отобразить отфильтрованную или отсортированную версию массива, не изменяя оригинальных данных. В этом случае, можно создать вычисляемое свойство, возвращающее отфильтрованный или отсортированный массив.</p>
