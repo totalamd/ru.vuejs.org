@@ -269,7 +269,8 @@
 <li><p><strong>По умолчанию:</strong> <code>{}</code></p>
 </li>
 <li><p><strong>Использование:</strong></p>
-<figure class="highlight js"><table><tr><td class="code"><pre><div class="line">Vue.config.keyCodes = &#123;</div><div class="line">  <span class="attr">v</span>: <span class="number">86</span>,</div><div class="line">  <span class="attr">f1</span>: <span class="number">112</span>,</div><div class="line">  <span class="attr">mediaPlayPause</span>: <span class="number">179</span>,</div><div class="line">  <span class="attr">up</span>: [<span class="number">38</span>, <span class="number">87</span>]</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><div class="line">Vue.config.keyCodes = &#123;</div><div class="line">  <span class="attr">v</span>: <span class="number">86</span>,</div><div class="line">  <span class="attr">f1</span>: <span class="number">112</span>,</div><div class="line">  <span class="comment">// camelCase не будет работать</span></div><div class="line">  mediaPlayPause: <span class="number">179</span>,</div><div class="line">  <span class="comment">// можно использовать kebab-case в двойных кавычках</span></div><div class="line"> <span class="string">"media-play-pause"</span>: <span class="number">179</span>,</div><div class="line">  <span class="attr">up</span>: [<span class="number">38</span>, <span class="number">87</span>]</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><div class="line">&lt;input type=<span class="string">"text"</span> @keyup.media-play-pause=<span class="string">"method"</span>&gt;</div></pre></td></tr></table></figure>
 <p>Определение пользовательских псевдонимов для директивы <code>v-on</code>.</p>
 </li>
 </ul>
@@ -279,7 +280,7 @@
 <ul>
 <li><p><strong>Тип:</strong> <code>boolean</code></p>
 </li>
-<li><p><strong>По умолчанию:</strong> <code>false</code></p>
+<li><p><strong>По умолчанию:</strong> <code>false</code> (с версии 2.2.3)</p>
 </li>
 <li><p><strong>Использование:</strong></p>
 <p>Установите в <code>true</code>, чтобы включить отслеживание производительности на этапах инициализации, компиляции, рендера и обновления компонента на графике в инструментах разработчика браузера. Работает только в режиме разработки и в браузерах, которые поддерживают <a href="https://developer.mozilla.org/en-US/docs/Web/API/Performance/mark" target="_blank" rel="external">performance.mark</a> API.</p>
