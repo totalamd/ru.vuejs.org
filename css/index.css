@@ -513,8 +513,12 @@ body.docs #nav {
   color: #7f8c8d;
   font-size: 0.85em;
 }
-.sidebar .main-sponsor a {
+.sidebar .main-sponsor .logo {
+  color: #7f8c8d;
   margin: 10px 0;
+  padding: 10px 0;
+  text-align: center;
+  font-weight: bold;
 }
 .sidebar .main-sponsor img,
 .sidebar .main-sponsor a {
@@ -689,10 +693,12 @@ body {
 }
 #sponsors img {
   transition: all 0.3s ease;
-  filter: contrast(0%);
+  filter: grayscale(100%);
+  opacity: 0.66;
 }
 #sponsors img:hover {
   filter: none;
+  opacity: 1;
 }
 #sponsors a.vip {
   display: block;

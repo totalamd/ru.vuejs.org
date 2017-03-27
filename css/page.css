@@ -641,8 +641,12 @@ ul.demo li {
   color: #7f8c8d;
   font-size: 0.85em;
 }
-.sidebar .main-sponsor a {
+.sidebar .main-sponsor .logo {
+  color: #7f8c8d;
   margin: 10px 0;
+  padding: 10px 0;
+  text-align: center;
+  font-weight: bold;
 }
 .sidebar .main-sponsor img,
 .sidebar .main-sponsor a {
