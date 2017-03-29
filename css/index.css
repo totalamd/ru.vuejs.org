@@ -380,6 +380,23 @@ body.docs #nav {
 .nav-link.current {
   border-bottom: 3px solid #42b983;
 }
+.nav-link.shop {
+  margin-left: 10px;
+}
+.new-label {
+  position: absolute;
+  top: 3px;
+  left: 110%;
+  background-color: #42b983;
+  color: #fff;
+  line-height: 16px;
+  height: 16px;
+  font-size: 9px;
+  font-weight: bold;
+  font-family: 'Roboto Mono', Monaco, courier, monospace;
+  padding: 1px 4px 0 6px;
+  border-radius: 4px;
+}
 .search-query {
   height: 30px;
   line-height: 30px;
