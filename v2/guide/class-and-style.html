@@ -633,6 +633,11 @@
 <h3 id="Использование-массивов-1"><a href="#Использование-массивов-1" class="headerlink" title="Использование массивов"></a>Использование массивов</h3><p>Запись <code>v-bind:style</code> с массивом позволяет применить несколько объектов стилей к одному и тому же элементу:</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">v-bind:style</span>=<span class="string">"[baseStyles, overridingStyles]"</span>&gt;</span></div></pre></td></tr></table></figure>
 <h3 id="Автоматические-префиксы"><a href="#Автоматические-префиксы" class="headerlink" title="Автоматические префиксы"></a>Автоматические префиксы</h3><p>При использовании в <code>v-bind:style</code> свойств CSS, требующих указания <a href="https://developer.mozilla.org/en-US/docs/Glossary/Vendor_Prefix" target="_blank" rel="external">вендорных префиксов</a>, Vue автоматически определит это и добавит подходящие префиксы к применяемым стилям.</p>
+<h3 id="Множественные-значения"><a href="#Множественные-значения" class="headerlink" title="Множественные значения"></a>Множественные значения</h3><blockquote>
+<p>Добавлено в версии 2.3.0+</p>
+</blockquote>
+<p>Начиная с версии 2.3 вы можете предоставить массив из нескольких (префиксных) значений для свойства style, например:</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">:style</span>=<span class="string">"&#123; display: ["</span><span class="attr">-webkit-box</span>", "<span class="attr">-ms-flexbox</span>", "<span class="attr">flex</span>"] &#125;"&gt;</span></div></pre></td></tr></table></figure>
 
     
       <div class="guide-links">

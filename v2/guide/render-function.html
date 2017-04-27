@@ -687,6 +687,9 @@
 <h2 id="Функциональные-компоненты"><a href="#Функциональные-компоненты" class="headerlink" title="Функциональные компоненты"></a>Функциональные компоненты</h2><p>Компонент для заголовков с “якорями”, который мы создали выше, довольно прост. У него нет какого-либо состояния, хуков или требующих наблюдения данных. По сути это всего лишь функция с параметром.</p>
 <p>В подобных случаях мы можем пометить компоненты как функциональные (опция <code>functional</code>), что означает отсутствие у них состояния (нет опции <code>data</code>) и экземпляра (нет контекстной переменной <code>this</code>). <strong>Функциональный компонент</strong> выглядит так:</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><div class="line">Vue.component(<span class="string">'my-component'</span>, &#123;</div><div class="line">  <span class="attr">functional</span>: <span class="literal">true</span>,</div><div class="line">  <span class="comment">// чтобы компенсировать отсутствие экземпляра</span></div><div class="line">  <span class="comment">// мы передаём контекст вторым аргументом</span></div><div class="line">  render: <span class="function"><span class="keyword">function</span> (<span class="params">createElement, context</span>) </span>&#123;</div><div class="line">    <span class="comment">// ...</span></div><div class="line">  &#125;,</div><div class="line">  <span class="comment">// входные параметры опциональны</span></div><div class="line">  props: &#123;</div><div class="line">    <span class="comment">// ...</span></div><div class="line">  &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<blockquote>
+<p>Примечание: в версиях &lt;=2.3.0 опция <code>props</code> необходима, если вы хотите использовать входные параметры в функциональном компоненте. С версии 2.3.0+ вы можете опустить опцию <code>props</code> и все атрибуты найденные на ноде компонента будут неявно извлечены в качестве входных данных.</p>
+</blockquote>
 <p>Всё необходимое компоненту передаётся через <code>context</code> — объект, содержащий следующие поля:</p>
 <ul>
 <li><code>props</code>: Объект, содержащий переданные входные параметры</li>
@@ -694,6 +697,8 @@
 <li><code>slots</code>: Функция, возвращающая объект slots</li>
 <li><code>data</code>: Объект данных, переданный объекту, целиком</li>
 <li><code>parent</code>: Ссылка на родительский компонент</li>
+<li><code>listeners</code>: (2.3.0+) Объект, содержащий все зарегистрированные в родителе прослушиватели событий. Это просто псевдоним для <code>data.on</code></li>
+<li><code>injections</code>: (2.3.0+) Если используется опция <a href="../api/#provide-inject"><code>inject</code></a>, будет содержать все разрешённые инъекции.</li>
 </ul>
 <p>После указания <code>functional: true</code>, обновление <code>render</code>-функции нашего компонента для заголовков потребует только добавления параметра <code>context</code>, обновления <code>this.$slots.default</code> на <code>context.children</code> и замены <code>this.level</code> на <code>context.props.level</code>.</p>
 <p>Поскольку функциональные компоненты — это просто функции, их рендеринг обходится значительно дешевле. Однако, это также означает, что функциональные компоненты не отображаются в дереве компонентов в инструментах разработчика Chrome на вкладке Vue.</p>
